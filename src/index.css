@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,24 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+#details summary::marker{
+  content:"+  ";
+  
+}
+.buing-item::before{
+  position: absolute;
+  --tw-content:url("./accest/Main/Arrow.svg");
+  content: var(--tw-content) ;
+  left: 100%;
+  top:50%;
+  margin-left: 5px;
+}
+@media (max-width: 950px) {
+  .buing-item::before{
+    rotate: 90deg;
+    left:25%;
+    bottom: -120px;
+
+  }
 }
