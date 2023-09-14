@@ -37,15 +37,15 @@ import Copart from "../../accest/Main/Copart.webp"
 import Baner from "../../accest/Main/Baner.webp"
 import EmailBlack from "../../accest/Contact/EmailBlack.svg"
 import PhoneBlack from "../../accest/Contact/PhoneBlack.svg"
-
+import  "./Main.css"
 
 export const Main = () => {
   return (
     <div className='font-mono mt-10 flex flex-col items-start w-screen pl-28 gap-[75px]'>
         <div>
             <div className='m-8 text-black font-bold text-[36px] font-title'>Купити авто з США</div>
-            <div className='flex gap-[50px]'> 
-                <form action="" className='p-10 w-[606px] h-[375px] bg-[#12120e] rounded text-white'>
+            <div className='flex gap-[50px] relative'> 
+                <form action="" className='p-10 w-[606px] h-[375px] bg-[#12120e] rounded text-white z-10'>
                     <div className='font-title text-[18px] '>Виберіть Авто:</div>
                     <div>
                         <div className='flex '>
@@ -71,11 +71,11 @@ export const Main = () => {
                     </div>
                     <button className='bg-[#740706] w-[140px] h-[41px] my-5 rounded'>Знайти</button>
                 </form>
-                <div>
-                    <div className='w-[548px] h-[100px] text-[18px] font-bold font-title bg-[#e1ae32] rounded-3xl flex justify-center items-center drop-shadow-2xl'>
+                <div className='Baner1'>
+                    <div className='w-[548px] h-[100px] text-[18px] font-bold font-title bg-[#e1ae32] rounded-3xl flex justify-center items-center'>
                         Adolbi.inc ваш надійний партнер в виборі "сталевого" коня!
                     </div>
-                    <img className='w-[620px] h-[515px]' src={Baner} alt="" />
+                    <img className=' w-[620px] h-[515px]  ' src={Baner} alt="" />
 
                 </div>                
             </div>
@@ -86,8 +86,8 @@ export const Main = () => {
                     Виберіть авто за:
                 </div>
             </div>
-            <div className='flex '>
-                <div className='flex flex-col mx-[100px]'>
+            <div className='flex flex-wrap justify-center'>
+                <div className='flex flex-col  mx-[100px]'>
                     <div className='font-mono text-[25px] font-bold'>
                         Кузовом
                     </div>
@@ -166,7 +166,7 @@ export const Main = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className='mx-[100px]'>
                     <div className='font-mono text-[25px] font-bold'>
                         Двигуном
                     </div>
@@ -213,8 +213,8 @@ export const Main = () => {
                     ПОПУЛЯРНІ МАРКИ
                 </div>
             </div>
-            <div className='m-10 font-mono text-[19px] flex underline decoration-1'>
-                <ul style={{listStyleType:"initial"}} className='mx-[20px]' >
+            <div className='m-10 font-mono text-[19px] flex underline decoration-1 flex-wrap'>
+                <ul style={{listStyleType:"initial"}} className='mx-auto xl:mx-[20px]' >
                     <li>ACURA</li>
                     <li>ALFA ROMEO</li>
                     <li>ASTON MARTIN</li>
@@ -227,7 +227,7 @@ export const Main = () => {
                     <li>CHRYSLER</li>
                     <li>DODGE</li>
                 </ul>
-                <ul style={{listStyleType:"initial"}} className='mx-[20px]' >
+                <ul style={{listStyleType:"initial"}} className='mx-auto xl:mx-[20px]' >
                     <li>FERRARI</li>
                     <li>FIAT</li>
                     <li>FORD</li>
@@ -241,7 +241,7 @@ export const Main = () => {
                     <li>JEEP</li>
                     <li>KIA</li>
                 </ul>
-                <ul style={{listStyleType:"initial"}} className='mx-[20px]' >
+                <ul style={{listStyleType:"initial"}} className='mx-auto xl:mx-[20px]' >
                     <li>LAMBORGHINI</li>
                     <li>LAND ROVER</li>
                     <li>LEXUS</li>
@@ -254,7 +254,7 @@ export const Main = () => {
                     <li>MITSUBISHI</li>
                     <li>NISSAN</li>
                 </ul>
-                <ul style={{listStyleType:"initial"}} className='mx-[20px]'>
+                <ul style={{listStyleType:"initial"}} className='mx-auto xl:mx-[20px]'>
                     <li>POLARIS</li>
                     <li>POLESTAR</li>
                     <li>PORSCHE</li>
@@ -268,16 +268,16 @@ export const Main = () => {
                     <li>VOLVO</li>
                 </ul>
             </div>
-            <button className='text-white bg-[#740706] w-[461px] h-[58.6px] rounded my-10'>Перейти до каталогу всіх товарів</button>
+            <button className='text-white bg-[#740706] p-4 box-border xl:w-[461px] h-[58.6px] rounded my-10'>Перейти до каталогу всіх товарів</button>
         </div>
         <div className='m-10 -ml-28 flex flex-col gap-10 '>
-            <div className='w-screen -ml-28 pl-28 h-[109px] bg-[#12120e] '>
+            <div className='w-screen  h-[109px] bg-[#12120e] '>
                     <div className='ml-5 mt-4 text-[26px] font-title font-bold text-white'>
                         Схожі Авто
                     </div>
             </div>
             
-            <div className='w-screen -ml-28 pl-28 flex gap-[20px] items-center'>
+            <div className='w-screen flex gap-[20px] justify-center items-center overflow-x-hidden'>
                 <img src={arrow} alt="" className='w-[28px] h-[25px] ml-32 scale-x-[-1] scale-y-[1]'/>
                 <Item />
                 <Item />
@@ -287,26 +287,28 @@ export const Main = () => {
             </div>
         </div>
         <div className=' text-white'>
-            <div className='w-screen -ml-28 pl-28 h-[350px] bg-[#12120e] flex items-center justify-between'>
+            <div className='w-screen -ml-28  min-h-[350px] bg-[#12120e] flex items-center justify-between'>
                 <div>
-                    <img src={Baner1} alt="" className='h-[350px] w-[250px]'/>
+                    <img src={Baner1}  alt="" className='h-[350px] w-[450px]  xl:w-[250px] box-border '/>
                 </div>
-                <div className='flex flex-col '>
-                    <div className='font-mono text-[20px] font-bold'>
-                        Зателефонуйте нам та отримайте консультацію
+                <div className='flex flex-wrap ml-16'>  
+                    <div className='flex flex-col '>
+                        <div className='font-mono text-[20px] font-bold'>
+                            Зателефонуйте нам та отримайте консультацію
+                        </div>
+                        <button className='border-4 border-solid border-[#aeaeb2] w-[270px] h-[60px] mt-10 font-mono text-[15px]' >
+                            +38011122333
+                        </button>
                     </div>
-                    <button className='border-4 border-solid border-[#aeaeb2] w-[270px] h-[60px] mt-10 font-mono text-[15px]' >
-                        +38011122333
-                    </button>
-                </div>
-                <div className='mr-16'>
-                    <div className='font-mono text-[20px] font-bold'>
-                        Або залиште свій номер телефону
-                        ,<br /> і ми вам перезвонимо
-                    </div>
-                    <div className='flex mt-10'>
-                        <input type="text" placeholder='+380XXXXXXXX' className='w-[270px] h-[60px] border-4 border-solid border-[#aeaeb2] bg-[#12120e] p-2 outline-none'/>
-                        <button className='bg-[#740706] w-[170px] h-[60px] rounded ml-5'>Відправити</button>
+                    <div className='mr-16'>
+                        <div className='font-mono text-[20px] font-bold'>
+                            Або залиште свій номер телефону
+                            ,<br /> і ми вам перезвонимо
+                        </div>
+                        <div className='flex mt-10'>
+                            <input type="text" placeholder='+380XXXXXXXX' className='w-[270px] h-[60px] border-4 border-solid border-[#aeaeb2] bg-[#12120e] p-2 outline-none'/>
+                            <button className='bg-[#740706] w-[170px] h-[60px] rounded ml-5'>Відправити</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -317,12 +319,12 @@ export const Main = () => {
                     ЧОМУ АВТО З США ВИГІДНО ДЛЯ ВАС?
                 </div>
             </div>
-            <div className='flex'>
+            <div className='flex flex-col xl:flex-row'>
                 <div className='flex flex-col w-[600px] mx-14 my-10'>
                     <div className='font-mono text-[#12120e]'>
                         Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
                     </div>
-                    <div className='w-[641px] h-[258px]'>
+                    <div className='w-[641px] h-[258px] hidden xl:block'>
                         <img src={BanerCar} alt="" />
                     </div>
                 </div>
@@ -382,7 +384,7 @@ export const Main = () => {
                 </div>
             </div>
         </div>
-        <div className='flex'>
+        <div className='flex flex-col xl:flex-row'>
             <div className='m-10 w-[600px]'>
                 <div className='font-title text-[26px] font-bold'>
                     ВАРТІСТЬ АВТО З США В УКРАЇНІ
@@ -481,7 +483,7 @@ export const Main = () => {
             </form>
         </div>
         <div >
-            <div className='font-title text-[26px] font-bold'>
+            <div className='font-title text-[26px] font-bold my-4'>
                 ПРОЦЕС ПОКУПКИ АВТО З США
             </div>
             <div className='text-white flex flex-wrap gap-[35px] phone:justify-center'>
@@ -626,8 +628,8 @@ export const Main = () => {
             <div className='font-title text-[26px] font-bold'>
                 ПРИЧИНИ ЗАМОВИТИ АВТО У НАС
             </div>
-            <div className='flex '>
-                <div className='w-[720px] text-white flex flex-wrap gap-[20px]'>
+            <div className='flex  flex-col xl:flex-row gap-[20px]'>
+                <div className='max-w-[720px] text-white flex flex-wrap gap-[20px]'>
                     <div className=' w-[340px] h-[192px] bg-[#12120e] p-[20px] rounded'>
                         <div className='text-[18] font-bold my-3'>
                             Офіційний представник Copart
@@ -681,9 +683,12 @@ export const Main = () => {
             <div className=' text-[20px] font-bold my-3'>
                 КЛІЄНТИ ПРО НАС
             </div>
-            <div className='w-[1210px] h-[200px] bg-[#12120e] text-white flex p-5'>
+            <div className='w-[600px] xl:w-[1210px] h-[200px] bg-[#12120e] text-white flex p-5'>
                 <div className='flex flex-col items-center'>
-                    <img className='w-[177px] h-[146px] ' src="" alt="" />
+                    <div className='w-[177px] h-[146px] '>
+                        <img src="" alt="" />
+                    </div>
+
                     <div className='font-bold'>
                         Autor
                     </div>
@@ -697,7 +702,7 @@ export const Main = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex gap-[10px] mt-[10px]'>
+            <div className='flex flex-col xl:flex-row gap-[10px] mt-[10px]'>
                 <div className='w-[600px] h-[200px] bg-[#12120e] text-white flex p-2'>
                     <div className='flex flex-col items-center'>
                         <div className='w-[177px] h-[146px] '>
@@ -774,11 +779,11 @@ export const Main = () => {
                     Відправити
                 </button>
             </form>
-            <div> 
+            <div className='hidden xl:block'> 
                 <img className='ml-[150px]' src={Baner2} alt="" />
             </div>
         </div>
-        <div className='flex'>
+        <div className='flex flex-col xl:flex-row'>
             <div className='w-[450px] ml-32'>
                 <div className='w-[160px] h-[60px]'>
                     <img  src={Copart} alt="" />
@@ -831,8 +836,8 @@ export const Main = () => {
                 </button>
             </form>
         </div>
-        <div className='w-screen -ml-28 bg-[#12120e] h-[150px] text-white flex items-center'>
-            <div className='mx-28 flex'>
+        <div className='w-screen -ml-28 bg-[#12120e] min-h-[150px] text-white flex items-center'>
+            <div className='mx-28 flex flex-col xl:flex-row gap-12 p-4'>
                 <div>
                     <div className='text-[22px] font-bold '>
                         ПІДПИСУЙТЕСЬ!
@@ -841,7 +846,7 @@ export const Main = () => {
                         Та дізнавайтеся перші про вигідні пропозиції
                     </div>
                 </div>
-                <div className='flex ml-96'>
+                <div className='flex xl:ml-96'>
                     <input className='box-border p-4 w-[320px] h-[54px] bg-[#12120e] border-[3px] border-solid border-[#f1f1f6]' placeholder='Введіть ваш Email' type="text" />
                     <button className='h-[54px] bg-[#730706] w-[220px]'>
                         Підписатися
