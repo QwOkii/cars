@@ -81,7 +81,7 @@ export const Main = () => {
             </div>
         </div>
         <div>
-            <div className='w-screen h-[109px] bg-[#12120e] '>
+            <div className='w-screen -ml-28 pl-28 h-[109px] bg-[#12120e] '>
                 <div className='ml-5 mt-4 text-[28px] font-title font-bold text-white'>
                     Виберіть авто за:
                 </div>
@@ -208,7 +208,7 @@ export const Main = () => {
             </div>
         </div>
         <div className=' flex flex-col items-center'>
-            <div className='w-screen h-[109px] bg-[#12120e] '>
+            <div className='w-screen -ml-28 pl-28 h-[109px] bg-[#12120e] '>
                 <div className='ml-5 mt-4 text-[28px] font-title font-bold text-white'>
                     ПОПУЛЯРНІ МАРКИ
                 </div>
@@ -271,13 +271,13 @@ export const Main = () => {
             <button className='text-white bg-[#740706] w-[461px] h-[58.6px] rounded my-10'>Перейти до каталогу всіх товарів</button>
         </div>
         <div className='m-10 -ml-28 flex flex-col gap-10 '>
-            <div className='w-screen h-[109px] bg-[#12120e] '>
+            <div className='w-screen -ml-28 pl-28 h-[109px] bg-[#12120e] '>
                     <div className='ml-5 mt-4 text-[26px] font-title font-bold text-white'>
                         Схожі Авто
                     </div>
             </div>
             
-            <div className='w-screen flex gap-[20px] items-center'>
+            <div className='w-screen -ml-28 pl-28 flex gap-[20px] items-center'>
                 <img src={arrow} alt="" className='w-[28px] h-[25px] ml-32 scale-x-[-1] scale-y-[1]'/>
                 <Item />
                 <Item />
@@ -287,7 +287,7 @@ export const Main = () => {
             </div>
         </div>
         <div className=' text-white'>
-            <div className='w-screen h-[350px] bg-[#12120e] flex items-center justify-between'>
+            <div className='w-screen -ml-28 pl-28 h-[350px] bg-[#12120e] flex items-center justify-between'>
                 <div>
                     <img src={Baner1} alt="" className='h-[350px] w-[250px]'/>
                 </div>
@@ -312,7 +312,7 @@ export const Main = () => {
             </div>
         </div>
         <div>
-            <div className='w-screen h-[109px] bg-[#12120e] '>
+            <div className='w-screen -ml-28 pl-28 h-[109px] bg-[#12120e] '>
                 <div className='ml-5 mt-4 text-[26px] font-title font-bold text-white'>
                     ЧОМУ АВТО З США ВИГІДНО ДЛЯ ВАС?
                 </div>
