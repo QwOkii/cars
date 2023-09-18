@@ -6,9 +6,14 @@ import EmailBlack from "../../accest/Contact/EmailBlack.svg"
 import PhoneBlack from "../../accest/Contact/PhoneBlack.svg"
 import { useSelector } from "react-redux"
 import { RootState, useAppDispatch } from '../../app/store'
-import ImageGallery from "react-image-gallery";
 import { GetItemByID } from '../../app/ItemPage'
 import { useParams } from 'react-router-dom'
+import LightGallery from 'lightgallery/react';
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-zoom.css';
+import 'lightgallery/css/lg-thumbnail.css';
+import lgThumbnail from 'lightgallery/plugins/thumbnail';
+import lgZoom from 'lightgallery/plugins/zoom';
 
 export const ItemPage = () => {
     const { carID } = useParams()
@@ -27,8 +32,17 @@ export const ItemPage = () => {
             </div>
             <div className='flex gap-8'>
                 <div className='w-[823px] flex flex-col gap-8'>
-                    <div className='w-[823px] h-[560px] border border-solid border-[#12120e]'>
-                        <ImageGallery className='w-[823px] h-[560px] border border-solid border-[#12120e]' items={images_list.FULL_IMAGE}/>
+                    <div className='w-[823px] h-[560px] border border-solid border-[#12120e] overflow-hidden'>
+                    <LightGallery
+                        onInit={()=>{}}
+                        speed={500}
+                        plugins={[lgThumbnail, lgZoom]}
+                        
+                    >
+                    {
+                        images_list.FULL_IMAGE.map(u =><a href={u}><img className='w-[823px] h-[560px]'  src={u} alt="" /></a>)
+                    }
+                    </LightGallery>
                     </div>  
                     <div className='flex gap-8'>
                         <div className='w-[395px] h-[327px] flex flex-col text-white'>

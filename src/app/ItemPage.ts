@@ -39,6 +39,7 @@ const SetItemByID = createAction<ItemDetails>('SET-ITEM-BY-ID')
 export const ItemPage = createReducer(InitialState,{
     [SetItemByID.type]:(state,action:PayloadAction<ItemDetails>)=>{
         const {VIN_code,color,current_bid,drive_type,engine_type,fuel,images_list,keys,location,lot_name,lot_number,odometer,odometer_type,primary_damage,year} = action.payload
+        console.log(images_list);
         return{
             ...state,
             color,
