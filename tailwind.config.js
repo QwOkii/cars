@@ -8,9 +8,10 @@ module.exports = {
       },
       screens:{
         'tablet':{
-          'raw': '(max-width: 1385px)'
+          'raw': '(min-width: 1050px)'
         },
         'laptop':{'raw': '(min-width: 1385px)'},
+        'max-laptop':{'raw': '(max-width: 1385px)'},
         'phone':{'raw': '(max-width: 950px)'},
       }
     },

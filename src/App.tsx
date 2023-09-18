@@ -7,12 +7,12 @@ import { Contact } from './componennts/Contact/Contact';
 import { Guarantees } from './componennts/Guarantees/Guarantees';
 import { AboutUS } from './componennts/AboutUS/AboutUS';
 import { ItemPage } from './componennts/ItemPage/ItemPage';
-import {Route, Routes } from 'react-router-dom'
+import {Route, Routes, useParams } from 'react-router-dom'
 import { Cooperation } from './componennts/Cooperation/Cooperation';
 
 function App() {
   return (
-    <div className='flex flex-col items-center  bg-[#f1f1f6] font-mono '>
+    <div className='flex flex-col items-center  bg-[#f1f1f6] font-mono xl:overflow-x-hidden'>
       <Header/>
       <main>
         <Routes>
@@ -21,7 +21,8 @@ function App() {
           <Route path='/calculate' element={<Calculate/>}/>
           <Route path='/contact' element={<Contact/>}/>
           <Route path='/guarantees' element={<Guarantees/>}/>
-          <Route path='/car' element={<ItemPage/>}/>
+          <Route path='/car/:carID' element={<ItemPage/>}/>
+          <Route path='/car/*' element={<ItemPage/>}/>
           <Route path='/about' element={<AboutUS/>}/>
           <Route path='/cooperation' element={<Cooperation/>}/>
         </Routes>

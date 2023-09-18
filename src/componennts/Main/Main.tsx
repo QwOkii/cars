@@ -1,5 +1,4 @@
 import React from 'react'
-import { Select } from 'antd'
 import cross from "../../accest/Main/crooss.webp"
 import parket from "../../accest/Main/parket.webp"
 import pickUp from "../../accest/Main/pickUp.webp"
@@ -29,50 +28,38 @@ import repair from "../../accest/Main/repair.svg"
 import getCar from "../../accest/Main/getCar.svg"
 import gogleMaps from "../../accest/Main/gogleMaps.webp"
 import Baner2 from "../../accest/Main/Baner2.webp"
-import phone from "../../accest/Main/phone.svg"
-import comment from "../../accest/Main/comment.svg"
 import ArrowTo from "../../accest/Main/arrow-bp-lg.svg"
-import user from "../../accest/Main/user.svg"
 import Copart from "../../accest/Main/Copart.webp"
 import Baner from "../../accest/Main/Baner.webp"
 import EmailBlack from "../../accest/Contact/EmailBlack.svg"
 import PhoneBlack from "../../accest/Contact/PhoneBlack.svg"
 import  "./Main.css"
+import { BlackTheme } from '../BlackTheme/BlackTheme'
+import { FormSelectCar } from '../Forms/FormSelectCar'
+import { FormTotalCost } from '../Forms/FormTotalCost'
+import { FormQuestions } from '../Forms/FormQuestions'
+import { FromCopart } from '../Forms/FromCopart'
+import { useSelector } from "react-redux"
+import { RootState, useAppDispatch } from '../../app/store'
+import { GetListofItem } from '../../app/Catalog'
 
 export const Main = () => {
+    const dispatch = useAppDispatch()
+    React.useEffect(()=>{
+        dispatch(GetListofItem())
+    },[])
+    const { ListItem } = useSelector( (u:RootState)=>u.Catalog)
   return (
-    <div className='font-mono mt-10 flex flex-col items-start w-screen pl-28 gap-[75px]'>
+    <div className='font-mono mt-10 flex flex-col items-start w-screen md:pl-56 gap-[75px]'>
         <div>
             <div className='m-8 text-black font-bold text-[36px] font-title'>Купити авто з США</div>
-            <div className='flex gap-[50px] relative'> 
-                <form action="" className='p-10 w-[606px] h-[375px] bg-[#12120e] rounded text-white z-10'>
-                    <div className='font-title text-[18px] '>Виберіть Авто:</div>
-                    <div>
-                        <div className='flex '>
-                            <div className='flex flex-col  mx-3'>
-                                <label htmlFor="mark" className='my-5'>Марка</label>
-                                <Select  id="mark" placeholder='Виберыть марку' className='w-[240px] h-[40px] text-black '></Select>
-                            </div>
-                            <div className='flex flex-col  mx-3'>
-                                <label htmlFor="mark" className='my-5'>Модель</label>
-                                <Select  id="mark" placeholder='Виберыть марку' className='w-[240px] h-[40px] text-black '></Select>
-                            </div>
-                        </div>
-                        <div className='flex'>
-                            <div className='flex flex-col  mx-3'>
-                                <label htmlFor="mark" className='my-5'>Рік від</label>
-                                <Select  id="mark" placeholder='Виберыть марку' className='w-[240px] h-[40px] text-black '></Select>
-                            </div>
-                            <div className='flex flex-col mx-3'>
-                                <label htmlFor="mark" className='my-5'>Рік до</label>
-                                <Select  id="mark" placeholder='Виберыть марку' className='w-[240px] h-[40px] text-black '></Select>
-                            </div>
-                        </div>
-                    </div>
-                    <button className='bg-[#740706] w-[140px] h-[41px] my-5 rounded'>Знайти</button>
-                </form>
-                <div className='Baner1'>
-                    <div className='w-[548px] h-[100px] text-[18px] font-bold font-title bg-[#e1ae32] rounded-3xl flex justify-center items-center'>
+            <div className='flex gap-[50px] relative'>
+                <BlackTheme>
+                    <FormSelectCar/>
+                </BlackTheme>
+
+                <div className='Baner1 '>
+                    <div className='w-[620px] h-[100px] text-[18px] font-bold font-title bg-[#e1ae32] rounded-3xl flex justify-center items-center'>
                         Adolbi.inc ваш надійний партнер в виборі "сталевого" коня!
                     </div>
                     <img className=' w-[620px] h-[515px]  ' src={Baner} alt="" />
@@ -80,19 +67,19 @@ export const Main = () => {
                 </div>                
             </div>
         </div>
-        <div>
-            <div className='w-screen -ml-28 pl-28 h-[109px] bg-[#12120e] '>
-                <div className='ml-5 mt-4 text-[28px] font-title font-bold text-white'>
+        <div className=' flex flex-col items-center'>
+            <div className='w-screen  -ml-56 md:pl-56 h-[109px] bg-[#12120e] '>
+                <div className='ml-5 mt-8 text-[28px] font-title font-bold text-white'>
                     Виберіть авто за:
                 </div>
             </div>
             <div className='flex flex-wrap justify-center'>
-                <div className='flex flex-col  mx-[100px]'>
-                    <div className='font-mono text-[25px] font-bold'>
-                        Кузовом
+                <div className='flex flex-col  sm:mx-[100px]'>
+                    <div className='font-mono text-[25px] font-bold my-5'>
+                        Кузовом:
                     </div>
-                    <div className='flex flex-wrap w-[575px] gap-[20px]'>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around'>
+                    <div className='flex flex-wrap items-start justify-center sm:w-[575px] gap-[10px] sm:gap-[20px] '>
+                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={cross} alt="" />
                             </div>
@@ -100,7 +87,7 @@ export const Main = () => {
                                 Кросовери
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around'>
+                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={parket} alt="" />
                             </div>
@@ -108,7 +95,7 @@ export const Main = () => {
                                 Паркетники
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around'>
+                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={pickUp} alt="" />
                             </div>
@@ -116,7 +103,7 @@ export const Main = () => {
                                 Пікапи
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around'>
+                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px] scale-x-[-1] scale-y-[1]'>
                                 <img src={Minivan} alt="" />
                             </div>
@@ -124,7 +111,7 @@ export const Main = () => {
                                 Мінівени
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around'>
+                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={sedan} alt="" />
                             </div>
@@ -132,7 +119,7 @@ export const Main = () => {
                                 Седани
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around'>
+                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={hachback} alt="" />
                             </div>
@@ -140,7 +127,7 @@ export const Main = () => {
                                 Хетчбеки
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around'>
+                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={kabriolet} alt="" />
                             </div>
@@ -148,7 +135,7 @@ export const Main = () => {
                                 Кабріолети
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around'>
+                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={cupe} alt="" />
                             </div>
@@ -156,7 +143,7 @@ export const Main = () => {
                                 Купе
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around'>
+                        <div className='w-[175px] h-[170px] -mx-22 sm:mx-0 bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={vnedoroznik} alt="" />
                             </div>
@@ -166,12 +153,12 @@ export const Main = () => {
                         </div>
                     </div>
                 </div>
-                <div className='mx-[100px]'>
-                    <div className='font-mono text-[25px] font-bold'>
-                        Двигуном
+                <div className=' sm:mx-[100px]'>
+                    <div className='font-mono text-[25px] font-bold sm:my-5'>
+                        Двигуном:
                     </div>
-                    <div  className='flex flex-wrap w-[390px] gap-[20px]'>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around'>
+                    <div  className='flex flex-row flex-wrap items-center justify-center sm:w-[390px] gap-[10px] sm:gap-[20px]'>
+                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                                 <div className='font-mono text-[14.4px] text-white font-bold'>
                                     Бензиновий
                                 </div>
@@ -179,7 +166,7 @@ export const Main = () => {
                                     <img src={back} alt="" />
                                 </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around'>
+                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                                 <div className='font-mono text-[14.4px] text-white font-bold'>
                                     Дизельний
                                 </div>
@@ -187,7 +174,7 @@ export const Main = () => {
                                     <img src={back} alt="" />
                                 </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around'>
+                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                                 <div className='font-mono text-[14.4px] text-white font-bold'>
                                     Електро
                                 </div>
@@ -195,7 +182,7 @@ export const Main = () => {
                                     <img src={back} alt="" />
                                 </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around'>
+                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                                 <div className='font-mono text-[14.4px] text-white font-bold'>
                                     Гібрид
                                 </div>  
@@ -208,13 +195,13 @@ export const Main = () => {
             </div>
         </div>
         <div className=' flex flex-col items-center'>
-            <div className='w-screen -ml-28 pl-28 h-[109px] bg-[#12120e] '>
-                <div className='ml-5 mt-4 text-[28px] font-title font-bold text-white'>
+            <div className='w-screen box-border sm:-ml-56 sm:pl-56 h-[109px] bg-[#12120e] '>
+                <div className='ml-5 mt-8 text-[28px] font-title font-bold text-white'>
                     ПОПУЛЯРНІ МАРКИ
                 </div>
             </div>
-            <div className='m-10 font-mono text-[19px] flex underline decoration-1 flex-wrap'>
-                <ul style={{listStyleType:"initial"}} className='mx-auto xl:mx-[20px]' >
+            <div className='m-10 font-mono text-[19px] flex flex-col sm:flex-row justify-start underline decoration-1 flex-wrap'>
+                <ul style={{listStyleType:"initial"}} className='sm:mx-auto xl:mx-[20px]' >
                     <li>ACURA</li>
                     <li>ALFA ROMEO</li>
                     <li>ASTON MARTIN</li>
@@ -227,7 +214,7 @@ export const Main = () => {
                     <li>CHRYSLER</li>
                     <li>DODGE</li>
                 </ul>
-                <ul style={{listStyleType:"initial"}} className='mx-auto xl:mx-[20px]' >
+                <ul style={{listStyleType:"initial"}} className='sm:mx-auto xl:mx-[20px]' >
                     <li>FERRARI</li>
                     <li>FIAT</li>
                     <li>FORD</li>
@@ -241,7 +228,7 @@ export const Main = () => {
                     <li>JEEP</li>
                     <li>KIA</li>
                 </ul>
-                <ul style={{listStyleType:"initial"}} className='mx-auto xl:mx-[20px]' >
+                <ul style={{listStyleType:"initial"}} className='sm:mx-auto xl:mx-[20px]' >
                     <li>LAMBORGHINI</li>
                     <li>LAND ROVER</li>
                     <li>LEXUS</li>
@@ -254,7 +241,7 @@ export const Main = () => {
                     <li>MITSUBISHI</li>
                     <li>NISSAN</li>
                 </ul>
-                <ul style={{listStyleType:"initial"}} className='mx-auto xl:mx-[20px]'>
+                <ul style={{listStyleType:"initial"}} className='sm:mx-auto xl:mx-[20px]'>
                     <li>POLARIS</li>
                     <li>POLESTAR</li>
                     <li>PORSCHE</li>
@@ -270,29 +257,26 @@ export const Main = () => {
             </div>
             <button className='text-white bg-[#740706] p-4 box-border xl:w-[461px] h-[58.6px] rounded my-10'>Перейти до каталогу всіх товарів</button>
         </div>
-        <div className='m-10 -ml-28 flex flex-col gap-10 '>
-            <div className='w-screen  h-[109px] bg-[#12120e] '>
-                    <div className='ml-5 mt-4 text-[26px] font-title font-bold text-white'>
+        <div className='sm:m-10 md:-ml-56 flex flex-col gap-[10px] md:gap-10 '>
+            <div className='w-screen md:pl-56  h-[109px] bg-[#12120e] '>
+                    <div className='ml-5 mt-8 text-[26px] font-title font-bold text-white'>
                         Схожі Авто
                     </div>
             </div>
             
             <div className='w-screen flex gap-[20px] justify-center items-center overflow-x-hidden'>
                 <img src={arrow} alt="" className='w-[28px] h-[25px] ml-32 scale-x-[-1] scale-y-[1]'/>
-                <Item />
-                <Item />
-                <Item />
-                <Item />
+                {ListItem.map(u=><Item {...u} />)}
                 <img src={arrow} alt="" className='w-[28px] h-[25px]'/>
             </div>
         </div>
         <div className=' text-white'>
-            <div className='w-screen -ml-28  min-h-[350px] bg-[#12120e] flex items-center justify-between'>
+            <div className='w-screen md:-ml-56  min-h-[350px] bg-[#12120e] flex items-center justify-between'>
                 <div>
                     <img src={Baner1}  alt="" className='h-[350px] w-[450px]  xl:w-[250px] box-border '/>
                 </div>
-                <div className='flex flex-wrap ml-16'>  
-                    <div className='flex flex-col '>
+                <div className='flex flex-wrap gap-5 ml-8 mr-28'>  
+                    <div className='flex flex-col justify-between mr-52'>
                         <div className='font-mono text-[20px] font-bold'>
                             Зателефонуйте нам та отримайте консультацію
                         </div>
@@ -300,27 +284,27 @@ export const Main = () => {
                             +38011122333
                         </button>
                     </div>
-                    <div className='mr-16'>
+                    <div className='mr-16 flex flex-col justify-between'>
                         <div className='font-mono text-[20px] font-bold'>
                             Або залиште свій номер телефону
                             ,<br /> і ми вам перезвонимо
                         </div>
-                        <div className='flex mt-10'>
+                        <div className='flex mt-10 flex-col sm:flex-row gap-2'>
                             <input type="text" placeholder='+380XXXXXXXX' className='w-[270px] h-[60px] border-4 border-solid border-[#aeaeb2] bg-[#12120e] p-2 outline-none'/>
-                            <button className='bg-[#740706] w-[170px] h-[60px] rounded ml-5'>Відправити</button>
+                            <button className='bg-[#740706] w-[270px] sm:w-[170px] h-[60px] rounded sm:ml-5'>Відправити</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div>
-            <div className='w-screen -ml-28 pl-28 h-[109px] bg-[#12120e] '>
-                <div className='ml-5 mt-4 text-[26px] font-title font-bold text-white'>
+            <div className='w-screen sm:-ml-56 sm:pl-56 h-[109px] bg-[#12120e] pt-8'>
+                <div className='ml-5 my text-[26px] font-title font-bold text-white'>
                     ЧОМУ АВТО З США ВИГІДНО ДЛЯ ВАС?
                 </div>
             </div>
             <div className='flex flex-col xl:flex-row'>
-                <div className='flex flex-col w-[600px] mx-14 my-10'>
+                <div className='flex flex-col w-[300px] sm:w-[600px] mx-8 my-2  sm:mx-14 sm:my-10'>
                     <div className='font-mono text-[#12120e]'>
                         Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
                     </div>
@@ -329,15 +313,15 @@ export const Main = () => {
                     </div>
                 </div>
                 <div className='flex flex-col'>
-                    <div className='flex m-5'>
+                    <div className='flex m-5 box-border'>
                         <div className='w-[71px] h-[71px] bg-gradient-to-tr from-[#740706] to-[#922a2a] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={book} alt="" />
                         </div>
-                        <div className='ml-5 font-mono w-[480px]'>
+                        <div className='ml-5 font-mono  w-[480px]'>
                             <div className=' text-[20px] font-bold'>
                                 Правдива історія авто
                             </div>
-                            <div className=' mt-5'>
+                            <div className=' mt-5 w-[250px] sm:w-[460px] '>
                                 Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
                             </div>
                         </div>
@@ -350,7 +334,7 @@ export const Main = () => {
                             <div className=' text-[20px] font-bold'>
                                 Економія до 40%
                             </div>
-                            <div className=' mt-5'>
+                            <div className=' mt-5 w-[250px] sm:w-[460px] '>
                                 Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
                             </div>
                         </div>
@@ -363,7 +347,7 @@ export const Main = () => {
                             <div className=' text-[20px] font-bold'>
                                 Безпечна доставка
                             </div>
-                            <div className=' mt-5'>
+                            <div className=' mt-5 w-[250px] sm:w-[460px]'>
                                 Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
                             </div>
                         </div>
@@ -373,10 +357,10 @@ export const Main = () => {
                             <img className='w-[45px] h-[45px]' src={PointCar} alt="" />
                         </div>
                         <div className='ml-5 font-mono w-[480px]'>
-                            <div className=' text-[20px] font-bold'>
+                            <div className=' text-[20px] w-[250px] font-bold'>
                                 Хороший технічний стан авто
                             </div>
-                            <div className=' mt-5'>
+                            <div className=' mt-5 w-[250px] sm:w-[460px]'>
                                 Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
                             </div>
                         </div>
@@ -385,109 +369,28 @@ export const Main = () => {
             </div>
         </div>
         <div className='flex flex-col xl:flex-row'>
-            <div className='m-10 w-[600px]'>
+            <div className='m-4 sm:m-10 w-[350px] sm:w-[600px]'>
                 <div className='font-title text-[26px] font-bold'>
                     ВАРТІСТЬ АВТО З США В УКРАЇНІ
                 </div>
                 <div className='font-mono text-[17] flex my-4 '>
                     <div className='font-bold mr-2'>Вартість доставки</div> залежить від кількох факторів:
                 </div>
-                <div className='font-mono w-[500px]'>
+                <div className='font-mono w-[250px] sm:w-[500px]'>
                     Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
                 </div>
             </div>
-            <form className='w-[637px]  bg-[#12120e] flex flex-col text-white p-5 font-mono'>
-                <div className='font-title text-[23px] font-bold'>
-                    КАЛЬКУЛЯТОР ЗАГАЛЬНОЇ ВАРТОСТІ
-                </div>
-                <div className='border-b border-solid border-[#f1f1f6] my-8'>
-                    <div className='text-[18px]  font-bold'>
-                        Крок 1: аукціон
-                    </div>
-                    <div className='flex  items-center gap-[10px]'>
-                        <div>
-                            <div>
-                                Аукціон
-                            </div>
-                            <Select placeholder="Аукціон" className='bg-[#12120e] w-[260px] h-[60px]'></Select>
-                        </div>
-                        <div className='text-[#aeaeb2]'>
-                            <div>
-                                Переможна ставка
-                            </div>
-                            <input placeholder='Переможна ставка, $' type="text" className='outline-none p-3 w-[260px] h-[60px] border-4 border-solid border-[#aeaeb2] bg-[#12120e] rounded' />
-                        </div>
-                    </div>
-                    <div className='flex mb-5 justify-between'>
-                        Вартість авто на аукціоні: <div className='text-[20px] font-bold text-[#ad3d3a]'>$0</div>
-                    </div>
-                </div>
-                <div className='border-b border-solid border-[#f1f1f6] my-8'>
-                    <div className='text-[18px]  font-bold'>
-                        Крок 2: доставка
-                    </div>
-                    <div className='flex  items-center gap-[10px] text-[#aeaeb2]'>
-                        <div>
-                            <div>
-                                Майданчик аукціону
-                            </div>
-                            <Select placeholder="Майданчик аукціону" className='w-[260px] h-[60px]'></Select>
-                        </div>
-                        <div>
-                            <div>
-                                Тип транспорту
-                            </div>
-                            <Select placeholder="Тип транспорту" className='w-[260px] h-[60px]'></Select>
-                        </div>
-                    </div>
-                    <div className='flex mb-5 justify-between'>
-                        Вартість доставки: <div className='text-[20px] font-bold text-[#ad3d3a]'>$0</div>
-                    </div>
-                </div>
-                <div className='border-b border-solid border-[#f1f1f6] my-8' >
-                    <div className='text-[18px]  font-bold'>
-                        Крок 3: розмитнення
-                    </div>
-                    <div className='flex items-center flex-wrap gap-[10px]'>
-                        <div>
-                            <div>
-                                Тип двигуна
-                            </div>
-                            <Select placeholder="Тип двигуна" className='bg-[#12120e] w-[260px] h-[60px]'></Select>
-                        </div>
-                        <div>
-                            <div>
-                                Об’єм двигуна
-                            </div>
-                            <input placeholder='Об’єм двигуна' type="text" className='outline-none p-3 w-[260px] h-[60px] border-4 border-solid border-[#aeaeb2] bg-[#12120e] rounded'/>
-                        </div>
-                        <div>
-                            <div>
-                                Рік випуску
-                            </div>
-                            <Select placeholder="Рік випуску" className='bg-[#12120e] w-[260px] h-[60px]'></Select>
-                        </div>
-                    </div>
-                    <div className='flex mb-5 justify-between text-[18px]'>
-                        Вартість розмитнення: <div className='text-[20px] font-bold text-[#ad3d3a]'>$0</div>
-                    </div>
-                </div>
-                <div>
-                    <div className='flex mb-5 justify-between text-[21px] font-bold my-2'>
-                        Загальна вартість:<div className='text-[20px]  text-[#ad3d3a]'>$0</div>
-                    </div>
-                    <button className='w-[300px] h-[55px] text-[19px] bg-[#740706] rounded' >
-                        Детальний розрахунок
-                    </button>
-                </div>
-            </form>
+            <BlackTheme>
+                <FormTotalCost/>               
+            </BlackTheme>
+
         </div>
         <div >
             <div className='font-title text-[26px] font-bold my-4'>
                 ПРОЦЕС ПОКУПКИ АВТО З США
             </div>
             <div className='text-white flex flex-wrap gap-[35px] phone:justify-center'>
-                    <div    className='buing-item bg-[#12120e] w-[400px] h-[169px] rounded flex p-4 box-border  relative phone:before:block'>
+                    <div    className='buing-item bg-[#12120e] w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative phone:before:block'>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={odred} alt="" />
                         </div>
@@ -500,7 +403,7 @@ export const Main = () => {
                             </div>
                         </div>
                     </div>
-                    <div  className='buing-item bg-[#12120e] w-[400px] h-[169px] rounded flex p-4 box-border  relative phone:before:block tablet:before:hidden  '>
+                    <div  className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative phone:before:block max-laptop:before:hidden  '>
                         <div className='w-[66px] h-[70px] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={docAccept} alt="" />
                         </div>
@@ -513,10 +416,10 @@ export const Main = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='w-screen -ml-28  hidden tablet:block phone:hidden'>
+                    <div className='w-screen -ml-28  hidden max-laptop:block phone:hidden'>
                         <img className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
                     </div>
-                    <div   className='buing-item bg-[#12120e] w-[400px] h-[169px] rounded flex p-4 box-border relative phone:before:block  xl:before:hidden'>
+                    <div   className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border relative phone:before:block  xl:before:hidden'>
                         <div className='w-[66px] h-[70px]  rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={search} alt="" />
                         </div>
@@ -532,7 +435,7 @@ export const Main = () => {
                     <div className='w-screen  -ml-28  hidden laptop:block'>
                         <img className='w-[850px]  mx-auto' src={ArrowTo} alt="" />
                     </div>
-                    <div    className='buing-item bg-[#12120e] w-[400px] h-[169px] rounded flex p-4 box-border  relative phone:before:block tablet:before:hidden '>
+                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative phone:before:block max-laptop:before:hidden '>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={hammer} alt="" />
                         </div>
@@ -545,10 +448,10 @@ export const Main = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='w-screen -ml-28  hidden tablet:block phone:hidden'>
+                    <div className='w-screen -ml-28  hidden max-laptop:block phone:hidden'>
                         <img className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
                     </div>
-                    <div    className='buing-item bg-[#12120e] w-[400px] h-[169px] rounded flex p-4 box-border  relative '>
+                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative '>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={pay} alt="" />
                         </div>
@@ -561,7 +464,7 @@ export const Main = () => {
                             </div>
                         </div>
                     </div>
-                    <div    className='buing-item bg-[#12120e] w-[400px] h-[169px] rounded flex p-4 box-border  relative phone:before:block xl:before:hidden tablet:before:hidden'>
+                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative phone:before:block xl:before:hidden max-laptop:before:hidden'>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={cargo} alt="" />
                         </div>
@@ -577,10 +480,10 @@ export const Main = () => {
                     <div className='w-screen  -ml-28  hidden laptop:block'>
                         <img className='w-[850px]  mx-auto' src={ArrowTo} alt="" />
                     </div>
-                    <div className='w-screen -ml-28  hidden tablet:block phone:hidden'>
+                    <div className='w-screen -ml-28  hidden max-laptop:block phone:hidden'>
                         <img className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
                     </div>
-                    <div    className='buing-item bg-[#12120e] w-[400px] h-[169px] rounded flex p-4 box-border  relative '>
+                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative '>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={rozmitnennya} alt="" />
                         </div>
@@ -593,7 +496,7 @@ export const Main = () => {
                             </div>
                         </div>
                     </div>
-                    <div    className='buing-item bg-[#12120e] w-[400px] h-[169px] rounded flex p-4 box-border  relative  phone:before:block tablet:before:hidden'>
+                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative  phone:before:block max-laptop:before:hidden'>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={repair} alt="" />
                         </div>
@@ -606,10 +509,10 @@ export const Main = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='w-screen -ml-28  hidden tablet:block phone:hidden'>
+                    <div className='w-screen -ml-28  hidden max-laptop:block phone:hidden'>
                         <img className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
                     </div>
-                    <div  className=' bg-[#12120e] w-[400px] h-[169px] rounded flex p-4 box-border  relative '>
+                    <div  className=' bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative '>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={getCar} alt="" />
                         </div>
@@ -624,12 +527,12 @@ export const Main = () => {
                     </div>
             </div>
         </div>
-        <div>
-            <div className='font-title text-[26px] font-bold'>
+        <div className=' sm:mx-28'>
+            <div className='font-title mx-2 text-[26px] font-bold'>
                 ПРИЧИНИ ЗАМОВИТИ АВТО У НАС
             </div>
-            <div className='flex  flex-col xl:flex-row gap-[20px]'>
-                <div className='max-w-[720px] text-white flex flex-wrap gap-[20px]'>
+            <div className='flex mx-3 flex-col xl:flex-row gap-[10px] sm:gap-[20px]'>
+                <div className='max-w-[700px] text-white flex flex-wrap gap-[10px] sm:gap-[20px]'>
                     <div className=' w-[340px] h-[192px] bg-[#12120e] p-[20px] rounded'>
                         <div className='text-[18] font-bold my-3'>
                             Офіційний представник Copart
@@ -676,14 +579,14 @@ export const Main = () => {
                 </div>
             </div>
         </div>
-        <div>
+        <div className='mx-3 sm:mx-14'>
             <div className='font-title text-[26px] font-bold'>
                 ВІДГУКИ
             </div>
             <div className=' text-[20px] font-bold my-3'>
                 КЛІЄНТИ ПРО НАС
             </div>
-            <div className='w-[600px] xl:w-[1210px] h-[200px] bg-[#12120e] text-white flex p-5'>
+            <div className=' flex flex-col sm:flex-row w-[350px]  sm:w-[600px] xl:w-[1210px] sm:h-[200px] bg-[#12120e] text-white p-5'>
                 <div className='flex flex-col items-center'>
                     <div className='w-[177px] h-[146px] '>
                         <img src="" alt="" />
@@ -702,8 +605,8 @@ export const Main = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex flex-col xl:flex-row gap-[10px] mt-[10px]'>
-                <div className='w-[600px] h-[200px] bg-[#12120e] text-white flex p-2'>
+            <div className='flex flex-col xl:flex-row xl:w-[1210px] gap-[10px] xl:gap-[50px] mt-[10px]'>
+                <div className=' flex flex-col sm:flex-row w-[350px]  sm:w-[620px] box-border sm:h-[200px] bg-[#12120e] text-white p-2'>
                     <div className='flex flex-col items-center'>
                         <div className='w-[177px] h-[146px] '>
                             <img src="" alt="" />
@@ -721,7 +624,7 @@ export const Main = () => {
                         </div>
                     </div>
                 </div>
-                <div className='w-[600px] h-[200px] bg-[#12120e] text-white flex p-2'>
+                <div className='flex flex-col sm:flex-row w-[350px]  sm:w-[620px] box-border sm:h-[200px] bg-[#12120e] text-white  p-2'>
                     <div className='flex flex-col items-center'>
                         <div className='w-[177px] h-[146px] ' >
                             <img src="" alt="" />
@@ -740,7 +643,7 @@ export const Main = () => {
                     </div>
                 </div>
             </div>
-            <div className='text-white  flex justify-end mt-5 mr-[250px]'>
+            <div className='text-white flex-col sm:flex-row  flex justify-end gap-[10px] mt-5 sm:mr-[250px]'>
                 <button className='w-[230px] h-[60px] bg-[#740706] rounded flex justify-center items-center mx-2'>
                     Відгуки в Google <img src={gogleMaps} className='w-[42px] h-[42px]' alt="" />
                 </button>
@@ -749,42 +652,14 @@ export const Main = () => {
                 </button>
             </div>
         </div>
-        <div className=' flex '>
-            <form className='ml-10 flex flex-col gap-[10px]'>
-                <div className='font-title text-[26px] font-bold'>
-                    ЗАЛИШИЛИСЯ ПИТАННЯ?
-                </div>
-                <div className='font-bold text-[20px]'>
-                    Наш менеджер охоче відповість на кожне з них
-                </div>
-                <div>
-                    <div className='flex mb-1'> 
-                        <img src={phone} className='w-[30px] h-[30px] mr-2' alt="" />Номер телефону
-                    </div>
-                    <input type="text" className='w-[420px] h-[60px] border-4 border-solid border-[#12120e] rounded' placeholder='+380 XX XX XX XXX'/>
-                </div>
-                <div>
-                    <div className='flex  mb-1'>
-                        <img src={user} className='w-[30px] h-[30px] mr-2' alt="" />Ваше ім’я
-                    </div>
-                    <input type="text" className='w-[420px] h-[60px] border-4 border-solid border-[#12120e] rounded' placeholder='Ім’я Прізвище'/>
-                </div>
-                <div>
-                    <div className='flex  mb-1'>
-                        <img src={comment} className='w-[30px] h-[30px] mr-2' alt="" />Коментар
-                    </div>
-                    <textarea rows={30} className='w-[420px] h-[150px] border-4 border-solid border-[#12120e] rounded' placeholder='Коментар'></textarea>
-                </div>
-                <button className='text-[19px] w-[420px] h-[60px] bg-[#740706] text-white rounded'>
-                    Відправити
-                </button>
-            </form>
+        <div className=' flex sm:mx-16 '>
+            <FormQuestions/>
             <div className='hidden xl:block'> 
-                <img className='ml-[150px]' src={Baner2} alt="" />
+                <img className='ml-80' src={Baner2} alt="" />
             </div>
         </div>
         <div className='flex flex-col xl:flex-row'>
-            <div className='w-[450px] ml-32'>
+            <div className='w-[300px] sm:w-[450px] mx-5 xm:ml-32'>
                 <div className='w-[160px] h-[60px]'>
                     <img  src={Copart} alt="" />
                 </div>
@@ -795,49 +670,10 @@ export const Main = () => {
                 Приклад тексту   Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
                 </div>
             </div>
-            <form className='w-[533px]  bg-[#f1f1f6] flex flex-col items-center'>
-                <div className='text-[22px] font-bold mt-[45px]'>
-                    Підібрати авто на аукціоні Copart
-                </div>
-                <div className='flex gap-[35px] mt-5'>
-                    <div>
-                        <div className='text-[17px]'>
-                            Бюджет Від
-                        </div>
-                        <Select className='w-[220px] h-[60px]' placeholder="Бюджет Від"></Select>
-                    </div>
-                    <div>
-                        <div className='text-[17px]'>
-                            Бюджет До
-                        </div>
-                        <Select className='w-[220px] h-[60px]' placeholder="Бюджет До"></Select>
-                    </div>
-                </div>
-                <div className='my-5'>
-                    <div>
-                        Телефон
-                    </div>
-                    <input className='w-[475px] h-[60px] border-4 border-solid border-[#12120e]' placeholder='+380 ХХ ХХ ХХ ХХХ' type="text" />
-                </div>
-                <div>
-                    <div className='text-[17px]'>
-                        Тип автомобіля
-                    </div>
-                    <Select className='w-[475px] h-[60px]' placeholder="Пікап"></Select>
-                </div>
-                <div className='my-5'>
-                    <div>
-                        Ваше ім’я
-                    </div>
-                    <input className='w-[475px] h-[60px] border-4 border-solid border-[#12120e]' placeholder='Ім’я Прізвище' type="text" />
-                </div>
-                <button className='bg-[#740706] w-[475px] h-[55px] text-white'>
-                    Замовити підбір
-                </button>
-            </form>
+            <FromCopart/>
         </div>
-        <div className='w-screen -ml-28 bg-[#12120e] min-h-[150px] text-white flex items-center'>
-            <div className='mx-28 flex flex-col xl:flex-row gap-12 p-4'>
+        <div className='w-screen md:-ml-56 bg-[#12120e] min-h-[150px] text-white flex items-center'>
+            <div className='md:mx-56 flex flex-col xl:flex-row gap-12 p-4'>
                 <div>
                     <div className='text-[22px] font-bold '>
                         ПІДПИСУЙТЕСЬ!
@@ -846,7 +682,7 @@ export const Main = () => {
                         Та дізнавайтеся перші про вигідні пропозиції
                     </div>
                 </div>
-                <div className='flex xl:ml-96'>
+                <div className='flex flex-col sm:flex-row gap-[10px] sm:gap-0 xl:ml-96'>
                     <input className='box-border p-4 w-[320px] h-[54px] bg-[#12120e] border-[3px] border-solid border-[#f1f1f6]' placeholder='Введіть ваш Email' type="text" />
                     <button className='h-[54px] bg-[#730706] w-[220px]'>
                         Підписатися
@@ -854,11 +690,11 @@ export const Main = () => {
                 </div>
             </div>
         </div>
-        <div>
+        <div className='mx-14'>
             <div className='text-[26px] font-bold font-title'>
                 КОНТАКТИ
             </div>
-            <div className='flex gap-12 my-10'>
+            <div className='flex flex-col sm:flex-row gap-12 my-10'>
                 <div className='flex gap-[10px] text-[18px] font-bold'>
                     <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
                     <div>

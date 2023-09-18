@@ -7,7 +7,7 @@ import PhoneBlack from "../../accest/Contact/PhoneBlack.svg"
 
 export const Contact = () => {
   return (
-    <div className='mt-10 ml-16 flex gap-[50px]'>
+    <div className='mt-10 ml-16 flex flex-col xl:flex-row gap-[50px]'>
         <form className='w-[600px] h-[600px] text-white bg-[#12120e] p-5 flex flex-col gap-[25px] rounded-md'>
             <div className='font-title text-[21px] font-bold'>
                 Зв‘яжіться з нами!
