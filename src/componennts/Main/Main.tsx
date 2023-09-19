@@ -50,8 +50,10 @@ export const Main = () => {
     },[])
     const { ListItem } = useSelector( (u:RootState)=>u.Catalog)
   return (
-    <div className='font-mono mt-10 flex flex-col items-start w-screen md:pl-56 gap-[75px]'>
-        <div>
+    <div className='font-mono mt-10 flex flex-col items-start w-screen md:pl-36 gap-[75px]'>
+        <div ref={(el)=>{
+            if(!el) return;
+        }}>
             <div className='m-8 text-black font-bold text-[36px] font-title'>Купити авто з США</div>
             <div className='flex gap-[50px] relative'>
                 <BlackTheme>
@@ -67,14 +69,17 @@ export const Main = () => {
                 </div>                
             </div>
         </div>
-        <div className=' flex flex-col items-center'>
-            <div className='w-screen  -ml-56 md:pl-56 h-[109px] bg-[#12120e] '>
+        <div ref={(el)=>{
+            if(!el) return;
+            console.log(el.offsetTop);
+        }} className=' flex flex-col items-center'>
+            <div className='w-screen  -ml-36 md:pl-36 h-[109px] bg-[#12120e] '>
                 <div className='ml-5 mt-8 text-[28px] font-title font-bold text-white'>
                     Виберіть авто за:
                 </div>
             </div>
             <div className='flex flex-wrap justify-center'>
-                <div className='flex flex-col  sm:mx-[100px]'>
+                <div className='flex flex-col  sm:mx-[60px]'>
                     <div className='font-mono text-[25px] font-bold my-5'>
                         Кузовом:
                     </div>
@@ -153,7 +158,7 @@ export const Main = () => {
                         </div>
                     </div>
                 </div>
-                <div className=' sm:mx-[100px]'>
+                <div className=' sm:mx-[60px]'>
                     <div className='font-mono text-[25px] font-bold sm:my-5'>
                         Двигуном:
                     </div>
@@ -195,7 +200,7 @@ export const Main = () => {
             </div>
         </div>
         <div className=' flex flex-col items-center'>
-            <div className='w-screen box-border sm:-ml-56 sm:pl-56 h-[109px] bg-[#12120e] '>
+            <div className='w-screen box-border sm:-ml-36 sm:pl-36 h-[109px] bg-[#12120e] '>
                 <div className='ml-5 mt-8 text-[28px] font-title font-bold text-white'>
                     ПОПУЛЯРНІ МАРКИ
                 </div>
@@ -257,8 +262,8 @@ export const Main = () => {
             </div>
             <button className='text-white bg-[#740706] p-4 box-border xl:w-[461px] h-[58.6px] rounded my-10'>Перейти до каталогу всіх товарів</button>
         </div>
-        <div className='sm:m-10 md:-ml-56 flex flex-col gap-[10px] md:gap-10 '>
-            <div className='w-screen md:pl-56  h-[109px] bg-[#12120e] '>
+        <div className='sm:m-10 md:-ml-36 flex flex-col gap-[10px] md:gap-10 '>
+            <div className='w-screen md:pl-36  h-[109px] bg-[#12120e] '>
                     <div className='ml-5 mt-8 text-[26px] font-title font-bold text-white'>
                         Схожі Авто
                     </div>
@@ -266,17 +271,17 @@ export const Main = () => {
             
             <div className='w-screen flex gap-[20px] justify-center items-center overflow-x-hidden'>
                 <img src={arrow} alt="" className='w-[28px] h-[25px] ml-32 scale-x-[-1] scale-y-[1]'/>
-                {ListItem.map(u=><Item {...u} />)}
+                {ListItem.map(u=><Item key={u.VIN_code} {...u} />)}
                 <img src={arrow} alt="" className='w-[28px] h-[25px]'/>
             </div>
         </div>
         <div className=' text-white'>
-            <div className='w-screen md:-ml-56  min-h-[350px] bg-[#12120e] flex items-center justify-between'>
-                <div>
-                    <img src={Baner1}  alt="" className='h-[350px] w-[450px]  xl:w-[250px] box-border '/>
+            <div className='w-screen md:-ml-36  min-h-[350px] bg-[#12120e] flex items-center justify-between'>
+                <div className='h-[350px]  xl:w-[250px]   box-border '>
+                    <img src={Baner1}  alt="" className='h-[350px]  xl:w-[250px]   box-border '/>
                 </div>
-                <div className='flex flex-wrap gap-5 ml-8 mr-28'>  
-                    <div className='flex flex-col justify-between mr-52'>
+                <div className='flex flex-col lg:flex-row gap-5 w-[66%] justify-between'>  
+                    <div className='flex flex-col justify-between '>
                         <div className='font-mono text-[20px] font-bold'>
                             Зателефонуйте нам та отримайте консультацію
                         </div>
@@ -298,7 +303,7 @@ export const Main = () => {
             </div>
         </div>
         <div>
-            <div className='w-screen sm:-ml-56 sm:pl-56 h-[109px] bg-[#12120e] pt-8'>
+            <div className='w-screen sm:-ml-36 sm:pl-36 h-[109px] bg-[#12120e] pt-8'>
                 <div className='ml-5 my text-[26px] font-title font-bold text-white'>
                     ЧОМУ АВТО З США ВИГІДНО ДЛЯ ВАС?
                 </div>
@@ -586,7 +591,7 @@ export const Main = () => {
             <div className=' text-[20px] font-bold my-3'>
                 КЛІЄНТИ ПРО НАС
             </div>
-            <div className=' flex flex-col sm:flex-row w-[350px]  sm:w-[600px] xl:w-[1210px] sm:h-[200px] bg-[#12120e] text-white p-5'>
+            <div className=' flex flex-col sm:flex-row w-[350px]  sm:w-[620px] xl:w-[1210px] sm:h-[200px] bg-[#12120e] text-white p-5'>
                 <div className='flex flex-col items-center'>
                     <div className='w-[177px] h-[146px] '>
                         <img src="" alt="" />
@@ -672,8 +677,8 @@ export const Main = () => {
             </div>
             <FromCopart/>
         </div>
-        <div className='w-screen md:-ml-56 bg-[#12120e] min-h-[150px] text-white flex items-center'>
-            <div className='md:mx-56 flex flex-col xl:flex-row gap-12 p-4'>
+        <div className='w-screen md:-ml-36 bg-[#12120e] min-h-[150px] text-white flex items-center'>
+            <div className='md:mx-36 flex flex-col xl:flex-row gap-12 p-4'>
                 <div>
                     <div className='text-[22px] font-bold '>
                         ПІДПИСУЙТЕСЬ!

@@ -36,7 +36,7 @@ export const AboutUS = () => {
                 </div>
             </div>
         </div>
-        <div className='my-8flex gap-12  flex-col xl:flex-row'>
+        <div className='my-8 flex gap-12  flex-col '>
             <div className=' w-[400px]  '>
                 <div className='text-[23px] font-title font-bold'>
                     Наші цінності
@@ -50,7 +50,7 @@ export const AboutUS = () => {
                     <li>Приклад тексту Приклад тексту </li>
                 </ul>
             </div>
-            <div className='flex flex-wrap my-5 -ml-24 gap-4'>
+            <div className='flex  my-5 xl:-ml-44 gap-4'>
                 <div className='box-border w-[350px] h-[250px] bg-[#12120e] rounded flex flex-col p-5 text-white'>
                     <div className='flex gap-4'>
                         <div className='bg-[#740706] rounded-full w-[90px] h-[90px] flex justify-center items-center'>

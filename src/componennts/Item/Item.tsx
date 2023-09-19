@@ -20,8 +20,9 @@ interface Props{
 }
 
 export const Item:React.FC<Props> = ({VIN_code,engine_type,fuel,image,lot_name,odometer,primary_damage,lot_number,current_bid}) => {
+
   return (
-    <NavLink to={`/car/${lot_number}`} className='w-[300px] h-[578px] bg-[#12120e] flex flex-col justify-between items-center text-white '>
+    <NavLink id='Item' to={`/car/${lot_number}`} className='w-[300px] h-[578px] bg-[#12120e] flex flex-col justify-between items-center text-white '>
         <img src="" alt="" className='w-[300px] h-[196px]'/>
         <div className='font-mono font-bold '>
             {lot_name}

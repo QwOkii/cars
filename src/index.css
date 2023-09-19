@@ -39,6 +39,6 @@ code {
 
   }
 }
-.active{
+.active:not(#Item){
   color: #740706;
 }

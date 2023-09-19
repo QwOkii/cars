@@ -19,14 +19,13 @@ export const ItemPage = () => {
     const { carID } = useParams()
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
-        console.log(carID);
         dispatch(GetItemByID(Number(carID)))
     },[])
     const { VIN_code,color,current_bid,drive_type,engine_type,fuel,images_list,keys,location,lot_name,lot_number,odometer,odometer_type,primary_damage,year } = useSelector((u:RootState)=>u.ItemPage)
     const { ListItem } = useSelector( (u:RootState)=>u.Catalog)
     return (
-    <div className='font-mono mt-10 flex flex-col items-start w-screen pl-56 gap-[75px]'>
-        <div className='flex flex-col'>
+    <div className='font-mono mt-10 flex flex-col items-start  w-screen pl-36 gap-[75px]'>
+        <div ref={(el)=>{console.log(el?.scrollTop);}} className='flex flex-col'>
             <div className='font-title text-[21px] '>
                 {lot_name}
             </div>
@@ -40,7 +39,7 @@ export const ItemPage = () => {
                         
                     >
                     {
-                        images_list.FULL_IMAGE.map(u =><a href={u}><img className='w-[823px] h-[560px]'  src={u} alt="" /></a>)
+                        images_list.FULL_IMAGE.map(u =><a href={u}><img className='w-[823px] h-[560px] rounded'  src={u} alt="" /></a>)
                     }
                     </LightGallery>
                     </div>  
@@ -130,9 +129,6 @@ export const ItemPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div >
-                        Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад
-                    </div>
                 </div>
                 <div className='w-[395px] flex flex-col gap-8 text-white'>
                     <div className='w-[395px] h-[327px] flex flex-col '>
@@ -169,7 +165,7 @@ export const ItemPage = () => {
                                     Стан
                                 </div>
                                 <div>
-
+                                    {primary_damage}
                                 </div>
                             </div>
                             <div className='flex justify-between'>
@@ -229,133 +225,28 @@ export const ItemPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='w-[395px] h-[327px] flex flex-col '>
-                        <div className='w-[395px] h-[47px] bg-[#740706] text-white font-title rounded-tl rounded-tr flex justify-center items-center'>
-                            Не втрачай часу
-                        </div>
-                        <div className='h-[280px] w-[395px] bg-[#12120e] box-border p-5 rounded-bl rounded-br flex flex-col gap-4 items-center justify-end'>
-                            <div className='flex gap-4 mb-10'>
-                                <div className=''>
-                                    До аукціону:
-                                </div>
-                                <div className='text-[14px]'>
-                                    <div>
-                                        3
-                                    </div>
-                                    <div>
-                                        дні
-                                    </div>
-                                </div>
-                                <div className='text-[14px]'>
-                                    <div>
-                                        7
-                                    </div>
-                                    <div>
-                                        годин
-                                    </div>
-                                </div>
-                                <div className='text-[14px]'>
-                                    <div>
-                                        33
-                                    </div>
-                                    <div>
-                                        хвилин
-                                    </div>
-                                </div>
-                                <div className='text-[14px]'>
-                                    <div>
-                                        56
-                                    </div>
-                                    <div>
-                                        секунд
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div className='flex gap-[10px] mb-[10px]'>
-                                    <button className='bg-[#740706] rounded h-[45px] w-[180px] text-[14px]'>
-                                        Запропонувати ставку
-                                    </button>
-                                    <button className='bg-[#740706] rounded h-[45px] w-[180px] text-[14px]'>
-                                        Купити зараз
-                                    </button>
-                                </div>
-                                <button className='bg-[#740706] rounded h-[45px] w-[370px] text-[14px]'>
-                                    Замовити консультацію
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-        <div className='flex flex-col'>
-            <div className='font-title font-bold text-[21px] my-3'>
-                Розрахунок вартості
-            </div>
-            <div className='flex gap-6'>
-                <div className='w-[400px] h-[510px] bg-[#12120e] flex flex-col justify-between box-border p-5 text-white'>
-                    <div className='text-[21px] font-bold font-title text-center'>
-                        Аукціон
-                    </div>
-                    <div className='flex gap-3 text-[18px]'>
-                        <div>
-                            Усього:
-                        </div>
-                        <div>
-                            5 800 $
-                        </div>
-                    </div>
-                </div>
-                <div className='w-[400px] h-[510px] bg-[#12120e] flex flex-col justify-between box-border p-5 text-white'>
-                    <div className='text-[21px] font-bold font-title text-center'>
-                        Доставка
-                    </div>
-                    <div className='flex gap-3 text-[18px]'>
-                        <div>
-                            Усього:
-                        </div>
-                        <div>
-                            5 800 $
-                        </div>
-                    </div>
-                </div>
-                <div className='w-[400px] h-[510px] bg-[#12120e] flex flex-col justify-between box-border p-5 text-white'>
-                    <div className='text-[21px] font-bold font-title text-center'>
-                        Розмитнення
-                    </div>
-                    <div className='flex gap-3 text-[18px]'>
-                        <div>
-                            Усього:
-                        </div>
-                        <div>
-                            1 200 $
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div className='-ml-56 mt-52 w-screen flex items-center h-[230px] bg-[#740706] ' >
+        <div className='-ml-36 mt-52 w-screen flex items-center h-[230px] bg-[#740706] ' >
             <img className='h-[404px] w-[720px]' src={Baner} alt="" />
             <div className='text-[21px] font-title font-bold w-[450px] m-10 mb-0 text-white'>
                 Разом ціна автомобіля з доставкою та розмитненням:  13 000 $
             </div>
             
         </div>
-        <div className='m-10 -ml-56 flex flex-col gap-10 '>
-            <div className='w-screen pl-56 h-[109px] bg-[#12120e] '>
+        <div className=' -ml-36 flex flex-col gap-10 '>
+            <div className='w-screen pl-36 h-[109px] bg-[#12120e] mt-10'>
                     <div className='ml-5 mt-4 text-[26px] font-title font-bold text-white'>
                         Схожі Авто
                     </div>
             </div>
             
-            <div className='w-screen flex gap-[20px] items-center'>
-                <img src={arrow} alt="" className='w-[28px] h-[25px] ml-32 scale-x-[-1] scale-y-[1]'/>
+            <div className='w-screen m-0 p-0 flex gap-[20px] items-center'>
                     {ListItem.map(u =><Item {...u}/>)}
-                <img src={arrow} alt="" className='w-[28px] h-[25px]'/>
             </div>
         </div>
-        <div className='w-screen -ml-56 bg-[#12120e] h-[150px] text-white flex items-center'>
+        <div className='w-screen -ml-36 bg-[#12120e] h-[150px] text-white flex items-center'>
             <div className='mx-28 flex'>
                 <div>
                     <div className='text-[22px] font-bold '>

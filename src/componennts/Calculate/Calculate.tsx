@@ -8,7 +8,7 @@ import { Select } from 'antd'
 
 export const Calculate = () => {
   return (
-    <div className='font-mono mt-10 flex flex-col items-start w-screen pl-[13%] gap-[75px]'>
+    <div className='font-mono mt-10 flex flex-col items-start w-screen pl-36 gap-[75px]'>
         <div className=' flex gap-[50px] '>
             <div className='flex flex-col gap-[35px] md:w-[550px] mr-10'>
                 <div className='font-title font-bold text-[23px]'>
@@ -168,7 +168,7 @@ export const Calculate = () => {
                 </ol>
             </div>
         </div>
-        <div className='w-screen h-[230px] -ml-[13%] pl-[13%] bg-[#12120e] flex justify-between text-white'>
+        <div className='w-screen h-[230px] -ml-36 pl-36 bg-[#12120e] flex justify-between text-white'>
             <div className='m-10'>
                 <div className='font-title text-[21px]'>
                     Отримай знижку 10%

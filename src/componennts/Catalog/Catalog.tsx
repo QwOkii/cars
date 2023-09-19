@@ -66,7 +66,8 @@ export const Catalog = () => {
                         }
                         <FormHelp/>
                         <div className='flex gap-[10px] text-[#12120e] font-bold text-[14px] mt-[200px]'>
-                            <div className='w-[42.5px] h-[42.5px] font-bold bg-[#740706] rounded text-white flex justify-center items-center'>
+                            {/*додати редірект на верх при натисканні*/}
+                            <div  className='w-[42.5px] h-[42.5px] font-bold bg-[#740706] rounded text-white flex justify-center items-center'>
                                 <div>
                                     1
                                 </div>

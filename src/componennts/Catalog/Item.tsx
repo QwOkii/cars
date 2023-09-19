@@ -22,7 +22,7 @@ interface Props{
 
 export const Item:React.FC<Props> = ({VIN_code,engine_type,fuel,image,lot_name,odometer,primary_damage,year,drive_type,lot_number}) => {
   return (
-    <NavLink to={`/car/${lot_number}`} className='h-[578] w-[300px] sm:w-[730px] sm:h-[250px] tablet:w-[950px] tablet:h-[190px] bg-[#12120e] my-[10px] flex  flex-col sm:flex-row justify-between items-center text-white border border-solid border-[#12120e]'>
+    <NavLink id='Item' to={`/car/${lot_number}`} className='h-[578] w-[300px] sm:w-[730px] sm:h-[250px] tablet:w-[950px] tablet:h-[190px] bg-[#12120e] my-[10px] flex  flex-col sm:flex-row justify-between items-center text-white border border-solid border-[#12120e]'>
         <div>
             <img  className='w-[300px] h-[196px] sm:w-[250px] sm:h-[250px] object-cover  tablet:w-[290px] tablet:h-[190px]' src={image} alt="" />
         </div>
