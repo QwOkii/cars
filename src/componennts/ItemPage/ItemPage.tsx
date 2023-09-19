@@ -20,7 +20,7 @@ export const ItemPage = () => {
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
         dispatch(GetItemByID(Number(carID)))
-    },[dispatch])
+    },[carID])
     const { VIN_code,color,current_bid,drive_type,engine_type,fuel,images_list,keys,location,lot_name,lot_number,odometer,primary_damage,year } = useSelector((u:RootState)=>u.ItemPage)
     const { ListItem } = useSelector( (u:RootState)=>u.Catalog)
     return (

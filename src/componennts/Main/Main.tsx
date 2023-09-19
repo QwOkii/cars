@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import cross from "../../accest/Main/crooss.webp"
 import parket from "../../accest/Main/parket.webp"
 import pickUp from "../../accest/Main/pickUp.webp"
@@ -45,7 +45,7 @@ import { GetListofItem } from '../../app/Catalog'
 
 export const Main = () => {
     const dispatch = useAppDispatch()
-    React.useEffect(()=>{
+    useEffect(()=>{
         dispatch(GetListofItem())
     },[dispatch])
     const { ListItem } = useSelector( (u:RootState)=>u.Catalog)
