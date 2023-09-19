@@ -1,4 +1,4 @@
-import React ,{ useRef, useState, useEffect } from 'react'
+import React from 'react'
 import logo from "../../accest/Header/logo.png"
 import phoneSVG from "../../accest/Header/PhoneSVG.svg"
 import menuBurger from '../../accest/Header/icons8-menu.svg'

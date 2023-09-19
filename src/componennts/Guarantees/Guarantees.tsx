@@ -16,7 +16,7 @@ export const Guarantees = () => {
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
         dispatch(GetListofItem())
-    },[])
+    },[dispatch])
     const { ListItem } = useSelector( (u:RootState)=>u.Catalog)
   return (
     <div className='font-mono mt-10 flex flex-col items-start w-screen pl-56 gap-[75px]'>

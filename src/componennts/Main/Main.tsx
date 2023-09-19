@@ -47,13 +47,11 @@ export const Main = () => {
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
         dispatch(GetListofItem())
-    },[])
+    },)
     const { ListItem } = useSelector( (u:RootState)=>u.Catalog)
   return (
     <div className='font-mono mt-10 flex flex-col items-start w-screen md:pl-36 gap-[75px]'>
-        <div ref={(el)=>{
-            if(!el) return;
-        }}>
+        <div>
             <div className='m-8 text-black font-bold text-[36px] font-title'>Купити авто з США</div>
             <div className='flex gap-[50px] relative'>
                 <BlackTheme>
