@@ -47,24 +47,24 @@ export const FormFilter = () => {
 
         }
     })
-    const ChangeYear =React.useCallback((values:any)=>{
+    const ChangeYear =(values:any)=>{
         if(values[0] < values[1]){
             formik.setFieldValue('YearFrom',values[0])
             formik.setFieldValue('YearTo',values[1])
         }
-    },[])
-    const ChangePrice =React.useCallback((values:any)=>{
+    }
+    const ChangePrice =(values:any)=>{
         if(values[0] < values[1]){
             formik.setFieldValue('PriceFrom',values[0])
             formik.setFieldValue('PriceTo',values[1])
         }
-    },[])
-    const ChangeMileage =React.useCallback((values:any)=>{
+    }
+    const ChangeMileage =(values:any)=>{
         if(values[0] < values[1]){
             formik.setFieldValue('MileageFrom',values[0])
             formik.setFieldValue('MileageTo',values[1])
         }
-    },[])
+    }
   return (
     <form className='w-[256px]  bg-[#12120e] text-white mr-5 pl-5 py-2'> 
         <div className='flex flex-col items-start'>

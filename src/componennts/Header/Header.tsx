@@ -82,7 +82,7 @@ export const Header = () => {
     <div className='w-screen mb-40 flex flex-col items-center'>
         <header className='fixed z-[100] left-auto w-screen md:w-[85%] mx-auto h-[120px] md:h-[190px] flex justify-around items-center bg-gradient-to-tr from-[#000] to-[#191919] md:rounded-lg text-white font-mono'>
             <div>
-                <img className='w-[70px] h-[70px] md:w-[137.7px] md:h-[179.5px] object-cover my-[5px]' src={logo} alt=""/>
+                <img  className='w-[70px] h-[70px] md:w-[137.7px] md:h-[179.5px] object-cover my-[5px]' src={logo} alt=""/>
             </div>
             <div  className='hidden xl:block'>
                 <div className='flex w-[800px] border-b border-solid border-[#f1f1f6] pb-2 '>
@@ -100,7 +100,7 @@ export const Header = () => {
                 <div className='hidden  lg:flex  items-center'>
                     
                     <div>
-                        <img className='w-[26px] h-[26px] mr-2' src={phoneSVG}/>
+                        <img className='w-[26px] h-[26px] mr-2' alt='phone' src={phoneSVG}/>
                     </div>
                     <div>
                         +38011122233

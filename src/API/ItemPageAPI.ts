@@ -1,6 +1,4 @@
 import axios from "axios"
-import { ItemDetails } from "../app/type/type"
-
 const base = axios.create({
     baseURL:"https://test-adolbi-cars-api-0a53b7c73b49.herokuapp.com/"
 }) 

@@ -7,7 +7,7 @@ import { Contact } from './componennts/Contact/Contact';
 import { Guarantees } from './componennts/Guarantees/Guarantees';
 import { AboutUS } from './componennts/AboutUS/AboutUS';
 import { ItemPage } from './componennts/ItemPage/ItemPage';
-import {Route, Routes, useParams } from 'react-router-dom'
+import {Route, Routes } from 'react-router-dom'
 import { Cooperation } from './componennts/Cooperation/Cooperation';
 
 function App() {

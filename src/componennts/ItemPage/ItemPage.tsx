@@ -1,7 +1,7 @@
 import React from 'react'
 import Baner from "../../accest/ItemPage/Baner.webp"
 import { Item } from '../Item/Item'
-import arrow from "../../accest/Main/play.png"
+//import arrow from "../../accest/Main/play.png"
 import EmailBlack from "../../accest/Contact/EmailBlack.svg"
 import PhoneBlack from "../../accest/Contact/PhoneBlack.svg"
 import { useSelector } from "react-redux"
