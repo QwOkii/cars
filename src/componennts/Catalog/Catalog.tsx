@@ -37,7 +37,7 @@ interface InitialValues{
 }
 
 export const Catalog = () => {
-    const {ListItem,body_style,fuels,markes,accident,odometer,year } = useSelector((u:RootState)=>u.Catalog )
+    const {ListItem,body_style,fuels,markes } = useSelector((u:RootState)=>u.Catalog )
     const formik = useFormik<InitialValues>({
         initialValues:{
             SelectMark:'',
