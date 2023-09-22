@@ -80,9 +80,9 @@ export const Header = () => {
     }
   return (
     <div className='w-screen mb-40 flex flex-col items-center'>
-        <header className='fixed z-[100] left-auto w-screen md:w-[85%] mx-auto h-[120px] md:h-[190px] flex justify-around items-center bg-gradient-to-tr from-[#000] to-[#191919] md:rounded-lg text-white font-mono'>
+        <header className='fixed z-[100] left-auto w-screen md:w-[85%] mx-auto h-[80px] md:h-[110px] flex justify-around items-center bg-gradient-to-tr from-[#000] to-[#191919] md:rounded-lg text-white font-mono'>
             <div>
-                <img  className='w-[70px] h-[70px] md:w-[137.7px] md:h-[179.5px] object-cover my-[5px]' src={logo} alt=""/>
+                <img  className='w-[70px] h-[70px] md:w-[60px] md:h-[100.5px] object-cover my-[5px]' src={logo} alt=""/>
             </div>
             <div  className='hidden xl:block'>
                 <div className='flex w-[800px] border-b border-solid border-[#f1f1f6] pb-2 '>
@@ -115,7 +115,7 @@ export const Header = () => {
             </button>
 
         </header>{
-                Open ?<div className='mt-44 w-[85%] bg-[#12120e] mx-auto text-[#f1f1f6] border-2 border-t-0 border-solid border-[#12120e] p-5'>
+                Open ?<div className='mt-24 w-[85%] bg-[#12120e] mx-auto lg:hidden text-[#f1f1f6] border-2 border-t-0 border-solid border-[#12120e] p-5'>
             <div className='flex w-[800px] border-b border-solid border-[#f1f1f6] pb-2'>
                 <div className='flex flex-col gap-[15px] w-[250px] border-r-2 border-solid border-yellow-500'>
                     <NavLink to={'/'} className='mx-2'>Головна</NavLink>
