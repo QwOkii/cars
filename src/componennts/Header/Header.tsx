@@ -103,7 +103,7 @@ export const Header = () => {
                         <img className='w-[26px] h-[26px] mr-2' alt='phone' src={phoneSVG}/>
                     </div>
                     <div>
-                        +38011122233
+                        +380 99 491 32 25
                     </div>
                 </div>
                 <button className='bg-[#740706] w-[140px] h-[41px] my-2 rounded'>Замовити дзвінок</button>

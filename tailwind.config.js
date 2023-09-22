@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ["./src/**/*.{html,jsx,tsx}"],
   theme: {
@@ -16,8 +17,8 @@ module.exports = {
       }
     },
     fontFamily:{
-      mono:'Lato',
-      title:'Thicker'
+      mono:['Lato','sans-serif'],
+      title:['Thicker','sans-serif']
     },
     
   },

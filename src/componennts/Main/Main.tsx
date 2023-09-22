@@ -41,14 +41,33 @@ import { FormQuestions } from '../Forms/FormQuestions'
 import { FromCopart } from '../Forms/FromCopart'
 import { useSelector } from "react-redux"
 import { RootState, useAppDispatch } from '../../app/store'
-import { GetListofItem } from '../../app/Catalog'
+import { GetFilterData, GetListofItem, setFuel, setMark, setbody_style } from '../../app/Catalog'
+import { useNavigate } from 'react-router-dom'
 
 export const Main = () => {
+    const { ListItem,body_style,fuels,markes } = useSelector( (u:RootState)=>u.Catalog)
     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
     useEffect(()=>{
-        dispatch(GetListofItem())
-    },[dispatch])
-    const { ListItem } = useSelector( (u:RootState)=>u.Catalog)
+        dispatch(GetListofItem({body_style:body_style,make:markes,fuel:fuels,color:'',drive_type:'',engine_type:'',key:'',model:'',odometer_from:0,odometer_to:99999,pre_accident_value_from:0,pre_accident_value_to:99999,primary_damage:'',transmission:'',year_from:0,year_to:9999}))
+        dispatch(GetFilterData())
+    },[dispatch,markes,body_style,fuels])
+
+    const RedicetWithFuel = React.useCallback((value:string)=>{
+        dispatch( setFuel(value) )
+        navigate('/calalog',{relative:'path'})
+    },[navigate,dispatch])
+
+    const RedicetWithMarks = React.useCallback((value:string)=>{
+        dispatch(setMark(value))
+        navigate('/calalog',{relative:'path'})
+    },[navigate,dispatch])
+
+    const RedicetWithbody_style = React.useCallback((value:string)=>{
+        dispatch(setbody_style(value))
+        navigate('/calalog',{relative:'path'})
+    },[navigate,dispatch])
+    
   return (
     <div className='font-mono mt-10 flex flex-col items-start w-screen md:pl-36 gap-[75px]'>
         <div>
@@ -67,10 +86,7 @@ export const Main = () => {
                 </div>                
             </div>
         </div>
-        <div ref={(el)=>{
-            if(!el) return;
-            console.log(el.offsetTop);
-        }} className=' flex flex-col items-center'>
+        <div className=' flex flex-col items-center'>
             <div className='w-screen  -ml-36 md:pl-36 h-[109px] bg-[#12120e] '>
                 <div className='ml-5 mt-8 text-[28px] font-title font-bold text-white'>
                     Виберіть авто за:
@@ -81,7 +97,7 @@ export const Main = () => {
                     <div className='font-mono text-[25px] font-bold my-5'>
                         Кузовом:
                     </div>
-                    <div className='flex flex-wrap items-start justify-center sm:w-[575px] gap-[10px] sm:gap-[20px] '>
+                    <div onClick={()=>RedicetWithbody_style('4DR EXT')} className='flex flex-wrap items-start justify-center sm:w-[575px] gap-[10px] sm:gap-[20px] '>
                         <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={cross} alt="" />
@@ -90,15 +106,15 @@ export const Main = () => {
                                 Кросовери
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
+                        <div onClick={()=>RedicetWithbody_style('4DR SPOR')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={parket} alt="" />
                             </div>
                             <div className='font-mono text-[14.4px] text-white font-bold'>
-                                Паркетники
+                                Паркетники 
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
+                        <div onClick={()=>RedicetWithbody_style('4DR EXT')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={pickUp} alt="" />
                             </div>
@@ -106,7 +122,7 @@ export const Main = () => {
                                 Пікапи
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
+                        <div onClick={()=>RedicetWithbody_style('CARGO VA')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px] scale-x-[-1] scale-y-[1]'>
                                 <img src={Minivan} alt="" />
                             </div>
@@ -114,7 +130,7 @@ export const Main = () => {
                                 Мінівени
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
+                        <div onClick={()=>RedicetWithbody_style('SEDAN 4D')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={sedan} alt="" />
                             </div>
@@ -122,7 +138,7 @@ export const Main = () => {
                                 Седани
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
+                        <div onClick={()=>RedicetWithbody_style('HATCHBAC')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={hachback} alt="" />
                             </div>
@@ -130,7 +146,7 @@ export const Main = () => {
                                 Хетчбеки
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
+                        <div onClick={()=>RedicetWithbody_style('CONVERTI')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={kabriolet} alt="" />
                             </div>
@@ -138,7 +154,7 @@ export const Main = () => {
                                 Кабріолети
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
+                        <div onClick={()=>RedicetWithbody_style('COUPE')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={cupe} alt="" />
                             </div>
@@ -146,7 +162,7 @@ export const Main = () => {
                                 Купе
                             </div>
                         </div>
-                        <div className='w-[175px] h-[170px] -mx-22 sm:mx-0 bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
+                        <div onClick={()=>RedicetWithbody_style('CREW PIC')}  className='w-[175px] h-[170px] -mx-22 sm:mx-0 bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
                                 <img src={vnedoroznik} alt="" />
                             </div>
@@ -161,7 +177,7 @@ export const Main = () => {
                         Двигуном:
                     </div>
                     <div  className='flex flex-row flex-wrap items-center justify-center sm:w-[390px] gap-[10px] sm:gap-[20px]'>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
+                        <div onClick={()=>RedicetWithFuel('FLEXIBLE FUEL')} className='cursor-pointer w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                                 <div className='font-mono text-[14.4px] text-white font-bold'>
                                     Бензиновий
                                 </div>
@@ -169,7 +185,7 @@ export const Main = () => {
                                     <img src={back} alt="" />
                                 </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
+                        <div onClick={()=>RedicetWithFuel('DIESEL')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                                 <div className='font-mono text-[14.4px] text-white font-bold'>
                                     Дизельний
                                 </div>
@@ -177,7 +193,7 @@ export const Main = () => {
                                     <img src={back} alt="" />
                                 </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
+                        <div onClick={()=>RedicetWithFuel('ELECTRIC')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                                 <div className='font-mono text-[14.4px] text-white font-bold'>
                                     Електро
                                 </div>
@@ -185,9 +201,17 @@ export const Main = () => {
                                     <img src={back} alt="" />
                                 </div>
                         </div>
-                        <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
+                        <div onClick={()=>RedicetWithFuel('HYBRID ENGINE')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                                 <div className='font-mono text-[14.4px] text-white font-bold'>
                                     Гібрид
+                                </div>  
+                                <div className='w-[106px] h-[106px] '>
+                                    <img src={back} alt="" />
+                                </div>
+                        </div>
+                        <div onClick={()=>RedicetWithFuel('GAS')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
+                                <div className='font-mono text-[14.4px] text-white font-bold'>
+                                    Газ
                                 </div>  
                                 <div className='w-[106px] h-[106px] '>
                                     <img src={back} alt="" />
@@ -205,57 +229,57 @@ export const Main = () => {
             </div>
             <div className='m-10 font-mono text-[19px] flex flex-col sm:flex-row justify-start underline decoration-1 flex-wrap'>
                 <ul style={{listStyleType:"initial"}} className='sm:mx-auto xl:mx-[20px]' >
-                    <li>ACURA</li>
-                    <li>ALFA ROMEO</li>
-                    <li>ASTON MARTIN</li>
-                    <li>AUDI</li>
-                    <li>BENTLEY</li>
-                    <li>BMW</li>
-                    <li>BUICK</li>
-                    <li>CADILLAC</li>
-                    <li>CHEVROLET</li>
-                    <li>CHRYSLER</li>
-                    <li>DODGE</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('ACURA')} >ACURA</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('ALFA ROMEO')} >ALFA ROMEO</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('ASTON MARTIN')} >ASTON MARTIN</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('AUDI')} >AUDI</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('BENTLEY')} >BENTLEY</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('BMW')} >BMW</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('BUICK')} >BUICK</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('CADILLAC')} >CADILLAC</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('CHEVROLET')} >CHEVROLET</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('CHRYSLER')} >CHRYSLER</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('DODGE')} >DODGE</li>
                 </ul>
                 <ul style={{listStyleType:"initial"}} className='sm:mx-auto xl:mx-[20px]' >
-                    <li>FERRARI</li>
-                    <li>FIAT</li>
-                    <li>FORD</li>
-                    <li>FREIGHTLINER</li>
-                    <li>GENESIS</li>
-                    <li>GMC</li>
-                    <li>HONDA</li>
-                    <li>HYUNDAI</li>
-                    <li>INFINITI</li>
-                    <li>JAGUAR</li>
-                    <li>JEEP</li>
-                    <li>KIA</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('FERRARI')} >FERRARI</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('FIAT')} >FIAT</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('FORD')} >FORD</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('FREIGHTLINER')} >FREIGHTLINER</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('GENESIS')} >GENESIS</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('GMC')} >GMC</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('HONDA')} >HONDA</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('HYUNDAI')} >HYUNDAI</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('INFINITI')} >INFINITI</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('JAGUAR')} >JAGUAR</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('JEEP')} >JEEP</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('KIA')} >KIA</li>
                 </ul>
                 <ul style={{listStyleType:"initial"}} className='sm:mx-auto xl:mx-[20px]' >
-                    <li>LAMBORGHINI</li>
-                    <li>LAND ROVER</li>
-                    <li>LEXUS</li>
-                    <li>LINCOLN</li>
-                    <li>MASERATI</li>
-                    <li>MAZDA</li>
-                    <li>MCLAREN AUTOMOTIVE</li>
-                    <li>MERCEDES-BENZ</li>
-                    <li>MINI</li>
-                    <li>MITSUBISHI</li>
-                    <li>NISSAN</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('LAMBORGHINI')} >LAMBORGHINI</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('LAND ROVER')} >LAND ROVER</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('LEXUS')} >LEXUS</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('LINCOLN')} >LINCOLN</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('MASERATI')} >MASERATI</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('MAZDA')} >MAZDA</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('MCLAREN AUTOMOTIVE')} >MCLAREN AUTOMOTIVE</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('MERCEDES-BENZ')} >MERCEDES-BENZ</li>
+                    <li className='cursor-pointer' onClick={()=>RedicetWithMarks('MINI')} >MINI</li>
+                    <li className='cursor-pointer' onClick={()=>RedicetWithMarks('MITSUBISHI')} >MITSUBISHI</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('NISSAN')} >NISSAN</li>
                 </ul>
                 <ul style={{listStyleType:"initial"}} className='sm:mx-auto xl:mx-[20px]'>
-                    <li>POLARIS</li>
-                    <li>POLESTAR</li>
-                    <li>PORSCHE</li>
-                    <li>RAM</li>
-                    <li>SCION</li>
-                    <li>SMART</li>
-                    <li>SUBARU</li>
-                    <li>TESLA</li>
-                    <li>TOYOTA</li>
-                    <li>VOLKSWAGEN</li>
-                    <li>VOLVO</li>
+                    <li className='cursor-pointer' onClick={()=>RedicetWithMarks('POLARIS')} >POLARIS</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('POLESTAR')} >POLESTAR</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('PORSCHE')} >PORSCHE</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('RAM')} >RAM</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('SCION')} >SCION</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('SMART')} >SMART</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('SUBARU')} >SUBARU</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('TESLA')} >TESLA</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('TOYOTA')} >TOYOTA</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('VOLKSWAGEN')} >VOLKSWAGEN</li>
+                    <li className='cursor-pointer'  onClick={()=>RedicetWithMarks('VOLVO')} >VOLVO</li>
                 </ul>
             </div>
             <button className='text-white bg-[#740706] p-4 box-border xl:w-[461px] h-[58.6px] rounded my-10'>Перейти до каталогу всіх товарів</button>
@@ -309,7 +333,7 @@ export const Main = () => {
             <div className='flex flex-col xl:flex-row'>
                 <div className='flex flex-col w-[300px] sm:w-[600px] mx-8 my-2  sm:mx-14 sm:my-10'>
                     <div className='font-mono text-[#12120e]'>
-                        Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                        Покупка авто з США надає вам доступ до широкого вибору автомобілів різних марок та моделей, і дозволяє знайти ідеальний варіант для ваших потреб і бюджету. Ми працюємо в цій сфері вже декілька років і на власному досвіді переконалися, що це надійно та вигідно.
                     </div>
                     <div className='w-[641px] h-[258px] hidden xl:block'>
                         <img src={BanerCar} alt="" />
@@ -322,10 +346,10 @@ export const Main = () => {
                         </div>
                         <div className='ml-5 font-mono  w-[480px]'>
                             <div className=' text-[20px] font-bold'>
-                                Правдива історія авто
+                                Справжня історія авто:
                             </div>
                             <div className=' mt-5 w-[250px] sm:w-[460px] '>
-                                Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                                За допомогою сервісів, які надають інформацію про історію автомобілів, ви можете отримати точну картину того, що сталося з машиною раніше. Ви будете знати, чи було авто учасником дорожньо-транспортної пригоди, чи ретельно обслуговувалося і чи має якісь серйозні проблеми. Це дозволяє вам приймати обдумані рішення та обрати автомобіль.
                             </div>
                         </div>
                     </div>
@@ -335,10 +359,10 @@ export const Main = () => {
                         </div>
                         <div className='ml-5 font-mono w-[480px]'>
                             <div className=' text-[20px] font-bold'>
-                                Економія до 40%
+                                Економія:
                             </div>
                             <div className=' mt-5 w-[250px] sm:w-[460px] '>
-                                Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                                Покупка автомобіля із США може значно зекономити ваші кошти. Ринок Сполучених Штатів пропонує широкий вибір автомобілів за конкурентними цінами, а також багато автомобілів зі знижками після оренди або лізингу.
                             </div>
                         </div>
                     </div>
@@ -348,10 +372,10 @@ export const Main = () => {
                         </div>
                         <div className='ml-5 font-mono w-[480px]'>
                             <div className=' text-[20px] font-bold'>
-                                Безпечна доставка
+                                Безпечна доставка:
                             </div>
                             <div className=' mt-5 w-[250px] sm:w-[460px]'>
-                                Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                            Наша команда професіоналів гарантує безпечну та надійну доставку вашого автомобіля зі США. Ми співпрацюємо з досвідченими логістичними компаніями та страховими агентами, щоб ваш автомобіль дістався до вас цілим і неушкодженим.
                             </div>
                         </div>
                     </div>
@@ -361,10 +385,10 @@ export const Main = () => {
                         </div>
                         <div className='ml-5 font-mono w-[480px]'>
                             <div className=' text-[20px] w-[250px] font-bold'>
-                                Хороший технічний стан авто
+                                Хороший технічний стан авто:
                             </div>
                             <div className=' mt-5 w-[250px] sm:w-[460px]'>
-                                Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                                Ми завжди перевіряємо та докладно аналізуємо технічний стан кожного автомобіля перед його продажем. Усі наші авто проходять комплексну перевірку, щоб ви могли бути впевнені в їхній надійності та безпеці на дорозі.
                             </div>
                         </div>
                     </div>
@@ -376,11 +400,60 @@ export const Main = () => {
                 <div className='font-title text-[26px] font-bold'>
                     ВАРТІСТЬ АВТО З США В УКРАЇНІ
                 </div>
-                <div className='font-mono text-[17] flex my-4 '>
-                    <div className='font-bold mr-2'>Вартість доставки</div> залежить від кількох факторів:
+                <div className='font-mono text-[17] my-4 '>
+                    <div className='text-[18px ]font-bold'>
+                    При покупці автомобіля зі США і його подальшій доставці до України, важливо зрозуміти, як формується вартість цієї операції. Доставка залежить від кількох ключових факторів:
+                    </div>
+                    <ul className='list-inside flex flex-col gap-3  list-decimal mt-2'>
+                        <li>
+                            Автомобіль спочатку доставляється автовозом до нашого складу, який розташований біля одного з портів в Сполучених Штатах.
+                        </li>
+                        <li>
+                            Після цього, авто транспортується судном через океан до обраного вами європейського порту.
+                        </li>
+                        <li>
+                            Після прибуття до порту, автомобіль транспортується автовозом до необхідного міста в Україні.
+                        </li>
+                    </ul>                
                 </div>
                 <div className='font-mono w-[250px] sm:w-[500px]'>
-                    Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                    <div className='font-mono text-[17] my-4 '>
+                        <div className='text-[18px ] font-bold'>
+                            Крім того, ми пропонуємо спеціальний сервіс для стеження за доставкою вашого авто.
+                            <div className='my-2'>
+                                Щодо розмитнення, важливо враховувати такі аспекти:
+                            </div>
+                        </div>
+                        <ul className='list-inside list-decimal flex flex-col gap-3 mt-2'>
+                            <li>
+                                Загальна ставка мита: Вона становить 10% від оціненої вартості автомобіля.
+                            </li>
+                            <li>
+                                Акцизний збір: Вартість цього збору визначається в залежності від типу, ціни авто, об’єму двигуна та року випуску.
+                            </li>
+                            <li>
+                                ПДВ (податок на додану вартість): Становить 20% і обчислюється від оціненої вартості авто.
+                            </li>
+                            <li>
+                                Додаткові виплати до Пенсійного фонду: Зазвичай встановлюються відповідно до правил та норм.
+                            </li>
+                        </ul>                
+                    </div>
+                <div className='font-mono text-[17] my-4 '>
+                    <div className='text-[18px] font-bold'>
+                        Для електромобілів та гібридів діє інша система тарифів.
+                    </div>
+                    <div className=' flex flex-col gap-3 '>
+                        <div>
+                            Для отримання точної вартості автомобіля і розрахунків використовуйте наш Калькулятор.
+                        </div>
+                        <div>
+                            Вартість доставки авто з США: Починається від $600
+                            Терміни доставки авто: Зазвичай від 6 до 8 тижнів
+                            Комісія: Від $400
+                        </div>
+                    </div>                
+                </div>
                 </div>
             </div>
             <BlackTheme>
@@ -393,7 +466,7 @@ export const Main = () => {
                 ПРОЦЕС ПОКУПКИ АВТО З США
             </div>
             <div className='text-white flex flex-wrap gap-[35px] phone:justify-center'>
-                    <div    className='buing-item bg-[#12120e] w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative phone:before:block'>
+                    <div    className='buing-item bg-[#12120e] w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative phone:before:block'>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={odred} alt="" />
                         </div>
@@ -402,11 +475,11 @@ export const Main = () => {
                                 Заявка та консультація
                             </div>
                             <div className=' mt-5'>
-                                Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                                Ваш перший крок – заповнення заявки. Протягом декількох хвилин, наш консультант зв’яжеться з вами, щоб визначити ваші побажання та бюджет.
                             </div>
                         </div>
                     </div>
-                    <div  className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative phone:before:block max-laptop:before:hidden  '>
+                    <div  className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative phone:before:block max-laptop:before:hidden  '>
                         <div className='w-[66px] h-[70px] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={docAccept} alt="" />
                         </div>
@@ -415,14 +488,14 @@ export const Main = () => {
                                 Договір
                             </div>
                             <div className=' mt-5'>
-                                Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                                Після детального ознайомлення з договором, ви підписуєте його. І це стає гарантом виконання умов угоди.
                             </div>
                         </div>
                     </div>
                     <div className='w-screen -ml-28  hidden max-laptop:block phone:hidden'>
                         <img className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
                     </div>
-                    <div   className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border relative phone:before:block  xl:before:hidden'>
+                    <div   className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border relative phone:before:block  xl:before:hidden'>
                         <div className='w-[66px] h-[70px]  rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={search} alt="" />
                         </div>
@@ -431,14 +504,14 @@ export const Main = () => {
                                 Підбір та перевірка
                             </div>
                             <div className=' mt-5'>
-                                Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                                Наші експерти знаходять для вас відповідну модель і ще декілька варіантів. Під час цього етапу проводиться ретельна перевірка автомобілів, включаючи документацію та технічний стан.
                             </div>
                         </div>
                     </div>
                     <div className='w-screen  -ml-28  hidden laptop:block'>
                         <img className='w-[850px]  mx-auto' src={ArrowTo} alt="" />
                     </div>
-                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative phone:before:block max-laptop:before:hidden '>
+                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative phone:before:block max-laptop:before:hidden '>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={hammer} alt="" />
                         </div>
@@ -447,14 +520,14 @@ export const Main = () => {
                                 Аукціон
                             </div>
                             <div className=' mt-5'>
-                                Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                                Ви маєте можливість взяти участь в аукціоні для придбання вигідного лота. Наша система розрахунків допомагає значно зекономити ваші кошти.
                             </div>
                         </div>
                     </div>
                     <div className='w-screen -ml-28  hidden max-laptop:block phone:hidden'>
                         <img className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
                     </div>
-                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative '>
+                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative '>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={pay} alt="" />
                         </div>
@@ -463,11 +536,11 @@ export const Main = () => {
                                 Оплата
                             </div>
                             <div className=' mt-5'>
-                                Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                                Упродовж двох днів ви здійснюєте оплату виграного автомобіля через банк. Рахунок включає комісію аукціону та витрати на транспортування в Америці та Україні.
                             </div>
                         </div>
                     </div>
-                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative phone:before:block xl:before:hidden max-laptop:before:hidden'>
+                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative phone:before:block xl:before:hidden max-laptop:before:hidden'>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={cargo} alt="" />
                         </div>
@@ -476,7 +549,7 @@ export const Main = () => {
                                 Доставка
                             </div>
                             <div className=' mt-5'>
-                                Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                                Ваш автомобіль відправляється евакуатором до найближчого порту. Перед завантаженням машина проходить додаткову перевірку і фотозвіт.
                             </div>
                         </div>
                     </div>
@@ -486,7 +559,7 @@ export const Main = () => {
                     <div className='w-screen -ml-28  hidden max-laptop:block phone:hidden'>
                         <img className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
                     </div>
-                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative '>
+                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative '>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={rozmitnennya} alt="" />
                         </div>
@@ -495,11 +568,11 @@ export const Main = () => {
                                 Розмитнення
                             </div>
                             <div className=' mt-5'>
-                                Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                                Ми здійснюємо митне оформлення за зниженими тарифами, включаючи мито, податки, акцизні збори та відсоток до Пенсійного фонду.
                             </div>
                         </div>
                     </div>
-                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative  phone:before:block max-laptop:before:hidden'>
+                    <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative  phone:before:block max-laptop:before:hidden'>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={repair} alt="" />
                         </div>
@@ -508,14 +581,14 @@ export const Main = () => {
                                 Ремонт авто
                             </div>
                             <div className=' mt-5'>
-                                Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                                За необхідності ми забезпечуємо виконання ремонтних робіт.
                             </div>
                         </div>
                     </div>
                     <div className='w-screen -ml-28  hidden max-laptop:block phone:hidden'>
                         <img className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
                     </div>
-                    <div  className=' bg-[#12120e]  w-[350px] sm:w-[400px] h-[169px] rounded flex p-4 box-border  relative '>
+                    <div  className=' bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative '>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={getCar} alt="" />
                         </div>
@@ -524,7 +597,7 @@ export const Main = () => {
                                 Отримання авто
                             </div>
                             <div className=' mt-5'>
-                                Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                                Після прибуття автомобіля на наш склад, він проходить фінальну перевірку. І Через декілька днів ви отримуєте ключі та всі необхідні документи для вашої нової автівки.
                             </div>
                         </div>
                     </div>
@@ -536,46 +609,46 @@ export const Main = () => {
             </div>
             <div className='flex mx-3 flex-col xl:flex-row gap-[10px] sm:gap-[20px]'>
                 <div className='max-w-[700px] text-white flex flex-wrap gap-[10px] sm:gap-[20px]'>
-                    <div className=' w-[340px] h-[192px] bg-[#12120e] p-[20px] rounded'>
+                    <div className=' w-[340px] min-h-[192px] bg-[#12120e] p-[20px] rounded'>
                         <div className='text-[18] font-bold my-3'>
                             Офіційний представник Copart
                         </div>
                         <div>
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                            Наша компанія є офіційним ліцензійним представником Copart, що дає нам повний доступ до всіх можливостей цього аукціону. Ця ліцензія дозволяє переглядати закриті лоти і отримувати детальну інформацію про кожен автомобіль, а в разі необхідності, навіть отримувати ексклюзивні фотографії.
                         </div>
                     </div>
-                    <div className=' w-[340px] h-[192px] bg-[#12120e] p-[20px] rounded'>
+                    <div className=' w-[340px] min-h-[192px] bg-[#12120e] p-[20px] rounded'>
                         <div className='text-[18] font-bold my-3'>
-                            Офіційний представник Copart
+                            Завжди на зв’язку
                         </div>
                         <div>
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                            Ми завжди на зв’язку з вами, готові відповісти на всі ваші запитання та надати консультації у будь-який час..
                         </div>
                     </div>
-                    <div className=' w-[340px] h-[192px] bg-[#12120e] p-[20px] rounded'>
+                    <div className=' w-[340px] min-h-[192px] bg-[#12120e] p-[20px] rounded'>
                         <div className='text-[18] font-bold my-3'>
-                            Офіційний представник Copart
+                            Власні склади в США
                         </div>
                         <div>
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                            Наша компанія має декілька великих складів площею 20 000 м², розташованих по всій території Сполучених Штатів. Три з них розташовані на східному узбережжі, а два - на західному. Їхнє географічне положення дозволяє нам доставляти автомобілі з аукціонів в порти в 3 рази швидше.
                         </div>
                     </div>
-                    <div className=' w-[340px] h-[192px] bg-[#12120e] p-[20px] rounded'>
+                    <div className=' w-[340px] min-h-[192px] bg-[#12120e] p-[20px] rounded'>
                         <div className='text-[18] font-bold my-3'>
-                            Офіційний представник Copart
+                            Звітність на кожному етапі
                         </div>
                         <div>
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                            Ми прагнемо забезпечити вас повною інформацією на кожному етапі процесу. Починаючи з підписання договору, ми надаємо вам звіти про всі особливості угоди та торгів. Від аукціону до отримання автомобіля - ми піклуємося про вашу впевненість і надаємо фотозвіти на всіх етапах транспортування.
                         </div>
                     </div>
                 </div>
                 <div>
-                    <div className=' w-[340px] h-[192px] bg-[#12120e] p-[20px] rounded text-white'>
+                    <div className=' w-[340px] min-h-[192px] bg-[#12120e] p-[20px] rounded text-white'>
                         <div className='text-[18] font-bold my-3'>
-                            А також, те що про нас говорять
+                            А також, відгуки наших клієнтів
                         </div>
                         <div>
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                            Наша репутація дуже важлива для нас, і ми завжди вдячні за відгуки наших клієнтів.
                         </div>
                         <button className='bg-[#740706] w-[230px] h-[40px]'>Подивитися відгуки</button>
                     </div>
@@ -667,10 +740,40 @@ export const Main = () => {
                     <img  src={Copart} alt="" />
                 </div>
                 <div className='text-[23px] font-bold'>
-                    Copart
+                    ПРАЦЮЄМО З COPART
                 </div>
-                <div>
-                Приклад тексту   Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                <div className='flex flex-col gap-3 my-4 '>
+                    <div>
+                        Copart є одним з найбільших відкритих онлайн-аукціонів, спеціалізований на утриманих та списаних автомобілях. Цей аукціон відкритий для всіх охочих, але має свої обмеження. На торговому майданчику Copart представлено понад 3 мільйони транспортних засобів, а щоденно на ньому з'являється понад 175 тисяч пропозицій. 
+                    </div>
+                    <div className='flex flex-col gap-4 '>
+                        <div>
+                            На аукціоні Copart зустрічаються різні транспортні засоби, включаючи:
+                        </div>
+                        <ul className='list-disc flex flex-col gap-3 list-inside'>
+                            <li>
+                                Транспортні засоби, які потрапили в ДТП та потребують відновлення.
+                            </li>
+                            <li>
+                                Авто, які були викрадені або знайдені.
+                            </li>
+                            <li>
+                                Транспортні засоби, які пошкоджено в результаті вандалізму та потребують ремонту.
+                            </li>
+                            <li>
+                                Авто, які постраждали в результаті природних катастроф, таких як повені, урагани, чи інші стихійні лиха.
+                            </li>
+                            <li>
+                                Автомобілі, які були затоплені та потребують відновлення.
+                            </li>
+                            <li>
+                                Транспортні засоби, які мають заводські дефекти або виробничі проблеми.
+                            </li>
+                        </ul>
+                        <div>
+                            Ці автомобілі зазвичай виставляються на продаж страховими або лізинговими компаніями після проведення страхових виплат власникам. Купуючи такий автомобіль на аукціоні Copart, ви маєте можливість зекономити до 50% порівняно з ринковою ціною на новий автомобіль.
+                        </div>
+                    </div>
                 </div>
             </div>
             <FromCopart/>
@@ -704,7 +807,7 @@ export const Main = () => {
                         Телефон:
                     </div>
                     <div>
-                        +38011122233
+                        +380 99 491 32 25
                     </div>
                 </div>
                 <div className='flex gap-[10px] text-[18px] font-bold'>

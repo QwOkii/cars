@@ -1,5 +1,5 @@
 import { Select } from 'antd'
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { Item } from './Item'
 import play from "../../accest/Main/play.png"
 import obert from "../../accest/Catalog/obert.svg"
@@ -14,13 +14,67 @@ import { FormQuestionsBorder } from '../Forms/FormQuestionsBorder'
 import { GetListofItem } from '../../app/Catalog'
 import { RootState, useAppDispatch } from '../../app/store'
 import { useSelector } from "react-redux"
+import { useFormik } from 'formik'
+
+interface InitialValues{
+    SelectMark:string,
+    SelectModel:string,
+    PriceFrom:number,
+    PriceTo:number,
+    YearFrom:number,
+    YearTo:number,
+    MileageFrom:number,
+    MileageTo:number,
+    Keys:string,
+    TypeCar:string,
+    Fuel:string,
+    Color:string,
+    Reason:string,
+    Damage:string,
+    Transmission:string,
+    EngineSize:string,
+    BuyNow:boolean
+}
 
 export const Catalog = () => {
+    const formik = useFormik<InitialValues>({
+        initialValues:{
+            SelectMark:'',
+            SelectModel:'',
+            PriceFrom:0,
+            PriceTo:0,
+            YearFrom:0,
+            YearTo:0,
+            MileageFrom:0,
+            MileageTo:0,
+            Keys:'',
+            TypeCar:'',
+            Fuel:'',
+            Color:'',
+            Reason:'',
+            Damage:'',
+            Transmission:'',
+            EngineSize:'',
+            BuyNow:false
+        },
+        onSubmit:()=>{
+
+        }
+    })
     const dispatch = useAppDispatch()
+    const {ListItem,body_style,fuels,markes } = useSelector((u:RootState)=>u.Catalog )
     React.useEffect(()=>{
-        dispatch(GetListofItem())
-    },[dispatch])
-    const {ListItem } = useSelector((u:RootState)=>u.Catalog )
+        dispatch(GetListofItem({body_style:body_style,color:formik.values.Color,drive_type:formik.values.Reason,fuel:fuels,key:formik.values.Keys,make:markes,model:formik.values.SelectModel,primary_damage:formik.values.Damage,engine_type:formik.values.EngineSize,odometer_from:formik.values.MileageFrom,odometer_to:formik.values.MileageTo,transmission:formik.values.Transmission,pre_accident_value_from:formik.values.PriceFrom,pre_accident_value_to:formik.values.PriceTo,year_from:formik.values.YearFrom,year_to:formik.values.YearTo,}))
+        console.log('call');
+    },[dispatch,formik.values,body_style,fuels,markes])
+    const Ref = useRef<HTMLDetailsElement>(null)
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const TetxChange = React.useCallback(()=>{
+        setIsOpen(!isOpen); 
+        if (Ref.current) {
+            Ref.current.open = !isOpen;
+          }
+    },[Ref,isOpen])
   return (
     <div className='font-mono mt-10 flex flex-col items-start w-screen ml-5 md:pl-56 gap-[75px]'>
         <div className=' font-mono sm:min-h-[1400px]'>
@@ -30,7 +84,7 @@ export const Catalog = () => {
             <div className='flex ml-10 sm:ml-0'>
                 <div className=' flex-col hidden xl:flex'>
                     <BlackTheme>
-                        <FormFilter/>                      
+                        <FormFilter formik={formik}/>                      
                     </BlackTheme>
 
                     <div className='w-[256px] bg-[#12120e] text-white mr-5 mt-5 pl-5 py-2 hidden xl:block'>
@@ -90,36 +144,71 @@ export const Catalog = () => {
                 </div>          
             </div>
         </div>
-        <div className='flex'>
-            <div className=' xl:w-[630px] mr-[50px] flex flex-col items-center'>
-                <div className='mt-10'>
-                    <div className='text-[21px] font-bold font-title  mb-5'>
-                        Пошук та підбір б/в машин на майданчиках американських автомобілів
+        <div className='flex  text-ellipsis'>
+            <div className=' flex flex-col items-center'>
+                <details ref={Ref} id="text-details" className=' xl:w-[630px] mr-[50px] flex flex-col items-center'>
+                    <summary>
+                        <div className='mt-10'>
+                            <div className='text-[21px] font-bold font-title  mb-5'>
+                                Пошук та підбір б/в машин на американських аукціонах
+                            </div>
+                            <div className='text-[15px]'>
+                                Купівля автомобіля на американських аукціонах може бути більш економічно вигідною, ніж придбання авто на українському ринку. Проте ключовою частиною успішної покупки є правильний вибір. Наша компанія має досвід у цій галузі, і ми знаємо, як здійснити безпечну та вигідну покупку авто з США. Проте, ви також маєте можливість спробувати зробити це самостійно.
+                            </div>
+                        </div>                    
+                    </summary>
+                    <div>
+                        <div className='mt-10'>
+                            <div className='text-[25px] font-bold font-title  mb-5'>
+                                Як вдало купити автомобіль в Америці на аукціоні?
+                            </div>
+                            <ul className='lg:ml-5 list-decimal list-inside text-[15px] flex flex-col gap-5'>
+                                <li>
+                                    Реєстрація: Пошук автомобілів розпочинається з реєстрації на аукціонах. Найбільш популярними з них є Copart, Manheim та IAAI.
+                                </li>
+                                <li>
+                                    Ліцензія: Завантажте необхідну ліцензію, яка надасть вам право придбати авто на аукціоні.
+                                </li>
+                                <li>
+                                    Пошук: Почніть пошук автомобілів в Америці, використовуючи наявні фільтри та параметри.
+                                </li>
+                                <li>
+                                    Огляд: Ретельно вивчайте характеристики кожного лота та досліджуйте інформацію та фотографії авто.
+                                </li>
+                                <li>
+                                    Торги: Беріть участь у торгах та обирайте вигідні лоти. Наша команда допоможе вам ефективно провести торги.
+                                </li>
+                                <li>
+                                    Оплата та доставка: Сплачуйте за виграні автомобілі та організовуйте їх транспортування в Україну.
+                                </li>
+                                <li>
+                                    Сертифікація: Після отримання авто в Україні, проходьте обов'язкову сертифікацію та розмитнення.
+                                </li>
+                                <li>
+                                    Отримання та реєстрація: Завершуйте процес, отримуйте свій автомобіль та реєструйте його.
+                                </li>
+                                <div>
+                                Кожен з цих етапів має свої особливості. Наприклад, деякі аукціони, такі як Manheim, доступні лише для дилерів з ліцензією. Ми пропонуємо спрощений процес покупки авто на аукціоні.
+                                </div>
+                            </ul>
+                        </div>
+                        <div className='mt-10'>
+                            <div className='text-[25px] font-bold font-title  mb-5'>
+                                Биті чи не биті авто з аукціону, чи варто ризикувати?
+                            </div>
+                            <div className='text-[15px]'>
+                                Різниця між битими автомобілями та автомобілями без пошкоджень полягає в ціні. Автомобілі з США після аварій продаються за значно нижчою ціною. Однак це не завжди критично, оскільки наші спеціалісти ретельно перевіряють документацію та технічний стан кожного лоту. Детальна оцінка за 38 пунктами дозволяє нам зрозуміти, чи варто придбати авто після ДТП.
+                                Співпрацюючи з десятками СТО, з нами ви витратите в 3-4 рази менше на ремонт авто після пошкодження.
+                                Розширені пошукові фільтри на нашому сайті роблять підбір авто з США максимально зручним. Навіть якщо ви ще не визначились, наші консультанти допоможуть вам знайти авто, що відповідає вашим потребам за ціною та комплектацією.
+                            </div>
+                        </div>                    
                     </div>
-                    <div className='text-[15px]'>
-                        Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
-                    </div>
-                </div>
-                <div className='mt-10'>
-                    <div className='text-[25px] font-bold font-title  mb-5'>
-                        Як вдало купити автомобіль в Америці на аукціоні?
-                    </div>
-                    <div className='text-[15px]'>
-                        Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
-                    </div>
-                </div>
-                <div className='mt-10'>
-                    <div className='text-[25px] font-bold font-title  mb-5'>
-                        Биті чи не биті авто з аукціону, що обрати
-                    </div>
-                    <div className='text-[15px]'>
-                        Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
-                    </div>
-                </div>
-                <div className='text-[#740706] underline decoration-1 text-[18px] hover:italic mt-10'>
+                </details>
+                <div onClick={TetxChange}  className='text-[#740706] cursor-pointer underline decoration-1 text-[18px] hover:italic mt-10'>
                     Згорнути
-                </div>
+                </div>                
             </div>
+
             <div>
                 <img className='w-[482px] h-[321px] hidden xl:block' src={Baner1} alt="" />
             </div>
@@ -130,60 +219,62 @@ export const Catalog = () => {
             </div>
             <div className='flex flex-col  xl:flex-row ml-12 sm:ml-0 text-white gap-[10px] mb-10'>
                 <div className='flex flex-col gap-[10px]'>
-                    <details  id='details' className='bg-[#12120e] w-[345px] h-[80px] md:w-[510px] md:h-[110px] box-border rounded flex flex-col justify-center items-center p-5'>
-                        <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
-                            З якими аукціонами ми працюємо? 
+                    <details  id='details' className='bg-[#12120e] cursor-pointer w-[305px]  md:w-[470px]  box-content rounded flex flex-col justify-center items-center p-5'>
+                        <summary className='font-title text-[20px] hover:ease-in duration-150 h-[60px] text-center md:pt-5 marker:text-[#740706]'>
+                            З якими аукціонами ми працюємо?
                         </summary>
-                        <div className='h-[250px] max-w-[470px] mx-10'>
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                        <div className=' ease-in duration-150 max-w-[345px] mx-10'>
+                            На даний момент ми працюємо з одним із найпопулярніших аукціонів Америки, Copart.
                         </div>
                     </details> 
-                    <details  id='details' className='bg-[#12120e] w-[345px] h-[80px] md:w-[510px] md:h-[110px] box-border rounded flex flex-col justify-center items-center p-5'>
+                    <details  id='details' className='bg-[#12120e] cursor-pointer w-[305px] md:w-[470px]   box-content rounded flex flex-col justify-center items-center p-5'>
                         <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
-                            Як вибрати авто із США?
+                            Як купити автомобіль на аукціоні?
                         </summary>
-                        <div className='h-[250px] w-[470px] mx-10'>
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                        <div className=' w-[345px] mx-10'>
+                            Перейдіть до Каталогу, оберіть бажаний автомобіль і подайте заявку, натиснувши кнопку "Зробити ставку" або "Замовити авто". Крім того, ви можете скористатися опцією "Купити зараз" у фільтрі, щоб вибрати автомобіль з фіксованою кінцевою вартістю, яку встановив продавець (без урахування додаткових зборів). Якщо у вас ще залишилися питання, залиште заявку прямо на сторінці автомобіля, використовуючи кнопку "Замовити консультацію".
                         </div>
                     </details> 
-                    <details id='details' className='bg-[#12120e] w-[345px] h-[80px] md:w-[510px] md:h-[110px] box-border rounded flex flex-col justify-center items-center p-5'>
-                        <summary className='font-title text-[20px]h-[60px] text-center md:pt-5 marker:text-[#740706]'>
-                            З якими аукціонами ми працюємо? 
+                    <details id='details' className='bg-[#12120e] cursor-pointer w-[305px]  md:w-[470px]   box-content rounded flex flex-col justify-center items-center p-5'>
+                        <summary className='font-title text-[20px] h-[60px] text-center md:pt-5 marker:text-[#740706]'>
+                            Як дізнатися пробіг автомобіля?
                         </summary>
-                        <div className='h-[250px] w-[470px] mx-10'>
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                        <div className=' w-[345px] mx-10'>
+                            Реальний пробіг та історію автомобіля можна дізнатися на сервісах Carfax або AutoCheck.
+                        </div>
+                    </details> 
+                    <details id='details' className='bg-[#12120e] cursor-pointer w-[305px]  md:w-[470px]   box-content rounded flex flex-col justify-center items-center p-5'>
+                        <summary className='font-title text-[20px] h-[60px] text-center md:pt-5 marker:text-[#740706]'>
+                            Скільки часу триває доставлення?
+                        </summary>
+                        <div className=' w-[345px] mx-10'>
+                            Зазвичай доставка авто з США до України може займати від 6 до 8 тижнів. Проте цей термін може змінюватися в залежності від конкретних умов і послуг, які ви обираєте. А також погоди, завантаженості та віддаленості портів. Транспортування відбувається в 4 етапи: доставлення до порту США (біля 10 робочих днів), проходження американської митниці (до 5 днів), перевезення морем (3-5 тижнів) та перегін по Україні від порту до клієнта (декілька діб).
                         </div>
                     </details> 
                 </div>
                 <div className='flex flex-col gap-[10px]'>
-                    <details id='details' className='bg-[#12120e] w-[345px] h-[80px] md:w-[510px] md:h-[110px] box-border rounded flex flex-col justify-center items-center p-5'>
+                    <details id='details' className='bg-[#12120e] cursor-pointer w-[305px]  md:w-[470px]   box-content rounded flex flex-col justify-center items-center p-5'>
                         <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
-                            З якими аукціонами ми працюємо? 
+                            Як розмитнити куплений автомобіль?
                         </summary>
-                        <div className='h-[250px] w-[470px] mx-10'>
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                        <div className=' w-[345px] mx-10'>
+                            На митниці проводиться огляд технічного стану автомобіля та перевірка наявності супровідних документів. Також тут здійснюється розрахунок та оплата державних зборів. Митний збір становить 10% від вартості машини. Акцизний податок розраховується за наступною формулою: фіксована ставка від 50 до 150 доларів помножується на об'єм двигуна та кількість повних років автомобіля. ПДВ становить 20% від вартості автомобіля, державного мита та акцизного податку. Також здійснюється збір до Пенсійного фонду в розмірі 3-5%.
                         </div>
                     </details> 
-                    <details id='details' className='bg-[#12120e] w-[345px] h-[80px] md:w-[510px] md:h-[110px] box-border rounded flex flex-col justify-center items-center p-5'>
-                        <summary className='font-title text-[20px]h-[60px] text-center md:pt-5 marker:text-[#740706]'>
-                            З якими аукціонами ми працюємо? 
+                    <details id='details' className='bg-[#12120e] cursor-pointer w-[305px]  md:w-[470px]   box-content rounded flex flex-col justify-center items-center p-5'>
+                        <summary className='font-title text-[20px] h-[60px] text-center md:pt-5 marker:text-[#740706]'>
+                            Як вибрати авто із США?
                         </summary>
-                        <div className='h-[250px] w-[470px] mx-10'>
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                        <div className=' w-[470px] mx-10'>
+                            Щоб вибрати бажану марку та модель автомобіля, використовуйте фільтр. Потім налаштуйте додаткові фільтри, такі як пробіг, рік випуску, середню роздрібну ціну і т. д. Якщо ви хочете придбати автомобіль негайно, без очікування, позначте опцію "Купити зараз" або натисніть кнопку "Замовити авто" і заповніть необхідні поля форми.
                         </div>
                     </details> 
-                    <details id='details' className='bg-[#12120e] w-[345px] h-[80px] md:w-[510px] md:h-[110px] box-border rounded flex flex-col justify-center items-center p-5'>
-                        <summary className='font-title text-[20px]h-[60px] text-center md:pt-5 marker:text-[#740706]'>
-                            З якими аукціонами ми працюємо? 
+                    <details id='details' className='bg-[#12120e] cursor-pointer w-[305px]  md:w-[470px]   box-content rounded flex flex-col justify-center items-center p-5'>
+                        <summary className='font-title text-[20px] h-[60px] text-center md:pt-5 marker:text-[#740706]'>
+                            За що, окрім ціни автомобіля, потрібно ще заплатити?
                         </summary>
-                        <div className='h-[250px] w-[470px] mx-10'>
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
-                            Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту Приклад тексту
+                        <div className=' w-[345px] mx-10'>
+                            Зазвичай, для участі в аукціоні доводиться сплатити комісію, яка становить до 10% від кінцевої ставки. Крім того, значними витратами є розмитнення, яке включає державне мито, акцизний збір, ПДВ та внесок до Пенсійного фонду. До цих витрат також додається оплата за доставку, послуги брокерської компанії та послуги нашої компанії. Зазвичай, після отримання автомобіля, необхідно оплатити сертифікацію.
                         </div>
                     </details> 
                 </div>
@@ -224,7 +315,7 @@ export const Catalog = () => {
                         Телефон:
                     </div>
                     <div>
-                        +38011122233
+                        +380 99 491 32 25
                     </div>
                 </div>
                 <div className='flex gap-[10px] text-[18px] font-bold'>

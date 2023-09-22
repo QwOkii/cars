@@ -19,9 +19,7 @@ const InitialState:ItemDetails={
     color:" " ,
     engine_type:  " " ,
     current_bid: 0,
-    images_list: {
-        HIGH_RESOLUTION_IMAGE:[],
-        THUMBNAIL_IMAGE:[],
+    images: {
         FULL_IMAGE:[]
     }
 }
@@ -38,7 +36,7 @@ const SetItemByID = createAction<ItemDetails>('SET-ITEM-BY-ID')
 
 export const ItemPage = createReducer(InitialState,{
     [SetItemByID.type]:(state,action:PayloadAction<ItemDetails>)=>{
-        const {VIN_code,color,current_bid,drive_type,engine_type,fuel,images_list,keys,location,lot_name,lot_number,odometer,odometer_type,primary_damage,year} = action.payload
+        const {VIN_code,color,current_bid,drive_type,engine_type,fuel,images,keys,location,lot_name,lot_number,odometer,odometer_type,primary_damage,year} = action.payload
 
         return{
             ...state,
@@ -56,11 +54,9 @@ export const ItemPage = createReducer(InitialState,{
             primary_damage,
             VIN_code,
             year,
-            images_list:{
-                HIGH_RESOLUTION_IMAGE:images_list.HIGH_RESOLUTION_IMAGE,
-                THUMBNAIL_IMAGE:images_list.THUMBNAIL_IMAGE,
-                FULL_IMAGE:images_list.FULL_IMAGE
-            },
+            images:{
+                FULL_IMAGE:images.FULL_IMAGE
+            }
 
         }
     }

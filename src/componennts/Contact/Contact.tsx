@@ -56,7 +56,7 @@ export const Contact = () => {
                     Телефон:
                 </div>
                 <div>
-                    +38011122233
+                    +380 99 491 32 25
                 </div>
             </div>
             <div className='flex gap-[10px] text-[18px] font-bold'>

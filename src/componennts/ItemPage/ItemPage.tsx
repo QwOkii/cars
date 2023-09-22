@@ -21,7 +21,7 @@ export const ItemPage = () => {
     React.useEffect(()=>{
         dispatch(GetItemByID(Number(carID)))
     },[dispatch,carID])
-    const { VIN_code,color,current_bid,drive_type,engine_type,fuel,images_list,keys,location,lot_name,lot_number,odometer,primary_damage,year } = useSelector((u:RootState)=>u.ItemPage)
+    const { VIN_code,color,current_bid,drive_type,engine_type,fuel,images,keys,location,lot_name,lot_number,odometer,primary_damage,year } = useSelector((u:RootState)=>u.ItemPage)
     const { ListItem } = useSelector( (u:RootState)=>u.Catalog)
     return (
     <div className='font-mono mt-10 flex flex-col items-start  w-screen pl-36 gap-[75px]'>
@@ -39,7 +39,7 @@ export const ItemPage = () => {
                         
                     >
                     {
-                        images_list.FULL_IMAGE.map(u =><a href={u}><img className='w-[823px] h-[560px] rounded'  src={u} alt="" /></a>)
+                        images.FULL_IMAGE.map(u =><a href={u}><img className='w-[823px] h-[560px] rounded'  src={u} alt="" /></a>)
                     }
                     </LightGallery>
                     </div>  
@@ -275,7 +275,7 @@ export const ItemPage = () => {
                         Телефон:
                     </div>
                     <div>
-                        +38011122233
+                        +380 99 491 32 25
                     </div>
                 </div>
                 <div className='flex gap-[10px] text-[18px] font-bold'>

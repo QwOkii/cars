@@ -11,7 +11,7 @@ export type Item ={
     primary_damage:string,
     fuel:string,
     engine_type:string,
-    image:string,
+    images:string,
     drive_type:string
 }
 
@@ -30,10 +30,56 @@ export type ItemDetails ={
     color:  string ,
     engine_type:  string ,
     current_bid: number,
-    images_list: {
-        HIGH_RESOLUTION_IMAGE :Array<string>,
-        THUMBNAIL_IMAGE:Array<string>,
+    images: {
         FULL_IMAGE:Array<string>
     }
+}
+
+export interface FilterData{
+    makes?: Record<string, number> | undefined
+    models?: Record<string, number> | undefined
+    years?: Record<string, number> | undefined
+    pre_accident_values?:Record<string, number> | undefined
+    odometers?: Record<string, number> | undefined
+    keys?: Record<string, number> | undefined
+    body_styles?: Record<string, number> | undefined
+    fuels?: Record<string, number> | undefined
+    colors?: Record<string, number> | undefined
+    drive_types?: Record<string, number> | undefined
+    primary_damages?: Record<string, number> | undefined
+    transmissions?: Record<string, number> | undefined
+    engine_types?: Record<string, number> | undefined
+    year_borders?:{
+        min:number,
+        max:number
+    },
+    pre_accident_value_borders?:{
+        min:number,
+        max:number
+    },
+    odometer_borders?:{
+        min:number,
+        max:number
+    },
+}
+
+export interface FilterDataPost{
+    make?:string,
+    model?: string,
+    key?:  string,
+    body_style?:  string,
+    fuel?:  string,
+    color?:  string,
+    drive_type?:  string,
+    primary_damage?: string,
+    transmission?:  string,
+    engine_type?:  string,
+    year_from?:number,
+    year_to?: number,
+    pre_accident_value_from?: number,
+    pre_accident_value_to?: number,
+    odometer_from?: number,
+    odometer_to?: number,
+            
 }
 

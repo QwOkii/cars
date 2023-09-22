@@ -1,6 +1,8 @@
 import { Select } from 'antd'
 import React from 'react'
 import { useFormik } from 'formik'
+import { useAppDispatch } from '../../app/store'
+import { GetListofItem } from '../../app/Catalog'
 
 interface InitialValues{
     SelectMark:string,
@@ -10,6 +12,7 @@ interface InitialValues{
 }
 
 export const FormSelectCar = () => {
+    const dispatch = useAppDispatch()
     const formik =useFormik<InitialValues>({
         initialValues:{
             SelectMark:'',
@@ -18,7 +21,8 @@ export const FormSelectCar = () => {
             YearBefore:0
         },
         onSubmit:(values)=>{
-            alert(JSON.stringify(values))
+            dispatch(GetListofItem({make:values.SelectMark,model:values.SelectModel,year_from:values.YearAfter,year_to:values.YearBefore}))
+
         }
     })
 

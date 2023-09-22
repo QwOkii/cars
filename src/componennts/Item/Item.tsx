@@ -10,7 +10,7 @@ interface Props{
     lot_number:number,
     VIN_code:string,
     fuel:string,
-    image:string,
+    images:string,
     engine_type:string,
     odometer:number,
     year:number,
@@ -19,11 +19,11 @@ interface Props{
     current_bid:number
 }
 
-export const Item:React.FC<Props> = ({VIN_code,engine_type,fuel,image,lot_name,odometer,primary_damage,lot_number,current_bid}) => {
+export const Item:React.FC<Props> = ({VIN_code,engine_type,fuel,images,lot_name,odometer,primary_damage,lot_number,current_bid}) => {
 
   return (
     <NavLink id='Item' to={`/car/${lot_number}`} className='w-[300px] h-[578px] bg-[#12120e] flex flex-col justify-between items-center text-white '>
-        <img src="" alt="" className='w-[300px] h-[196px]'/>
+        <img src={images} alt="" className='w-[300px] h-[196px]'/>
         <div className='font-mono font-bold '>
             {lot_name}
         </div>

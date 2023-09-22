@@ -5,7 +5,7 @@ const base = axios.create({
 
 export class ItemPageAPI{
     async GetItemByID(id:number | undefined){
-        const res = base.get(`/lot_details/${id}`).then(u =>u.data)
+        const res = base.get(`/lots/${id}`).then(u =>u.data)
         return res
     }
 }
