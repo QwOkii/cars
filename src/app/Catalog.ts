@@ -8,6 +8,18 @@ interface InitialStateType{
     markes:string,
     body_style:string,
     fuels:string
+    year:{
+        max:number | undefined,
+        min:number| undefined
+    },
+    odometer:{
+        max:number| undefined,
+        min:number| undefined
+    },
+    accident:{
+        max:number| undefined,
+        min:number| undefined
+    }
 }
 
 const InitialState:InitialStateType={
@@ -42,7 +54,19 @@ const InitialState:InitialStateType={
     } as FilterData,
     markes:'',
     body_style:'',
-    fuels:''
+    fuels:'',
+    accident:{
+        max:0,
+        min:0
+    },
+    odometer:{
+        max:0,
+        min:0
+    },
+    year:{
+        max:0,
+        min:0
+    }
 }
 
 export const GetListofItem = createAsyncThunk<unknown,FilterDataPost>('GET-LIST-OF-ITEM',async (values,{dispatch})=>{
@@ -63,6 +87,10 @@ const SetFilterData = createAction<FilterData>('SET-FILTER-DATA')
 export const setFuel = createAction<string>('SET-FUEL')
 export const setMark = createAction<string>('SET-MARK')
 export const setbody_style = createAction<string>('SET-BORY_STYLE')
+
+export const setYear = createAction<{min:number,max:number}>('SET-Year')
+export const setOdometr = createAction<{min:number,max:number}>('SET-Odometr')
+export const setaccident = createAction<{min:number,max:number}>('SET-accident')
 
 export const Catalog = createReducer(InitialState,{
     [SetListofItems.type]:(state:InitialStateType,action:PayloadAction<Array<Item>>)=>{
@@ -124,6 +152,7 @@ export const Catalog = createReducer(InitialState,{
         if(action.payload.years !==undefined){
             yearsArr= Object.entries(action.payload.years).map(([key,value])=>({value:key,label:key}))
         }
+
         return{
             ...state,
             Data:{
@@ -153,6 +182,18 @@ export const Catalog = createReducer(InitialState,{
                     max:action.payload.pre_accident_value_borders?.max,
                     min:action.payload.pre_accident_value_borders?.min
                 },
+                odometer:{
+                    max:action.payload.odometer_borders?.max,
+                    min:action.payload.odometer_borders?.min
+                },
+                year:{
+                    max:action.payload.year_borders?.max,
+                    min:action.payload.year_borders?.min
+                },
+                accident:{
+                    max:action.payload.pre_accident_value_borders?.max,
+                    min:action.payload.pre_accident_value_borders?.min
+                }
 
             }
         }
@@ -173,6 +214,26 @@ export const Catalog = createReducer(InitialState,{
         return{
             ...state,
             body_style:action.payload
+        }
+    },
+    [setOdometr.type]:(state,action:PayloadAction<{min:number,max:number}>)=>{
+        return{
+            ...state,
+            odometer:action.payload
+        }
+    },
+    [setYear.type]:(state,action:PayloadAction<{min:number,max:number}>)=>{
+        return{
+            ...state,
+            year:action.payload
+            
+        }
+    },
+    [setaccident.type]:(state,action:PayloadAction<{min:number,max:number}>)=>{
+        return{
+            ...state,
+            accident:action.payload
+            
         }
     }
 

@@ -19,12 +19,12 @@ import { useFormik } from 'formik'
 interface InitialValues{
     SelectMark:string,
     SelectModel:string,
-    PriceFrom:number,
-    PriceTo:number,
-    YearFrom:number,
-    YearTo:number,
-    MileageFrom:number,
-    MileageTo:number,
+    PriceFrom:number |undefined,
+    PriceTo:number |undefined,
+    YearFrom:number |undefined,
+    YearTo:number |undefined,
+    MileageFrom:number |undefined,
+    MileageTo:number |undefined,
     Keys:string,
     TypeCar:string,
     Fuel:string,
@@ -37,16 +37,17 @@ interface InitialValues{
 }
 
 export const Catalog = () => {
+    const {ListItem,body_style,fuels,markes,accident,odometer,year } = useSelector((u:RootState)=>u.Catalog )
     const formik = useFormik<InitialValues>({
         initialValues:{
             SelectMark:'',
             SelectModel:'',
-            PriceFrom:0,
-            PriceTo:0,
-            YearFrom:0,
-            YearTo:0,
-            MileageFrom:0,
-            MileageTo:0,
+            PriceFrom:accident.min,
+            PriceTo:accident.max,
+            YearFrom:year.min,
+            YearTo:year.max,
+            MileageFrom:odometer.min,
+            MileageTo:odometer.max,
             Keys:'',
             TypeCar:'',
             Fuel:'',
@@ -62,7 +63,6 @@ export const Catalog = () => {
         }
     })
     const dispatch = useAppDispatch()
-    const {ListItem,body_style,fuels,markes } = useSelector((u:RootState)=>u.Catalog )
     React.useEffect(()=>{
         dispatch(GetListofItem({body_style:body_style,color:formik.values.Color,drive_type:formik.values.Reason,fuel:fuels,key:formik.values.Keys,make:markes,model:formik.values.SelectModel,primary_damage:formik.values.Damage,engine_type:formik.values.EngineSize,odometer_from:formik.values.MileageFrom,odometer_to:formik.values.MileageTo,transmission:formik.values.Transmission,pre_accident_value_from:formik.values.PriceFrom,pre_accident_value_to:formik.values.PriceTo,year_from:formik.values.YearFrom,year_to:formik.values.YearTo,}))
         console.log('call');
