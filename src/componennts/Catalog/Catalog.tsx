@@ -63,7 +63,6 @@ export const Catalog = () => {
         }
     })
     const dispatch = useAppDispatch()
-    const [popup,setPopUp] =useState<boolean>(true)
     React.useEffect(()=>{
         dispatch(GetListofItem({body_style:body_style,color:formik.values.Color,drive_type:formik.values.Reason,fuel:fuels,key:formik.values.Keys,make:markes,model:formik.values.SelectModel,primary_damage:formik.values.Damage,engine_type:formik.values.EngineSize,odometer_from:formik.values.MileageFrom,odometer_to:formik.values.MileageTo,transmission:formik.values.Transmission,pre_accident_value_from:formik.values.PriceFrom,pre_accident_value_to:formik.values.PriceTo,year_from:formik.values.YearFrom,year_to:formik.values.YearTo,}))
         dispatch(GetFilterData())
@@ -100,7 +99,7 @@ export const Catalog = () => {
                 <div>
                     
                     <div className='flex xl:w-[950px] justify-between'>
-                        <button onClick={()=>{setPopUp(true)}} className='block tablet:hidden rounded w-[210px] h-[40px] bg-[#740706] text-white'>
+                        <button className='block tablet:hidden rounded w-[210px] h-[40px] bg-[#740706] text-white'>
                             Фільтр
                         </button>
                         <div className=' hidden tablet:block'>
