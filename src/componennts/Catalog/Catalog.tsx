@@ -87,9 +87,6 @@ export const Catalog = () => {
                     <BlackTheme>
                         <FormFilter formik={formik}/>                      
                     </BlackTheme>
-                    {
-                        popup ? <div className='left-0 z-[100]'> <BlackTheme> <FormFilter formik={formik}/> </BlackTheme> </div> : <div> </div>
-                    }
                     <div className='w-[256px] bg-[#12120e] text-white mr-5 mt-5 pl-5 py-2 hidden xl:block'>
                         <div>
                             Отримувати новини на Email
