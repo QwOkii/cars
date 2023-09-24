@@ -13,7 +13,7 @@ export class CatalogAPI {
         return res.data
     }
     async GetDataFiltr(){
-        const res = await base.get<any>('/get_params').then(u =>u)
+        const res = await base.get<any>('/get_params_v2').then(u =>u)
         return res.data
     }
 }   

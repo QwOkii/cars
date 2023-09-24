@@ -67,7 +67,7 @@ export const Main = () => {
         dispatch(setbody_style(value))
         navigate('/calalog',{relative:'path'})
     },[navigate,dispatch])
-    
+
   return (
     <div className='font-mono mt-10 flex flex-col items-start w-screen md:pl-36 gap-[75px]'>
         <div>
@@ -293,7 +293,7 @@ export const Main = () => {
             
             <div className='w-screen flex gap-[20px] justify-center items-center overflow-x-hidden'>
                 <img src={arrow} alt="" className='w-[28px] h-[25px] ml-32 scale-x-[-1] scale-y-[1]'/>
-                {ListItem.map(u=><Item key={u.VIN_code} {...u} />)}
+                {ListItem.map((u)=><Item key={u.VIN_code} {...u} />)}
                 <img src={arrow} alt="" className='w-[28px] h-[25px]'/>
             </div>
         </div>

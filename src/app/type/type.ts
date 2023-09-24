@@ -83,3 +83,30 @@ export interface FilterDataPost{
             
 }
 
+export interface FilterType{
+    makes?:Array<{value:string,label:string}>
+    models?: Array<{value:string,label:string}>
+    years?: Array<{value:string,label:string}>
+    pre_accident_values?:Array<{value:string,label:string}>
+    odometers?: Array<{value:string,label:string}>
+    keys?: Array<{value:string,label:string}>
+    body_styles?: Array<{value:string,label:string}>
+    fuels?: Array<{value:string,label:string}>
+    colors?: Array<{value:string,label:string}>
+    drive_types?: Array<{value:string,label:string}>
+    primary_damages?: Array<{value:string,label:string}>
+    transmissions?: Array<{value:string,label:string}>
+    engine_types?: Array<{value:string,label:string}>
+    year_borders?:{
+        min:number,
+        max:number
+    },
+    pre_accident_value_borders?:{
+        min:number,
+        max:number
+    },
+    odometer_borders?:{
+        min:number,
+        max:number
+    },
+}

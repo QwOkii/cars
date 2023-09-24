@@ -11,7 +11,7 @@ import { BlackTheme } from '../BlackTheme/BlackTheme'
 import { FormFilter } from '../Forms/FormFilter'
 import { FormHelp } from '../Forms/FormHelp'
 import { FormQuestionsBorder } from '../Forms/FormQuestionsBorder'
-import { GetListofItem } from '../../app/Catalog'
+import { GetFilterData, GetListofItem } from '../../app/Catalog'
 import { RootState, useAppDispatch } from '../../app/store'
 import { useSelector } from "react-redux"
 import { useFormik } from 'formik'
@@ -63,9 +63,10 @@ export const Catalog = () => {
         }
     })
     const dispatch = useAppDispatch()
+    const [popup,setPopUp] =useState<boolean>(true)
     React.useEffect(()=>{
         dispatch(GetListofItem({body_style:body_style,color:formik.values.Color,drive_type:formik.values.Reason,fuel:fuels,key:formik.values.Keys,make:markes,model:formik.values.SelectModel,primary_damage:formik.values.Damage,engine_type:formik.values.EngineSize,odometer_from:formik.values.MileageFrom,odometer_to:formik.values.MileageTo,transmission:formik.values.Transmission,pre_accident_value_from:formik.values.PriceFrom,pre_accident_value_to:formik.values.PriceTo,year_from:formik.values.YearFrom,year_to:formik.values.YearTo,}))
-        console.log('call');
+        dispatch(GetFilterData())
     },[dispatch,formik.values,body_style,fuels,markes])
     const Ref = useRef<HTMLDetailsElement>(null)
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -82,11 +83,13 @@ export const Catalog = () => {
                 АВТОМОБІЛІ З АУКЦІОНІВ США
             </div>
             <div className='flex ml-10 sm:ml-0'>
-                <div className=' flex-col hidden xl:flex'>
+                <div className=' flex-col hidden xl:flex relative'>
                     <BlackTheme>
                         <FormFilter formik={formik}/>                      
                     </BlackTheme>
-
+                    {
+                        popup ? <div className='left-0 z-[100]'> <BlackTheme> <FormFilter formik={formik}/> </BlackTheme> </div> : <div> </div>
+                    }
                     <div className='w-[256px] bg-[#12120e] text-white mr-5 mt-5 pl-5 py-2 hidden xl:block'>
                         <div>
                             Отримувати новини на Email
@@ -100,7 +103,7 @@ export const Catalog = () => {
                 <div>
                     
                     <div className='flex xl:w-[950px] justify-between'>
-                        <button className='block tablet:hidden rounded w-[210px] h-[40px] bg-[#740706] text-white'>
+                        <button onClick={()=>{setPopUp(true)}} className='block tablet:hidden rounded w-[210px] h-[40px] bg-[#740706] text-white'>
                             Фільтр
                         </button>
                         <div className=' hidden tablet:block'>
