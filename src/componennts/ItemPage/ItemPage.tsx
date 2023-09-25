@@ -32,15 +32,15 @@ export const ItemPage = () => {
                 {lot_name}
             </div>
             <div className='flex sm:gap-8 flex-col xl:flex-row'>
-                <div className='w-[823px] flex flex-col gap-8'>
-                    <div className='w-[300px] h-[196px] object-cover sm:w-[580px] sm:h-[430px] lg:w-[823px] lg:h-[560px] border border-solid border-[#12120e] overflow-hidden'>
+                <div className='w-[300px]  lg:w-[823px] flex flex-col gap-8'>
+                    <div className='w-[300px] h-[196px] lg:w-[823px] lg:h-[790px] sm:w-[580px] sm:h-[430px]  border border-solid border-[#12120e] overflow-hidden'>
                     <LightGallery
                         onInit={()=>{}}
                         speed={500}
                         plugins={[lgThumbnail, lgZoom]}
                     >
                     {
-                        images.FULL_IMAGE.map(u =><a href={u}><img className='w-[823px] h-[560px] rounded  sm:object-cover'  src={u} alt="" /></a>)
+                        images.FULL_IMAGE.map(u =><a  className='w-[300px] h-[196px] object-cover lg:w-[823px] lg:h-[560px] rounded ' href={u}><img className='w-[300px] h-[196px] object-cover lg:w-[823px] lg:h-[560px] rounded '  src={u} alt="" /></a>)
                     }
                     </LightGallery>
                     </div>  
