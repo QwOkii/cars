@@ -11,7 +11,6 @@ import vnedoroznik from "../../accest/Main/vnedoroznik.webp"
 import back from "../../accest/Main/bensin.svg"
 import { Item } from '../Item/Item'
 import arrow from "../../accest/Main/play.png"
-import Baner1 from "../../accest/Main/Baner1.webp"
 import BanerCar from "../../accest/Main/BanderCar.webp"
 import PointCar from "../../accest/Main/PointCar.svg"
 import book from "../../accest/Main/book.webp"
@@ -43,15 +42,16 @@ import { useSelector } from "react-redux"
 import { RootState, useAppDispatch } from '../../app/store'
 import { GetFilterData, GetListofItem, setFuel, setMark, setbody_style } from '../../app/Catalog'
 import { useNavigate } from 'react-router-dom'
+import { FormPhone } from '../Forms/FormPhone'
 
 export const Main = () => {
-    const { ListItem,body_style,fuels,markes } = useSelector( (u:RootState)=>u.Catalog)
+    const { ListItem,body_style,fuels,markes,nextPage } = useSelector( (u:RootState)=>u.Catalog)
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
     useEffect(()=>{
-        dispatch(GetListofItem({body_style:body_style,make:markes,fuel:fuels,color:'',drive_type:'',engine_type:'',key:'',model:'',odometer_from:0,odometer_to:99999,pre_accident_value_from:0,pre_accident_value_to:99999,primary_damage:'',transmission:'',year_from:0,year_to:9999}))
+        dispatch(GetListofItem({page:nextPage,body_style:body_style,make:markes,fuel:fuels,color:'',drive_type:'',engine_type:'',key:'',model:'',odometer_from:0,odometer_to:99999,pre_accident_value_from:0,pre_accident_value_to:99999,primary_damage:'',transmission:'',year_from:0,year_to:9999}))
         dispatch(GetFilterData())
-    },[dispatch,markes,body_style,fuels])
+    },[dispatch,markes,body_style,fuels,nextPage])
 
     const RedicetWithFuel = React.useCallback((value:string)=>{
         dispatch( setFuel(value) )
@@ -297,33 +297,7 @@ export const Main = () => {
                 <img src={arrow} alt="" className='w-[28px] h-[25px]'/>
             </div>
         </div>
-        <div className=' text-white'>
-            <div className='w-screen md:-ml-36  min-h-[350px] bg-[#12120e] flex items-center justify-between'>
-                <div className='h-[350px]  xl:w-[250px]   box-border '>
-                    <img src={Baner1}  alt="" className='h-[350px]  xl:w-[250px]   box-border '/>
-                </div>
-                <div className='flex flex-col lg:flex-row gap-5 w-[66%] justify-between'>  
-                    <div className='flex flex-col justify-between '>
-                        <div className='font-mono text-[20px] font-bold'>
-                            Зателефонуйте нам та отримайте консультацію
-                        </div>
-                        <button className='border-4 border-solid border-[#aeaeb2] w-[270px] h-[60px] mt-10 font-mono text-[15px]' >
-                            +38011122333
-                        </button>
-                    </div>
-                    <div className='mr-16 flex flex-col justify-between'>
-                        <div className='font-mono text-[20px] font-bold'>
-                            Або залиште свій номер телефону
-                            ,<br /> і ми вам перезвонимо
-                        </div>
-                        <div className='flex mt-10 flex-col sm:flex-row gap-2'>
-                            <input type="text" placeholder='+380XXXXXXXX' className='w-[270px] h-[60px] border-4 border-solid border-[#aeaeb2] bg-[#12120e] p-2 outline-none'/>
-                            <button className='bg-[#740706] w-[270px] sm:w-[170px] h-[60px] rounded sm:ml-5'>Відправити</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       <FormPhone/>
         <div>
             <div className='w-screen sm:-ml-36 sm:pl-36 h-[109px] bg-[#12120e] pt-8'>
                 <div className='ml-5 my text-[26px] font-title font-bold text-white'>

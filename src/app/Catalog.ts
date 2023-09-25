@@ -21,6 +21,10 @@ interface InitialStateType{
         min:number| undefined
     },
     isload:boolean
+    totalofItems:number ,
+    currentPage:number  ,
+    nextPage:number ,
+    perPage: number 
 }
 
 const InitialState:InitialStateType={
@@ -68,22 +72,32 @@ const InitialState:InitialStateType={
         max:0,
         min:0
     },
-    isload:true
+    isload:true,
+    currentPage:1,
+    nextPage:2,
+    perPage:20,
+    totalofItems:0
 }
 
 export const GetListofItem = createAsyncThunk<unknown,FilterDataPost>('GET-LIST-OF-ITEM',async (values,{dispatch})=>{
-    console.log('call thunk');
     const res = await new CatalogAPI().ListItemGet(values)
     dispatch(SetListofItems(res))
 
 })
 export const GetFilterData = createAsyncThunk('GET-FILTER-DATA',async (_,{dispatch})=>{
     const res = await new CatalogAPI().GetDataFiltr()
-    console.log(res);
     dispatch(SetFilterData(res))
 })
+interface SetLotsType{
+    ListOfItem:Array<Item>,
+    totalofItems:number | string,
+    currentPage:number | string ,
+    nextPage:number | string ,
+    perPage: number | string
+}
 
-const SetListofItems = createAction<Array<Item>>('SET-LIST-OF-ITEMS')
+
+const SetListofItems = createAction<SetLotsType>('SET-LIST-OF-ITEMS')
 
 const SetFilterData = createAction<FilterData>('SET-FILTER-DATA')
 
@@ -96,10 +110,15 @@ export const setOdometr = createAction<{min:number,max:number}>('SET-Odometr')
 export const setaccident = createAction<{min:number,max:number}>('SET-accident')
 
 export const Catalog = createReducer(InitialState,{
-    [SetListofItems.type]:(state:InitialStateType,action:PayloadAction<Array<Item>>)=>{
+    [SetListofItems.type]:(state:InitialStateType,action:PayloadAction<any>)=>{
         return{
             ...state,
-            ListItem:action.payload
+            ListItem:action.payload[1],
+            currentPage:action.payload[0].current_page,
+            nextPage:action.payload[0].next_page,
+            perPage:action.payload[0].per_page,
+            totalofItems:action.payload[0].overall_lots_number
+
         }
     },
     [SetFilterData.type]:(state:InitialStateType,action:PayloadAction<FilterData>)=>{

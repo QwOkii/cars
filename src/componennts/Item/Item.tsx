@@ -4,6 +4,7 @@ import car from "../../accest/Item/car.webp"
 import probig from "../../accest/Item/probig.webp"
 import back from "../../accest/Main/bensin.svg"
 import { NavLink } from 'react-router-dom'
+import { PopUp } from '../PopUp/PopUp'
 
 interface Props{
     lot_name:string,
@@ -23,7 +24,7 @@ export const Item:React.FC<Props> = ({VIN_code,engine_type,fuel,images,lot_name,
 
   return (
     <NavLink id='Item' to={`/car/${lot_number}`} className='w-[300px] h-[578px] bg-[#12120e] flex flex-col justify-between items-center text-white '>
-        <img src={images} alt="" className='w-[300px] h-[196px]'/>
+        <img src={images} alt="" className='w-[300px] h-[196px] object-cover'/>
         <div className='font-mono font-bold '>
             {lot_name}
         </div>
@@ -55,9 +56,7 @@ export const Item:React.FC<Props> = ({VIN_code,engine_type,fuel,images,lot_name,
                 <div className='text-[#ad3b3a] text-[17.3px] ml-2'>${current_bid}</div>
             </div>
         </div>
-        <button className='bg-[#12120e] border-4 border-solid border-[#aeaeb2] w-[256px] h-[52px] rounded'>
-            Зробити ставку
-        </button>
+        <PopUp message_type='Зробити ставку' id={lot_number} button='Зробити ставку' title='Зробити ставку' styleButton='bg-[#12120e] border-4 border-solid border-[#aeaeb2] w-[256px] h-[52px] rounded' />
         <button className='w-[256px] h-[52px] bg-[#740706] rounded mb-2'>
             Детальніше
         </button>

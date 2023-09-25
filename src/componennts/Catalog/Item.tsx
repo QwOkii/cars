@@ -6,6 +6,7 @@ import back from "../../accest/Main/bensin.svg"
 import calendar from "../../accest/Item/calendar.svg"
 import privod from "../../accest/Item/privod.webp"
 import { NavLink } from 'react-router-dom'
+import { PopUp } from '../PopUp/PopUp'
 
 interface Props{
     lot_name:string,
@@ -107,9 +108,7 @@ export const Item:React.FC<Props> = ({VIN_code,engine_type,fuel,images,lot_name,
                     </div>
                 </div>
                 <div className='flex flex-col md:flex-row tablet:-mt-0 tablet:flex-col gap-2'>
-                    <button className='text-[11px] border-[3px] border-solid border-[#f1f1f6] rounded w-[220px] h-[30px]'>
-                        Зробити ставку
-                    </button>
+                <PopUp message_type='Зробити ставку' id={lot_number} button='Зробити ставку'  title='Зробити ставку' styleButton='bg-[#12120e] border-4 border-solid border-[#aeaeb2] w-[220px] h-[30px] rounded' />
                     <button className='w-[220px] h-[30px] rounded text-[11px] bg-[#740706] '>
                         Детальніше
                     </button>

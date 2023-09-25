@@ -5,7 +5,7 @@ import { RootState, useAppDispatch } from '../../app/store'
 import { useSelector } from 'react-redux'
 
 
-export const FormFilter:React.FC<{formik:any}> = ({formik}) => {
+export const FormFilter:React.FC<{formik:any,close?:boolean,isOpenForm:boolean,setisOpenForm:(i:boolean)=>void}> = ({formik,close,isOpenForm,setisOpenForm}) => {
     const {Option} =Select
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
@@ -39,13 +39,18 @@ export const FormFilter:React.FC<{formik:any}> = ({formik}) => {
         )
     } else{
          return (
-        <form onSelect={formik.handleSubmit} onChange={formik.handleSubmit} className='w-[256px]  bg-[#12120e] text-white mr-5 pl-5 py-2'> 
+        <form onSelect={formik.handleSubmit} onChange={formik.handleSubmit} className={'w-[256px] bg-[#12120e] text-white mr-5 pl-5 py-2'}>
+            {
+                close ? <div className='flex justify-end text-[32px] cursor-pointer text-[#740706] mr-2'>
+                    <div onClick={()=>setisOpenForm(false)}>X</div>
+                </div> : <div> </div>
+            }
             <div className='flex flex-col items-start'>
                 <div className='text-[17px]'>
                     Марка
                 </div>
                 <Select loading={ isload} onSelect={(e:any)=>formik.setFieldValue('SelectMark',e)}  placeholder="Марка" className='w-[210px] h-[40px] mt-1 text-black'>
-                    {makes.map((u:{label:string,value:number})=><Option key={u.value}><div className='text-black'>  {u.label}</div></Option>)}
+                    {makes.map((u:{label:string,value:number})=><Option key={u.label}><div className='text-black'>  {u.label}</div></Option>)}
                 </Select>
             </div>
             <div >
@@ -53,7 +58,7 @@ export const FormFilter:React.FC<{formik:any}> = ({formik}) => {
                     Модель
                 </div>
                 <Select  loading={ isload} onSelect={(e:any)=>formik.setFieldValue('SelectModel',e)} placeholder="Модель" className='w-[210px] h-[40px] mt-1'>
-                    {models.map((u:{label:string,value:number})=><Option key={u.value}><div className='text-black'>  {u.label}</div></Option>)}
+                    {models.map((u:{label:string,value:number})=><Option key={u.label}><div className='text-black'>  {u.label}</div></Option>)}
                 </Select>
             </div>
             <div >
@@ -91,7 +96,7 @@ export const FormFilter:React.FC<{formik:any}> = ({formik}) => {
                     З ключем
                 </div>
                 <Select loading={ isload} onSelect={(e:any)=>formik.setFieldValue('Keys',e)} placeholder="Ключі" className='w-[210px] h-[40px] mt-1'>
-                    {keys.map((u:{label:string,value:number})=><Option key={u.value}><div className='text-black'>  {u.value}</div></Option>)}
+                    {keys.map((u:{label:string,value:number})=><Option key={u.label}><div className='text-black'>  {u.label}</div></Option>)}
                 </Select>
             </div>
             <div >
@@ -99,7 +104,7 @@ export const FormFilter:React.FC<{formik:any}> = ({formik}) => {
                     Тип кузова
                 </div>
                 <Select loading={ isload} onSelect={(e:any)=>formik.setFieldValue('TypeCar',e)} placeholder="Кузов" className='w-[210px] h-[40px] mt-1'>
-                    {body_styles.map((u:{label:string,value:number})=><Option key={u.value}><div className='text-black'>  {u.value}</div></Option>)}
+                    {body_styles.map((u:{label:string,value:number})=><Option key={u.label}><div className='text-black'>  {u.label}</div></Option>)}
                 </Select>
             </div>
             <div >
@@ -107,7 +112,7 @@ export const FormFilter:React.FC<{formik:any}> = ({formik}) => {
                     Паливо
                 </div>
                 <Select loading={ isload} onSelect={(e:any)=>formik.setFieldValue('Fuel',e)} placeholder="Паливо" className='w-[210px] h-[40px] mt-1'>
-                    {fuels.map((u:{label:string,value:number})=><Option key={u.value}><div className='text-black'>  {u.value}</div></Option>)}
+                    {fuels.map((u:{label:string,value:number})=><Option key={u.label}><div className='text-black'>  {u.label}</div></Option>)}
                 </Select>
             </div>
             <div >
@@ -115,7 +120,7 @@ export const FormFilter:React.FC<{formik:any}> = ({formik}) => {
                     Колір
                 </div>
                 <Select loading={ isload} onSelect={(e:any)=>formik.setFieldValue('Color',e)} placeholder="Колір" className='w-[210px] h-[40px] mt-1'>
-                    {colors.map((u:{label:string,value:number})=><Option key={u.value}><div className='text-black'>  {u.value}</div></Option>)}
+                    {colors.map((u:{label:string,value:number})=><Option key={u.label}><div className='text-black'>  {u.label}</div></Option>)}
                 </Select>
             </div>
             <div >
@@ -123,7 +128,7 @@ export const FormFilter:React.FC<{formik:any}> = ({formik}) => {
                     Привід
                 </div>
                 <Select loading={ isload} onSelect={(e:any)=>formik.setFieldValue('Reason',e)} placeholder="Привід" className='w-[210px] h-[40px] mt-1'>
-                    {drive_types.map((u:{label:string,value:number})=><Option key={u.value}><div className='text-black'>  {u.value}</div></Option>)}
+                    {drive_types.map((u:{label:string,value:number})=><Option key={u.label}><div className='text-black'>  {u.label}</div></Option>)}
                 </Select>
             </div>
             <div >
@@ -131,7 +136,7 @@ export const FormFilter:React.FC<{formik:any}> = ({formik}) => {
                     Пошкодження
                 </div>
                 <Select loading={ isload} onSelect={(e:any)=>formik.setFieldValue('Damage',e)} placeholder="Пошкодження" className='w-[210px] h-[40px] mt-1'>
-                {primary_damages.map((u:{label:string,value:number})=><Option key={u.value}><div className='text-black'>  {u.value}</div></Option>)}
+                {primary_damages.map((u:{label:string,value:number})=><Option key={u.label}><div className='text-black'>  {u.label}</div></Option>)}
                 </Select>
             </div>
             <div >
@@ -139,7 +144,7 @@ export const FormFilter:React.FC<{formik:any}> = ({formik}) => {
                     Трансмісія
                 </div>
                 <Select loading={ isload} onSelect={(e:any)=>formik.setFieldValue('Transmission',e)} placeholder="Трансмісія" className='w-[210px] h-[40px] mt-1'>
-                    {transmissions.map((u:{label:string,value:number})=><Option key={u.value}><div className='text-black'>  {u.value}</div></Option>)}
+                    {transmissions.map((u:{label:string,value:number})=><Option key={u.label}><div className='text-black'>  {u.label}</div></Option>)}
                 </Select>
             </div>
             <div >
@@ -147,7 +152,7 @@ export const FormFilter:React.FC<{formik:any}> = ({formik}) => {
                     Об’єм двигуна
                 </div>
                 <Select loading={ isload} onSelect={(e:any)=>formik.setFieldValue('EngineSize',e)} placeholder="Об’єм двигуна" className='w-[210px] h-[40px] mt-1'>
-                    {engine_types.map((u:{label:string,value:number})=><Option key={u.value}><div className='text-black'>  {u.value}</div></Option>)}
+                    {engine_types.map((u:{label:string,value:number})=><Option key={u.label}><div className='text-black'>  {u.label}</div></Option>)}
                 </Select>
             </div>
         </form>

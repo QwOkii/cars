@@ -37,7 +37,7 @@ interface InitialValues{
 }
 
 export const Catalog = () => {
-    const {ListItem,body_style,fuels,markes } = useSelector((u:RootState)=>u.Catalog )
+    const {ListItem,body_style,fuels,markes,currentPage,totalofItems,nextPage, } = useSelector((u:RootState)=>u.Catalog )
     const formik = useFormik<InitialValues>({
         initialValues:{
             SelectMark:'',
@@ -64,28 +64,41 @@ export const Catalog = () => {
     })
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
-        dispatch(GetListofItem({body_style:body_style,color:formik.values.Color,drive_type:formik.values.Reason,fuel:fuels,key:formik.values.Keys,make:markes,model:formik.values.SelectModel,primary_damage:formik.values.Damage,engine_type:formik.values.EngineSize,odometer_from:formik.values.MileageFrom,odometer_to:formik.values.MileageTo,transmission:formik.values.Transmission,pre_accident_value_from:formik.values.PriceFrom,pre_accident_value_to:formik.values.PriceTo,year_from:formik.values.YearFrom,year_to:formik.values.YearTo,}))
+        dispatch(GetListofItem({page:nextPage,body_style:body_style,color:formik.values.Color,drive_type:formik.values.Reason,fuel:fuels,key:formik.values.Keys,make:markes,model:formik.values.SelectModel,primary_damage:formik.values.Damage,engine_type:formik.values.EngineSize,odometer_from:formik.values.MileageFrom,odometer_to:formik.values.MileageTo,transmission:formik.values.Transmission,pre_accident_value_from:formik.values.PriceFrom,pre_accident_value_to:formik.values.PriceTo,year_from:formik.values.YearFrom,year_to:formik.values.YearTo,}))
         dispatch(GetFilterData())
-    },[dispatch,formik.values,body_style,fuels,markes])
+    },[dispatch,formik.values,body_style,fuels,markes,nextPage])
     const Ref = useRef<HTMLDetailsElement>(null)
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isOpenForm, setIsOpenForm] = useState<boolean>(true);
     const TetxChange = React.useCallback(()=>{
         setIsOpen(!isOpen); 
         if (Ref.current) {
             Ref.current.open = !isOpen;
           }
     },[Ref,isOpen])
+    const Pagination = React.useCallback((page:number)=>{
+        dispatch(GetListofItem({page,body_style:body_style,color:formik.values.Color,drive_type:formik.values.Reason,fuel:fuels,key:formik.values.Keys,make:markes,model:formik.values.SelectModel,primary_damage:formik.values.Damage,engine_type:formik.values.EngineSize,odometer_from:formik.values.MileageFrom,odometer_to:formik.values.MileageTo,transmission:formik.values.Transmission,pre_accident_value_from:formik.values.PriceFrom,pre_accident_value_to:formik.values.PriceTo,year_from:formik.values.YearFrom,year_to:formik.values.YearTo,}))
+        window.scrollTo(0,0)
+    },[dispatch,formik.values,body_style,fuels,markes])
   return (
     <div className='font-mono mt-10 flex flex-col items-start w-screen ml-5 md:pl-56 gap-[75px]'>
         <div className=' font-mono sm:min-h-[1400px]'>
             <div className='font-title text-[21px] font-bold m-8'>
                 АВТОМОБІЛІ З АУКЦІОНІВ США
             </div>
-            <div className='flex ml-10 sm:ml-0'>
-                <div className=' flex-col hidden xl:flex relative'>
-                    <BlackTheme>
-                        <FormFilter formik={formik}/>                      
-                    </BlackTheme>
+            <div className='flex sm:ml-0'>
+                <div className={' relative flex-col  xl:flex '}>
+                    <div className='hidden lg:block'>
+                        <BlackTheme>
+                            <FormFilter setisOpenForm={setIsOpenForm} formik={formik}  isOpenForm={isOpenForm}/>                      
+                        </BlackTheme>
+                    </div>
+
+                    {
+                        isOpenForm ? <div className='absolute left-0 xl:hidden z-[100]'><BlackTheme>
+                        <FormFilter close setisOpenForm={setIsOpenForm} formik={formik}  isOpenForm={isOpenForm}/>                      
+                    </BlackTheme> </div> : <div> </div>
+                    }
                     <div className='w-[256px] bg-[#12120e] text-white mr-5 mt-5 pl-5 py-2 hidden xl:block'>
                         <div>
                             Отримувати новини на Email
@@ -99,11 +112,11 @@ export const Catalog = () => {
                 <div>
                     
                     <div className='flex xl:w-[950px] justify-between'>
-                        <button className='block tablet:hidden rounded w-[210px] h-[40px] bg-[#740706] text-white'>
+                        <button onClick={()=>setIsOpenForm(true)} className='block tablet:hidden rounded w-[210px] h-[40px] bg-[#740706] text-white'>
                             Фільтр
                         </button>
                         <div className=' hidden tablet:block'>
-                            Знайдено 10 000 авто
+                            Знайдено {totalofItems} авто
                         </div>
                         <div className='hidden tablet:flex'>
                             <input type="checkbox" name="" id=""  className='w-[20px] h-[20px] mr-4'/> 
@@ -115,23 +128,20 @@ export const Catalog = () => {
                     </div>
                     <div className='flex flex-col ml-8 sm:-ml-20 tablet:ml-0'>
                         {
-                            ListItem.map(u=><Item key={u.VIN_code} {...u} />)
+                            ListItem.map((u:any)=><Item key={u.VIN_code} {...u} />)
                         }
                         <FormHelp/>
                         <div className='flex gap-[10px] text-[#12120e] font-bold text-[14px] mt-[200px]'>
                             {/*додати редірект на верх при натисканні*/}
-                            <div  className='w-[42.5px] h-[42.5px] font-bold bg-[#740706] rounded text-white flex justify-center items-center'>
+                            <div aria-disabled  className='w-[42.5px] h-[42.5px] font-bold bg-[#740706] rounded text-white flex justify-center items-center'>
                                 <div>
-                                    1
+                                    {currentPage}
                                 </div>
                             </div>
-                            <div className='w-[42.5px] h-[42.5px] font-bold bg-white rounded flex justify-center items-center'>
-                                2
+                            <div onClick={()=>Pagination(nextPage)} className='w-[42.5px] h-[42.5px] font-bold bg-white rounded flex justify-center items-center'>
+                                {nextPage}
                             </div>
-                            <div className='min-w-[42.5px] h-[42.5px] font-bold bg-white rounded flex justify-center items-center ml-10'>
-                                200
-                            </div>
-                            <div className='min-w-[42.5px] h-[42.5px] font-bold bg-white rounded flex justify-center items-center'>
+                            <div onClick={()=>Pagination(nextPage)} className='cursor-pointer min-w-[42.5px] h-[42.5px] font-bold bg-white rounded flex justify-center items-center'>
                                 <img className='w-[20px] h-[20px]' src={play} alt="" />
                             </div>
                             <button className=' flex w-[176px] h-[42px] border-[3px] border-solid border-[#740706] rounded justify-center items-center'>

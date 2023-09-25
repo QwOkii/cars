@@ -3,6 +3,8 @@ import phone from "../../accest/Main/phone.svg"
 import comment from "../../accest/Main/comment.svg"
 import user from "../../accest/Main/user.svg"
 import { useFormik } from 'formik'
+import { useAppDispatch } from '../../app/store'
+import { SendQuestions } from '../../app/Message'
 
 interface InitialValues{
     phone:string,
@@ -11,14 +13,15 @@ interface InitialValues{
 }
 
 export const FormQuestionsBorder = () => {
+    const dispatch = useAppDispatch()
     const formik = useFormik<InitialValues>({
         initialValues:{
             comment:'',
             name:'',
             phone:''
         },
-        onSubmit:(values)=>{
-            alert(JSON.stringify(values))
+        onSubmit:({comment,name,phone})=>{
+            dispatch(SendQuestions({comment,name,phone_number:phone,message_type:''}))
         }
     })
   return (

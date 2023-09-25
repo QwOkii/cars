@@ -80,6 +80,7 @@ export interface FilterDataPost{
     pre_accident_value_to?: number,
     odometer_from?: number,
     odometer_to?: number,
+    page?:number,
             
 }
 
@@ -109,4 +110,28 @@ export interface FilterType{
         min:number,
         max:number
     },
+}
+
+export type DataforPopUp = {
+    name:string,
+    phone_number:string,
+    comment:string,
+    amount:string,
+    lot_number:number,
+    message_type:string
+}
+
+export type DataforPopUpWithoutAmount = {
+    name:string,
+    phone_number:string,
+    comment:string,
+    message_type:string
+}
+
+export type PickUpAssist={
+    name:string,
+    phone_number:string,
+    budget_from:string,
+    budget_to:string,
+    auto:string
 }

@@ -4,6 +4,7 @@ import phoneSVG from "../../accest/Header/PhoneSVG.svg"
 import menuBurger from '../../accest/Header/icons8-menu.svg'
 import Close from '../../accest/Header/icons8-close.svg'
 import { NavLink,useLocation} from "react-router-dom"
+import { PopUpWithoutCommnet } from '../PopUp/PopUpWithoutCommnet'
 
 export const Header = () => {
     const [ Open, SetOpen ] = React.useState<boolean>(false)
@@ -80,7 +81,7 @@ export const Header = () => {
     }
   return (
     <div className='w-screen mb-40 flex flex-col items-center'>
-        <header className='fixed z-[100] left-auto w-screen md:w-[85%] mx-auto h-[80px] md:h-[110px] flex justify-around items-center bg-gradient-to-tr from-[#000] to-[#191919] md:rounded-lg text-white font-mono'>
+        <header className='fixed z-[99] left-auto w-screen md:w-[85%] mx-auto h-[80px] md:h-[110px] flex justify-around items-center bg-gradient-to-tr from-[#000] to-[#191919] md:rounded-lg text-white font-mono'>
             <div>
                 <img  className='w-[70px] h-[70px] md:w-[60px] md:h-[100.5px] object-cover my-[5px]' src={logo} alt=""/>
             </div>
@@ -106,7 +107,7 @@ export const Header = () => {
                         +380 99 491 32 25
                     </div>
                 </div>
-                <button className='bg-[#740706] w-[140px] h-[41px] my-2 rounded'>Замовити дзвінок</button>
+                <PopUpWithoutCommnet message_type='Отримати консультацію' button='Замовити дзвінок' title='Отримайте консультацію' styleButton='bg-[#740706] w-[140px] h-[41px] my-2 rounded'/>
             </div>
             <button className='block xl:hidden'>
                 

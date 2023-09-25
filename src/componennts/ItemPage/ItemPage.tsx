@@ -14,6 +14,8 @@ import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lg-thumbnail.css';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
+import { PopUp } from '../PopUp/PopUp'
+import { PopUpWithoutCommnet } from '../PopUp/PopUpWithoutCommnet'
 
 export const ItemPage = () => {
     const { carID } = useParams()
@@ -24,31 +26,30 @@ export const ItemPage = () => {
     const { VIN_code,color,current_bid,drive_type,engine_type,fuel,images,keys,location,lot_name,lot_number,odometer,primary_damage,year } = useSelector((u:RootState)=>u.ItemPage)
     const { ListItem } = useSelector( (u:RootState)=>u.Catalog)
     return (
-    <div className='font-mono mt-10 flex flex-col items-start  w-screen pl-36 gap-[75px]'>
-        <div ref={(el)=>{console.log(el?.scrollTop);}} className='flex flex-col'>
+    <div className='font-mono mt-10 flex flex-col items-start overflow-x-hidden   w-screen sm:pl-36 gap-[75px]'>
+        <div className='flex w-full flex-col  ml-2'>
             <div className='font-title text-[21px] '>
                 {lot_name}
             </div>
-            <div className='flex gap-8'>
+            <div className='flex sm:gap-8 flex-col xl:flex-row'>
                 <div className='w-[823px] flex flex-col gap-8'>
-                    <div className='w-[823px] h-[560px] border border-solid border-[#12120e] overflow-hidden'>
+                    <div className='w-[300px] h-[196px] object-cover sm:w-[580px] sm:h-[430px] lg:w-[823px] lg:h-[560px] border border-solid border-[#12120e] overflow-hidden'>
                     <LightGallery
                         onInit={()=>{}}
                         speed={500}
                         plugins={[lgThumbnail, lgZoom]}
-                        
                     >
                     {
-                        images.FULL_IMAGE.map(u =><a href={u}><img className='w-[823px] h-[560px] rounded'  src={u} alt="" /></a>)
+                        images.FULL_IMAGE.map(u =><a href={u}><img className='w-[823px] h-[560px] rounded  sm:object-cover'  src={u} alt="" /></a>)
                     }
                     </LightGallery>
                     </div>  
-                    <div className='flex gap-8'>
-                        <div className='w-[395px] h-[327px] flex flex-col text-white'>
-                            <div className='w-[395px] h-[47px] bg-[#740706]  font-title rounded-tl rounded-tr flex justify-center items-center'>
+                    <div className='flex ml-5 flex-col xl:flex-row gap-8'>
+                        <div className='w-[270px] sm:w-[395px] h-[327px] flex flex-col text-white'>
+                            <div className='w-[270px] sm:w-[395px] h-[47px] bg-[#740706]  font-title rounded-tl rounded-tr flex justify-center items-center'>
                                 Інформація про авто
                             </div>
-                            <div className='h-[280px] w-[395px] bg-[#12120e] p-5 box-border rounded-bl rounded-br flex flex-col gap-4'>
+                            <div className=' w-[270px] sm:w-[395px] bg-[#12120e] p-5 box-border rounded-bl rounded-br flex flex-col gap-4'>
                                 <div className='flex justify-between'>
                                     <div>
                                         Рік
@@ -99,13 +100,13 @@ export const ItemPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='w-[395px] h-[327px] flex flex-col text-white '>
-                            <div className='w-[395px] h-[47px] bg-[#740706] font-title rounded-tl rounded-tr flex justify-center items-center'>
+                        <div className='w-[270px] sm:w-[395px] h-[327px] flex flex-col text-white '>
+                            <div className='w-[270px] sm:w-[395px] h-[47px] bg-[#740706] font-title rounded-tl rounded-tr flex justify-center items-center'>
                                 Пошкодження
                             </div>
-                            <div className='h-[280px] w-[395px] bg-[#12120e] p-5 flex flex-col gap-4 box-border rounded-bl rounded-br'>
+                            <div className=' w-[270px] sm:w-[395px] items-center bg-[#12120e] p-5 flex flex-col gap-4 box-border rounded-bl rounded-br'>
                                 <div>
-                                    <div className='font-title text-[21px] font-bold'>
+                                    <div className='font-title text-[21px] font-bold flex'>
                                         Основні::
                                     </div>
                                     <div>
@@ -120,22 +121,18 @@ export const ItemPage = () => {
                                         
                                     </div>
                                 </div>
-                                <button className='w-[260px] h-[45px] rounded bg-[#740706]'>
-                                    Підібрати запчастини
-                                </button>
-                                <button className='w-[260px] h-[45px] rounded bg-[#740706]'>
-                                    Оцінити ремонт
-                                </button>
+                                <PopUpWithoutCommnet message_type='Підібрати запчастини'  button='Підібрати запчастини' styleButton='w-[250px] sm:w-[260px] h-[40px] rounded bg-[#740706]' title='Підібрати запчастини'/>
+                                <PopUpWithoutCommnet message_type='Оцінити ремонт' button='Оцінити ремонт' styleButton='w-[250px] sm:w-[260px] h-[40px] rounded bg-[#740706]'  title='Oцінити ремонт' />
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className='w-[395px] flex flex-col gap-8 text-white'>
-                    <div className='w-[395px] h-[327px] flex flex-col '>
-                        <div className='w-[395px] h-[47px] bg-[#740706]  font-title rounded-tl rounded-tr flex justify-center items-center'>
+                <div className='w-[270px] ml-5 items-center sm:w-[395px] flex flex-col gap-8 text-white'>
+                    <div className='w-[270px] sm:w-[395px] h-[327px] flex flex-col '>
+                        <div className='w-[270px] sm:w-[395px] h-[47px] bg-[#740706]  font-title rounded-tl rounded-tr flex justify-center items-center'>
                             Інформація про лот
                         </div>
-                        <div className='h-[280px] w-[395px] bg-[#12120e] box-border p-5 rounded-bl rounded-br flex flex-col gap-4'>
+                        <div className=' w-[270px] sm:w-[395px] bg-[#12120e] box-border p-5 rounded-bl rounded-br flex flex-col gap-4'>
                             <div className='flex justify-between'>
                                 <div>
                                     Місцезнаходження
@@ -186,12 +183,12 @@ export const ItemPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='w-[395px] h-[327px] flex flex-col '>
-                        <div className='w-[395px] h-[47px] bg-[#740706] text-white font-title rounded-tl rounded-tr flex justify-center items-center'>
+                    <div className='w-[270px] sm:w-[395px] h-[327px] flex flex-col '>
+                        <div className='w-[270px] sm:w-[395px] h-[47px] bg-[#740706] text-white font-title rounded-tl rounded-tr flex justify-center items-center'>
                             Інформація про ставки
                         </div>
-                        <div className='h-[280px] w-[395px] bg-[#12120e] box-border p-5 rounded-bl rounded-br flex flex-col gap-4'>
-                            <div className='border-b-2 pb-1 border-solid border-[#740706] w-[350px]'>
+                        <div className=' w-[270px] sm:w-[395px] bg-[#12120e] box-border p-5 rounded-bl rounded-br flex flex-col gap-4'>
+                            <div className='border-b-2 pb-1 border-solid border-[#740706] w-[250px] sm:w-[350px]'>
                                 Лот  {lot_number}
                             </div>
                             <div className='flex justify-between'>
@@ -202,52 +199,45 @@ export const ItemPage = () => {
                                     {current_bid}
                                 </div>
                             </div>
-                            <div className='flex justify-between'>
-                                <div>
-                                    Купити зараз:
+                        </div>
+                    </div>
+                    <div className='w-[270px] sm:w-[395px] h-[327px] flex flex-col '>
+                        <div className='w-[270px] sm:w-[395px] h-[47px] bg-[#740706] text-white font-title rounded-tl rounded-tr flex justify-center items-center'>
+                            Не втрачай часу
+                        </div>
+                        <div className=' w-[270px] sm:w-[395px] bg-[#12120e] box-border p-5 rounded-bl rounded-br flex flex-col gap-4 items-center justify-end'>
+                            <div>
+                                <div className='flex gap-[10px] mb-[10px]'>
+                                    <PopUp message_type='Зробити ставку' id={Number(lot_number)} title='Зробити ставку' button='Запропонувати ставку'/>
+                                    <PopUp message_type='Замовити авто' id={Number(lot_number)} title='Замовити авто' button='Купити зараз'/>
                                 </div>
-                                <div>
-                                    6 400$
-                                </div>
-                            </div>
-                            <div className='flex justify-between border-b-2 pb-1 border-solid border-[#740706] w-[350px]'>
-                                <div>
-                                    Ваша ставка:
-                                </div>
-                                <input className='border p-1 border-solid border-[#740706] rounded-lg' placeholder='5 900$'/>
-                                    
-                            </div>
-                            <div className='text-12 text-center'>
-                                При ставці 5 900$
-                            </div>
-                            <div className='font-title text-[21px] font-bold text-center'>
-                                Ціна авто в Україні:  13 987 $
+                                <PopUpWithoutCommnet message_type='Замовити консультацію' button='Замовити консультацію' styleButton='bg-[#740706] rounded h-[45px] w-[250px] sm:w-[370px] text-[14px]' title='Oтримати консультацію' />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div className='-ml-36 mt-52 w-screen flex items-center h-[230px] bg-[#740706] ' >
-            <img className='h-[404px] w-[720px]' src={Baner} alt="" />
-            <div className='text-[21px] font-title font-bold w-[450px] m-10 mb-0 text-white'>
-                Разом ціна автомобіля з доставкою та розмитненням:  13 000 $
+        <div className='lg:-ml-36 sm:mt-52 w-screen flex items-center box-border px-5 h-[230px] bg-[#740706] ' >
+            <img className='h-[404px] w-[720px] hidden xl:block' src={Baner} alt="" />
+            <div className='text-[21px] font-title font-bold  sm:w-[450px] sm:m-10 mb-0 text-white'>
+                Разом ціна автомобіля з доставкою та розмитненням:  13.000 $
             </div>
             
         </div>
-        <div className=' -ml-36 flex flex-col gap-10 '>
-            <div className='w-screen pl-36 h-[109px] bg-[#12120e] mt-10'>
+        <div className=' lg:-ml-36 flex flex-col gap-10 '>
+            <div className='w-screen sm:pl-36 h-[109px] bg-[#12120e] mt-10'>
                     <div className='ml-5 mt-4 text-[26px] font-title font-bold text-white'>
                         Схожі Авто
                     </div>
             </div>
             
-            <div className='w-screen m-0 p-0 flex gap-[20px] items-center'>
+            <div className='w-screen m-0 p-0 flex gap-[20px] overflow-x-hidden items-center'>
                     {ListItem.map(u =><Item {...u}/>)}
             </div>
         </div>
-        <div className='w-screen -ml-36 bg-[#12120e] h-[150px] text-white flex items-center'>
-            <div className='mx-28 flex'>
+        <div className='w-screen sm:-ml-36 bg-[#12120e] min-h-[250px] text-white flex items-center'>
+            <div className='md:mx-28 gap-10 flex flex-col items-center lg:flex-row'>
                 <div>
                     <div className='text-[22px] font-bold '>
                         ПІДПИСУЙТЕСЬ!
@@ -256,9 +246,9 @@ export const ItemPage = () => {
                         Та дізнавайтеся перші про вигідні пропозиції
                     </div>
                 </div>
-                <div className='flex ml-96'>
-                    <input className='box-border p-4 w-[320px] h-[54px] bg-[#12120e] border-[3px] border-solid border-[#f1f1f6]' placeholder='Введіть ваш Email' type="text" />
-                    <button className='h-[54px] bg-[#730706] w-[220px]'>
+                <div className='flex xl:ml-96 '>
+                    <input className='box-border p-4 w-[220px]  lg:w-[320px] h-[54px] bg-[#12120e] border-[3px] border-solid border-[#f1f1f6]' placeholder='Введіть ваш Email' type="text" />
+                    <button className='h-[54px] bg-[#730706] w-[120px] lg:w-[220px]'>
                         Підписатися
                     </button>
                 </div>
@@ -269,10 +259,13 @@ export const ItemPage = () => {
                 КОНТАКТИ
             </div>
             <div className='flex gap-12 my-10'>
-                <div className='flex gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
-                    <div>
-                        Телефон:
+                <div className='flex gap-[10px] text-[18px] font-bold flex-col sm:flex-row'>
+
+                    <div className='flex gap-3'>
+                        <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
+                        <div>
+                            Телефон:
+                        </div>
                     </div>
                     <div>
                         +380 99 491 32 25
