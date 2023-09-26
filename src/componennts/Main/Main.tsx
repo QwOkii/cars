@@ -69,8 +69,8 @@ export const Main = () => {
     },[navigate,dispatch])
 
   return (
-    <div className='font-mono mt-10 flex flex-col items-start w-screen md:pl-36 gap-[75px]'>
-        <div>
+    <div className='font-mono mt-10 flex flex-col items-start w-screen gap-[75px]'>
+        <div className='mx-auto'>
             <div className='m-8 text-black font-bold text-[36px] font-title'>Купити авто з США</div>
             <div className='flex gap-[50px] relative'>
                 <BlackTheme>
@@ -86,8 +86,8 @@ export const Main = () => {
                 </div>                
             </div>
         </div>
-        <div className=' flex flex-col items-center'>
-            <div className='w-screen  -ml-36 md:pl-36 h-[109px] bg-[#12120e] '>
+        <div className=' flex mx-auto flex-col items-center'>
+            <div className='w-screen  h-[109px] bg-[#12120e] '>
                 <div className='ml-5 mt-8 text-[28px] font-title font-bold text-white'>
                     Виберіть авто за:
                 </div>
@@ -221,8 +221,8 @@ export const Main = () => {
                 </div>
             </div>
         </div>
-        <div className=' flex flex-col items-center'>
-            <div className='w-screen box-border sm:-ml-36 sm:pl-36 h-[109px] bg-[#12120e] '>
+        <div className=' flex mx-auto flex-col items-center'>
+            <div className='w-screen box-border h-[109px] bg-[#12120e] '>
                 <div className='ml-5 mt-8 text-[28px] font-title font-bold text-white'>
                     ПОПУЛЯРНІ МАРКИ
                 </div>
@@ -284,23 +284,23 @@ export const Main = () => {
             </div>
             <button className='text-white bg-[#740706] p-4 box-border xl:w-[461px] h-[58.6px] rounded my-10'>Перейти до каталогу всіх товарів</button>
         </div>
-        <div className='sm:m-10 md:-ml-36 flex flex-col gap-[10px] md:gap-10 '>
-            <div className='w-screen md:pl-36  h-[109px] bg-[#12120e] '>
+        <div className=' flex flex-col gap-[10px] md:gap-10 '>
+            <div className='w-screen  h-[109px] bg-[#12120e] '>
                     <div className='ml-5 mt-8 text-[26px] font-title font-bold text-white'>
                         Схожі Авто
                     </div>
             </div>
             
-            <div className='w-screen flex gap-[20px] justify-center items-center overflow-x-hidden'>
-                <img src={arrow} alt="" className='w-[28px] h-[25px] ml-32 scale-x-[-1] scale-y-[1]'/>
+            <div className='w-screen mx-auto flex gap-[20px] justify-center items-center overflow-x-hidden'>
+                <img src={arrow} alt="" className='w-[28px] h-[25px]  scale-x-[-1] scale-y-[1]'/>
                 {ListItem.map((u)=><Item key={u.VIN_code} {...u} />)}
                 <img src={arrow} alt="" className='w-[28px] h-[25px]'/>
             </div>
         </div>
        <FormPhone/>
-        <div>
-            <div className='w-screen sm:-ml-36 sm:pl-36 h-[109px] bg-[#12120e] pt-8'>
-                <div className='ml-5 my text-[26px] font-title font-bold text-white'>
+        <div className='mx-auto'>
+            <div className='w-screen  h-[109px] bg-[#12120e] md:pt-8'>
+                <div className='ml-5 py-3 text-[26px] font-title font-bold text-white'>
                     ЧОМУ АВТО З США ВИГІДНО ДЛЯ ВАС?
                 </div>
             </div>
@@ -369,8 +369,8 @@ export const Main = () => {
                 </div>
             </div>
         </div>
-        <div className='flex flex-col xl:flex-row'>
-            <div className='m-4 sm:m-10 w-[350px] sm:w-[600px]'>
+        <div className='flex flex-col xl:flex-row mx-auto'>
+            <div className=' w-[350px] sm:w-[600px]'>
                 <div className='font-title text-[26px] font-bold'>
                     ВАРТІСТЬ АВТО З США В УКРАЇНІ
                 </div>
@@ -435,11 +435,11 @@ export const Main = () => {
             </BlackTheme>
 
         </div>
-        <div >
-            <div className='font-title text-[26px] font-bold my-4'>
+        <div className='mx-auto'>
+            <div className='font-title text-[26px] font-bold my-4 mx-auto'>
                 ПРОЦЕС ПОКУПКИ АВТО З США
             </div>
-            <div className='text-white flex flex-wrap gap-[35px] phone:justify-center'>
+            <div className='text-white flex flex-wrap gap-[35px] phone:justify-center mx-auto'>
                     <div    className='buing-item bg-[#12120e] w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative phone:before:block'>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={odred} alt="" />
@@ -577,11 +577,11 @@ export const Main = () => {
                     </div>
             </div>
         </div>
-        <div className=' sm:mx-28'>
+        <div className='mx-auto'>
             <div className='font-title mx-2 text-[26px] font-bold'>
                 ПРИЧИНИ ЗАМОВИТИ АВТО У НАС
             </div>
-            <div className='flex mx-3 flex-col xl:flex-row gap-[10px] sm:gap-[20px]'>
+            <div className='flex mx-3 flex-col xl:flex-row gap-[10px] sm:gap-[15px]'>
                 <div className='max-w-[700px] text-white flex flex-wrap gap-[10px] sm:gap-[20px]'>
                     <div className=' w-[340px] min-h-[192px] bg-[#12120e] p-[20px] rounded'>
                         <div className='text-[18] font-bold my-3'>
@@ -629,7 +629,7 @@ export const Main = () => {
                 </div>
             </div>
         </div>
-        <div className='mx-3 sm:mx-14'>
+        <div className='mx-auto'>
             <div className='font-title text-[26px] font-bold'>
                 ВІДГУКИ
             </div>
@@ -702,14 +702,14 @@ export const Main = () => {
                 </button>
             </div>
         </div>
-        <div className=' flex sm:mx-16 '>
+        <div className=' flex mx-auto '>
             <FormQuestions/>
             <div className='hidden xl:block'> 
                 <img className='ml-80' src={Baner2} alt="" />
             </div>
         </div>
-        <div className='flex flex-col xl:flex-row'>
-            <div className='w-[300px] sm:w-[450px] mx-5 xm:ml-32'>
+        <div className='flex flex-col mx-auto xl:flex-row'>
+            <div className='w-[300px] sm:w-[450px] mx-auto'>
                 <div className='w-[160px] h-[60px]'>
                     <img  src={Copart} alt="" />
                 </div>
@@ -752,7 +752,7 @@ export const Main = () => {
             </div>
             <FromCopart/>
         </div>
-        <div className='w-screen md:-ml-36 bg-[#12120e] min-h-[150px] text-white flex items-center'>
+        <div className='w-screen mx-auto bg-[#12120e] min-h-[150px] text-white flex items-center'>
             <div className='md:mx-36 flex flex-col xl:flex-row gap-12 p-4'>
                 <div>
                     <div className='text-[22px] font-bold '>
@@ -770,7 +770,7 @@ export const Main = () => {
                 </div>
             </div>
         </div>
-        <div className='mx-14'>
+        <div className='mx-auto'>
             <div className='text-[26px] font-bold font-title'>
                 КОНТАКТИ
             </div>

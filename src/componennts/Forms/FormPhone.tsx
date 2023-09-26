@@ -15,11 +15,11 @@ export const FormPhone = () => {
     })
   return (
     <form className=' text-white'>
-        <div className='w-screen md:-ml-36  min-h-[350px] bg-[#12120e] flex items-center justify-between'>
-            <div className='h-[350px]  xl:w-[250px]   box-border '>
+        <div className='w-screen  min-h-[350px] bg-[#12120e] flex items-center justify-between'>
+            <div className='h-[350px]  xl:w-[250px] hidden md:block   box-border '>
                 <img src={Baner1}  alt="" className='h-[350px]  xl:w-[250px]   box-border '/>
             </div>
-            <div className='flex flex-col lg:flex-row gap-5 w-[66%] justify-between'>  
+            <div className='flex flex-col mx-auto lg:flex-row gap-5 w-[66%] justify-between'>  
                 <div className='flex flex-col justify-between '>
                     <div className='font-mono text-[20px] font-bold'>
                         Зателефонуйте нам та отримайте консультацію

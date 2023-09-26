@@ -9,25 +9,30 @@ import PhoneBlack from "../../accest/Contact/PhoneBlack.svg"
 import { FormSupportAccept } from '../Forms/FormSupportAccept'
 export const AboutUS = () => {
   return (
-    <div className='font-mono mt-10 flex flex-col items-start w-screen pl-56 '>
-        <div className='my-8 w-[470px]  '>
-            <div className='text-[23px] font-title font-bold'>
-                Про Adolbi
+    <div className='font-mono mt-10 flex flex-col items-start w-screen  '>
+        <div className='flex mx-auto gap-16 items-center'>
+            <div className='my-8 w-[470px]  '>
+                <div className='text-[23px] font-title font-bold'>
+                    Про Adolbi
+                </div>
+                <div className='text-[15px] my-5'>
+                    Наша компанія має великий досвід у сфері продажу автомобілів із США. Ми розуміємо, що вибір партнера для придбання авто це важливий крок, і ми готові підтримати вас у цьому процесі. Ось, чому ми можемо бути корисними для вас:
+                </div>
+                <ul className='list-disc flex flex-col gap-[10px] list-inside'>
+                    <li>Ми пропонуємо нашим клієнтам конкурентоспроможні ціни на автомобілі з аукціонів у Сполучених Штатах. </li>
+                    <li>Завдяки нашим партнерським відносинам з автоаукціоном, ми маємо доступ до вигідних лотів та можливість проводити закриті торги на найкращих умовах.</li>
+                    <li>Ми надаємо гарантії на якість кожного автомобіля, який продаємо. Кожен лот супроводжується докладною інформацією та документацією. </li>
+                    <li>Наша команда фахівців готова надати вам повну підтримку на кожному етапі співпраці, включаючи логістику, розмитнення та інші послуги. </li>
+                </ul>
+                <div className='text-[15px] my-5'>
+                    Обираючи автомобіль зі США, ви отримуєте унікальну можливість отримати високоякісне авто за вигідними цінами, а ми завжди готові надати вам повну інформацію та підтримку на кожному етапі вашої покупки і доставки.
+                </div>
             </div>
-            <div className='text-[15px] my-5'>
-                Наша компанія має великий досвід у сфері продажу автомобілів із США. Ми розуміємо, що вибір партнера для придбання авто це важливий крок, і ми готові підтримати вас у цьому процесі. Ось, чому ми можемо бути корисними для вас:
-            </div>
-            <ul className='list-disc flex flex-col gap-[10px] list-inside'>
-                <li>Ми пропонуємо нашим клієнтам конкурентоспроможні ціни на автомобілі з аукціонів у Сполучених Штатах. </li>
-                <li>Завдяки нашим партнерським відносинам з автоаукціоном, ми маємо доступ до вигідних лотів та можливість проводити закриті торги на найкращих умовах.</li>
-                <li>Ми надаємо гарантії на якість кожного автомобіля, який продаємо. Кожен лот супроводжується докладною інформацією та документацією. </li>
-                <li>Наша команда фахівців готова надати вам повну підтримку на кожному етапі співпраці, включаючи логістику, розмитнення та інші послуги. </li>
-            </ul>
-            <div className='text-[15px] my-5'>
-                Обираючи автомобіль зі США, ви отримуєте унікальну можливість отримати високоякісне авто за вигідними цінами, а ми завжди готові надати вам повну інформацію та підтримку на кожному етапі вашої покупки і доставки.
+            <div className='border border-solid border-[#12120e] h-[560px] w-[650px]'>
+
             </div>
         </div>
-        <div className='my-8 flex gap-12 flex-col xl:flex-row'>
+        <div className='my-8  mx-auto flex gap-12 flex-col xl:flex-row'>
             <div className=' border border-solid border-[#12120e] w-[450px] h-[388px] rounded'>
 
             </div>
@@ -43,7 +48,7 @@ export const AboutUS = () => {
                 </div>
             </div>
         </div>
-        <div className='my-8 flex gap-12  flex-col '>
+        <div className='my-8  mx-auto flex gap-12  flex-col '>
             <div className=' w-[400px]  '>
                 <div className='text-[23px] font-title font-bold'>
                     Наші цінності
@@ -106,7 +111,7 @@ export const AboutUS = () => {
                 </div>
             </div>
         </div>
-        <div className='mt-8 bg-white w-screen h-[400px] -ml-56 pl-56 flex gap-40 items-center '>
+        <div className='mt-8  bg-white w-screen h-[400px]  mx-auto flex gap-40 items-center '>
             <div className='flex flex-col gap-8 mt-16 w-[420px]'>
                 <div className='text-[23px] font-title font-bold'>
                     Натисни сюди, щоб потрапити на портал пошуку роботи
@@ -120,8 +125,8 @@ export const AboutUS = () => {
             </div>
             <img src={Baner1} className='hidden xl:block w-[574px] h-[380px] rounded' alt="" />
         </div>
-        <div className=' flex gap-32 justify-between w-screen -ml-56  flex-col xl:flex-row'>
-            <div className='ml-56 flex flex-col gap-8 xl:gap-16 w-[430px]'>
+        <div className=' flex gap-32 justify-between w-screen  mx-auto  flex-col xl:flex-row'>
+            <div className=' mx-auto flex flex-col gap-8 xl:gap-16 w-[430px]'>
                 <div className='text-[23px] font-title font-bold'>
                     Ми завжди відкриті до співпраці
                 </div>
@@ -137,8 +142,8 @@ export const AboutUS = () => {
                 <FormSupportAccept/>
             </div>
         </div>
-        <div className='mb-8 w-screen -ml-56 bg-[#12120e] min-h-[150px] text-white flex items-center'>
-            <div className='mx-56 flex flex-col xl:flex-row gap-12 p-4'>
+        <div className='mb-8 w-screen  mx-auto bg-[#12120e] min-h-[150px] text-white flex items-center'>
+            <div className='mx-auto flex flex-col xl:flex-row gap-12 p-4'>
                 <div>
                     <div className='text-[22px] font-bold '>
                         ПІДПИСУЙТЕСЬ!
@@ -155,7 +160,7 @@ export const AboutUS = () => {
                 </div>
             </div>
         </div>
-        <div className='mt-8'>
+        <div className='mx-auto'>
             <div className='text-[26px] font-bold font-title'>
                 КОНТАКТИ
             </div>

@@ -1,6 +1,13 @@
 import React from 'react'
 import Baner1 from "../../accest/Guarantees/Baner1.webp"
-import LIcens from "../../accest/Guarantees/LIcens.webp"
+import business from "../../accest/Guarantees/icons8-business-report-50.png"
+import contract from "../../accest/Guarantees/icons8-contract-64.png"
+import information from "../../accest/Guarantees/icons8-information-50.png"
+import integrity from "../../accest/Guarantees/icons8-integrity-50.png"
+import details from "../../accest/Guarantees/icons8-more-details-50.png"
+import pass from "../../accest/Guarantees/icons8-pass-by-64.png"
+import quality from "../../accest/Guarantees/icons8-quality-50.png"
+import support from "../../accest/Guarantees/icons8-technical-support-50.png"
 import gogleMaps from "../../accest/Main/gogleMaps.webp"
 import arrow from "../../accest/Main/play.png"
 import Baner2 from "../../accest/Main/Baner2.webp"
@@ -15,12 +22,12 @@ import { GetListofItem } from '../../app/Catalog'
 export const Guarantees = () => {
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
-        dispatch(GetListofItem({}))
+        dispatch(GetListofItem({body_style:'',color:'',drive_type:'',engine_type:'',fuel:'',key:'',make:'',model:'',odometer_from:0,odometer_to:999999,page:1,pre_accident_value_from:0,pre_accident_value_to:999999,primary_damage:'',transmission:'',year_from:0,year_to:99999}))
     },[dispatch])
     const { ListItem } = useSelector( (u:RootState)=>u.Catalog)
   return (
-    <div className='font-mono mt-10 flex flex-col items-start w-screen pl-56 gap-[75px]'>
-        <div className=' flex gap-[50px]'>
+    <div className='font-mono mt-10 flex flex-col items-start w-screen  gap-[75px]'>
+        <div className=' mx-auto flex gap-[50px]'>
             <div>
                 <div className='font-title text-[21px] font-bold'>
                     Гарантії
@@ -38,7 +45,7 @@ export const Guarantees = () => {
             </div>
             <img className='hidden xl:block rounded w-[650px] h-[270px] object-cover' src={Baner1} alt="" />
         </div>
-        <div className='mx-12'>
+        <div className=' mx-auto'>
             <div className='font-title font-bold text-[21px] my-5'>
                 Гарантії авто зі США
             </div>
@@ -46,7 +53,7 @@ export const Guarantees = () => {
                 <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={LIcens} alt="" />
+                            <img className='h-[60px] w-[60px]' src={integrity} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Легальність та Чесність
@@ -59,7 +66,7 @@ export const Guarantees = () => {
                 <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={LIcens} alt="" />
+                            <img className='h-[60px] w-[60px]' src={quality} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Якість і Стан
@@ -72,7 +79,7 @@ export const Guarantees = () => {
                 <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={LIcens} alt="" />
+                            <img className='h-[60px] w-[60px]' src={details} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Повна Інформація
@@ -85,7 +92,7 @@ export const Guarantees = () => {
                 <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={LIcens} alt="" />
+                            <img className='h-[60px] w-[60px]' src={pass} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Супровід Представниками
@@ -97,7 +104,7 @@ export const Guarantees = () => {
                 </div>
             </div>
         </div>
-        <div className='mx-12'>
+        <div className=' mx-auto'>
             <div className='font-title font-bold text-[21px] my-5'>
                 Гарантійні зобов’язання компанії
             </div>
@@ -105,7 +112,7 @@ export const Guarantees = () => {
                 <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={LIcens} alt="" />
+                            <img className='h-[60px] w-[60px]' src={support} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Консультації та Підтримка
@@ -118,7 +125,7 @@ export const Guarantees = () => {
                 <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={LIcens} alt="" />
+                            <img className='h-[60px] w-[60px]' src={business} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Звіти про Стан
@@ -131,7 +138,7 @@ export const Guarantees = () => {
                 <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={LIcens} alt="" />
+                            <img className='h-[60px] w-[60px]' src={contract} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Договір
@@ -144,7 +151,7 @@ export const Guarantees = () => {
                 <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={LIcens} alt="" />
+                            <img className='h-[60px] w-[60px]' src={information} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Інформаційна Прозорість
@@ -156,7 +163,7 @@ export const Guarantees = () => {
                 </div>
             </div>
         </div>
-        <div className='mx-2'>
+        <div className=' mx-auto'>
             <div className='font-title text-[26px] font-bold'>
                 ВІДГУКИ
             </div>
@@ -229,7 +236,7 @@ export const Guarantees = () => {
                 </button>
             </div>
         </div>
-        <div className='m-10 -ml-56 flex flex-col gap-10 '>
+        <div className='mx-auto flex flex-col gap-10 '>
             <div className='w-screen pl-56 h-[109px] bg-[#12120e] '>
                     <div className='ml-5 mt-8 text-[26px] font-title font-bold text-white'>
                         ПОПУЛЯРНІ АВТО
@@ -241,14 +248,14 @@ export const Guarantees = () => {
                 <img src={arrow} alt="" className='w-[28px] h-[25px]'/>
             </div>
         </div>
-        <div className='  flex -mb-32 '>
+        <div className='mx-auto flex -mb-32 '>
             <FormQuestionsBorder/>
             <div className='hidden xl:block'> 
                 <img className='ml-80' src={Baner2} alt="" />
             </div>
         </div>
-        <div className='w-screen -ml-56 bg-[#12120e] min-h-[200px] text-white flex items-center'>
-            <div className='mx-56 flex flex-col xl:flex-row gap-12 p-4'>
+        <div className='w-screen  mx-auto bg-[#12120e] min-h-[200px] text-white flex items-center'>
+            <div className=' mx-auto flex flex-col xl:flex-row gap-12 p-4'>
                 <div>
                     <div className='text-[22px] font-bold '>
                         ПІДПИСУЙТЕСЬ!
@@ -257,7 +264,7 @@ export const Guarantees = () => {
                         Та дізнавайтеся перші про вигідні пропозиції
                     </div>
                 </div>
-                <div className='flex xl:ml-96'>
+                <div className='flex  mx-auto'>
                     <input className='box-border p-4 w-[320px] h-[54px] bg-[#12120e] border-[3px] border-solid border-[#f1f1f6]' placeholder='Введіть ваш Email' type="text" />
                     <button className='h-[54px] bg-[#730706] w-[220px]'>
                         Підписатися
@@ -265,7 +272,7 @@ export const Guarantees = () => {
                 </div>
             </div>
         </div>
-        <div className='mx-14'>
+        <div className=' mx-auto'>
             <div className='text-[26px] font-bold font-title'>
                 КОНТАКТИ
             </div>

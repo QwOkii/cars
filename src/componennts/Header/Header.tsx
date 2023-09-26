@@ -81,41 +81,44 @@ export const Header = () => {
     }
   return (
     <div className='w-screen mb-40 flex flex-col items-center'>
-        <header className='fixed z-[99] left-auto w-screen md:w-[85%] mx-auto h-[80px] md:h-[110px] flex justify-around items-center bg-gradient-to-tr from-[#000] to-[#191919] md:rounded-lg text-white font-mono'>
-            <div>
-                <img  className='w-[70px] h-[70px] md:w-[60px] md:h-[100.5px] object-cover my-[5px]' src={logo} alt=""/>
-            </div>
-            <div  className='hidden xl:block'>
-                <div className='flex w-[800px] border-b border-solid border-[#f1f1f6] pb-2 '>
-                    <NavLink to={'/'} className='mx-2'>Головна</NavLink>
-                    <NavLink to={'/calalog'} className='mx-2'>Каталог авто </NavLink>
-                    <NavLink to={'/calculate'} className='mx-2'>Калькулятор</NavLink>
-                    <NavLink to={'/cooperation'} className='mx-2'>Співпраця </NavLink>
-                    <NavLink to={'/guarantees'} className='mx-2'>Гарантії</NavLink>
-                    <NavLink to={'/about'} className='mx-2'>Про нас</NavLink>
-                    <NavLink to={'/contact'} className='mx-2'>Контакти </NavLink>
+        <div className='w-screen  bg-[#f1f1f6] h-[80px] md:h-[110px] fixed z-[99]'>
+            <header className=' left-auto w-screen md:w-[85%] mx-auto h-[80px] md:h-[110px] flex justify-around items-center bg-gradient-to-tr from-[#000] to-[#191919] md:rounded-lg text-white font-mono'>
+                <div>
+                    <img  className='w-[70px] h-[70px] md:w-[60px] md:h-[100.5px] object-cover my-[5px]' src={logo} alt=""/>
                 </div>
-                <Navigation className={'my-2 flex text-[#aeaeb2]'}/>
-            </div>
-            <div className='flex flex-row xl:flex-col gap-[15px]'>
-                <div className='hidden  lg:flex  items-center'>
+                <div  className='hidden xl:block'>
+                    <div className='flex w-[800px] border-b border-solid border-[#f1f1f6] pb-2 '>
+                        <NavLink to={'/'} className='mx-2'>Головна</NavLink>
+                        <NavLink to={'/calalog'} className='mx-2'>Каталог авто </NavLink>
+                        <NavLink to={'/calculate'} className='mx-2'>Калькулятор</NavLink>
+                        <NavLink to={'/cooperation'} className='mx-2'>Співпраця </NavLink>
+                        <NavLink to={'/guarantees'} className='mx-2'>Гарантії</NavLink>
+                        <NavLink to={'/about'} className='mx-2'>Про нас</NavLink>
+                        <NavLink to={'/contact'} className='mx-2'>Контакти </NavLink>
+                    </div>
+                    <Navigation className={'my-2 flex text-[#aeaeb2]'}/>
+                </div>
+                <div className='flex flex-row xl:flex-col gap-[15px]'>
+                    <div className='hidden  lg:flex  items-center'>
+                        
+                        <div>
+                            <img className='w-[26px] h-[26px] mr-2' alt='phone' src={phoneSVG}/>
+                        </div>
+                        <div>
+                            +380 99 491 32 25
+                        </div>
+                    </div>
+                    <PopUpWithoutCommnet message_type='Отримати консультацію' button='Замовити дзвінок' title='Отримайте консультацію' styleButton='bg-[#740706] box-border w-[140px] h-[41px] my-2 rounded'/>
+                </div>
+                <button className='block xl:hidden'>
                     
-                    <div>
-                        <img className='w-[26px] h-[26px] mr-2' alt='phone' src={phoneSVG}/>
-                    </div>
-                    <div>
-                        +380 99 491 32 25
-                    </div>
-                </div>
-                <PopUpWithoutCommnet message_type='Отримати консультацію' button='Замовити дзвінок' title='Отримайте консультацію' styleButton='bg-[#740706] w-[140px] h-[41px] my-2 rounded'/>
-            </div>
-            <button className='block xl:hidden'>
-                
-                {Open?<img onClick={()=>SetOpen(false)} src={Close} alt="" />:<img onClick={()=>SetOpen(true)}  src={menuBurger} alt="" />}
+                    {Open?<img onClick={()=>SetOpen(false)} src={Close} alt="" />:<img onClick={()=>SetOpen(true)}  src={menuBurger} alt="" />}
 
-            </button>
+                </button>
 
-        </header>{
+            </header>
+        </div>
+{
                 Open ?<div className='mt-24 w-[85%] bg-[#12120e] mx-auto lg:hidden text-[#f1f1f6] border-2 border-t-0 border-solid border-[#12120e] p-5'>
             <div className='flex w-[800px] border-b border-solid border-[#f1f1f6] pb-2'>
                 <div className='flex flex-col gap-[15px] w-[250px] border-r-2 border-solid border-yellow-500'>

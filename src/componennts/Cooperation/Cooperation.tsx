@@ -13,8 +13,8 @@ import { FormCooperation } from '../Forms/FormCooperation'
 
 export const Cooperation = () => {
   return (
-    <div className='font-mono mt-10 flex flex-col items-start w-screen pl-56 gap-[75px] text-ellipsis'>
-        <div className='flex gap-11 mx-10 justify-between'>
+    <div className='font-mono mt-10 flex flex-col items-start w-screen gap-[75px] text-ellipsis'>
+        <div className='flex gap-11  mx-auto justify-between'>
             <div className='w-[475px]'>
                 <div className='text-[21px] font-title font-bold mb-5'>
                     Ми завжди відкриті до співпраці
@@ -27,7 +27,7 @@ export const Cooperation = () => {
             <img className='w-[530px] ml-44 h-[270px] rounded hidden xl:block ' src={Baner1} alt="" />
         </div>
         <FormCooperation/>
-        <div className='flex flex-col gap-5 '>
+        <div className='flex  mx-auto flex-col gap-5 '>
             <div className='text-[21px] font-title font-bold text-center'>
                 Вигідні умови співпраці для оптових клієнтів
             </div>
@@ -66,7 +66,7 @@ export const Cooperation = () => {
                 </div>
             </div>
         </div>
-        <div className='flex flex-col xl:flex-row gap-[50px]'>
+        <div className='flex  mx-auto flex-col xl:flex-row gap-[50px]'>
             <div className='w-[600px]'>
                 <div className='text-[21px] font-title font-bold '>
                     Працюємо з найкращими аукціонами Америки
@@ -103,11 +103,11 @@ export const Cooperation = () => {
                 </div>
             </div>
         </div>
-        <div className='-ml-56 pl-60 bg-[#12120e] w-screen min-h-[500px] text-white flex flex-col gap-5'>
-            <div className='text-[23px] font-title font-bold my-4'>
+        <div className=' mx-auto bg-[#12120e] w-screen min-h-[500px] text-white flex flex-col gap-5'>
+            <div className='text-[23px] mx-auto font-title font-bold my-4'>
                 Співпрацюючи з нами, ви отримуєте: 
             </div>
-            <div className='flex flex-col xl:flex-row text-[#12120e] gap-5 mb-10'>
+            <div className='flex flex-col  mx-auto xl:flex-row text-[#12120e] gap-5 mb-10'>
                 <ul className='list-inside list-disc flex flex-col gap-5'>
                     <li className='bg-white rounded-md w-[380px]  p-5'>
                         Привілейований доступ до аукціону: Ми працюємо з найвідомішим аукціоном Америки - Copart, що дозволяє нам вибирати найкращі лоти для вас.
@@ -137,7 +137,7 @@ export const Cooperation = () => {
                 </ul>
             </div>
         </div>
-        <div className='flex gap-12'>
+        <div className='flex  mx-auto gap-12'>
             <div className='text-[15px] flex flex-col gap-5 w-[530px]'>
                 <div className='text-[21px] font-title font-bold'>
                     Доставка в Україну
@@ -153,7 +153,7 @@ export const Cooperation = () => {
             </div>
             <img className='w-[750px] h-[350px] hidden xl:block ' src={Baner2} alt="" />
         </div>
-        <div className='xl:ml-16 mt-8'>
+        <div className=' mx-auto mt-8'>
             <div className='text-[#12120e] text-[30px] font-title font-bold'>
                 Популярні питання
             </div>
@@ -202,8 +202,8 @@ export const Cooperation = () => {
                 </div>
             </div>
         </div> 
-        <div className='w-screen -ml-56 bg-[#12120e] min-h-[230px] text-white flex items-center'>
-            <div className='mx-56 flex flex-col xl:flex-row gap-12 p-4'>
+        <div className='w-screen mx-auto bg-[#12120e] min-h-[230px] text-white flex items-center'>
+            <div className=' mx-auto flex flex-col xl:flex-row gap-12 p-4'>
                 <div>
                     <div className='text-[22px] font-bold '>
                         ПІДПИСУЙТЕСЬ!
@@ -220,7 +220,7 @@ export const Cooperation = () => {
                 </div>
             </div>
         </div>
-        <div className='mx-14'>
+        <div className=' mx-auto'>
             <div className='text-[26px] font-bold font-title'>
                 КОНТАКТИ
             </div>

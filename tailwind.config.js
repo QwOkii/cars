@@ -11,8 +11,8 @@ module.exports = {
         'tablet':{
           'raw': '(min-width: 1050px)'
         },
-        'laptop':{'raw': '(min-width: 1385px)'},
-        'max-laptop':{'raw': '(max-width: 1385px)'},
+        'laptop':{'raw': '(min-width: 1245px)'},
+        'max-laptop':{'raw': '(max-width: 1245px)'},
         'phone':{'raw': '(max-width: 950px)'},
       }
     },

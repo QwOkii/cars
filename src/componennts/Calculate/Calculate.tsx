@@ -8,9 +8,9 @@ import { Select } from 'antd'
 
 export const Calculate = () => {
   return (
-    <div className='font-mono mt-10 flex flex-col items-start w-screen pl-36 gap-[75px]'>
-        <div className=' flex gap-[50px] '>
-            <div className='flex flex-col gap-[35px] md:w-[550px] mr-10'>
+    <div className='font-mono mt-10 flex flex-col items-start w-screen  gap-[75px]'>
+        <div className=' flex gap-[50px]  mx-auto'>
+            <div className='flex flex-col gap-[35px] md:w-[550px] mx-auto'>
                 <div className='font-title font-bold text-[23px]'>
                     Калькулятор доставки та розмитнення авто із США в Україну
                 </div>
@@ -26,7 +26,7 @@ export const Calculate = () => {
             </div>
             <img src={Baner1} className='w-[580px] h-[270px] rounded hidden xl:block ' alt="" />
         </div>
-        <div className=' flex flex-col justify-center xl:flex-row'>
+        <div className='mx-auto flex flex-col justify-center gap-5 xl:flex-row'>
             
             <form className='w-[340px] md:w-[437px] md:h-[650px] bg-[#12120e] rounded text-white p-4'>
                 <div className='font-title text-[21px] font-bold ' >
@@ -75,7 +75,7 @@ export const Calculate = () => {
                     <Select placeholder='Виберіть' className=' outline-none w-[250px] h-[40px] rounded-md '></Select>
                 </div>
             </form>
-            <div className='mx-4 mt-8 xl:mt-0 mr-20'>
+            <div className=' mt-8 xl:mt-0 mx-auto'>
                 <div className='flex flex-col gap-[8px] md:mb-[170px]'>
                     <div className='flex justify-between'>
                         <div className='font-title '>
@@ -142,7 +142,7 @@ export const Calculate = () => {
                 </div>
             </div>
         </div>
-        <div className=' flex flex-col xl:flex-row gap-[50px] text-white '>
+        <div className=' flex flex-col xl:flex-row gap-[50px] text-white mx-auto '>
             <div className='w-[340px] md:w-[565px] md:h-[500px] bg-[#12120e] rounded flex flex-col items-center p-5'>
                 <div className='w-[300px] md:w-[475px] border-b-2 border-solid border-[#740706] font-title text-[21px]'> 
                     Чому варто користуватися калькулятором авто з США?
@@ -186,7 +186,7 @@ export const Calculate = () => {
                 </div>
             </div>
         </div>
-        <div className='w-screen h-[230px] -ml-36 pl-36 bg-[#12120e] flex justify-between text-white'>
+        <div className='w-screen h-[230px] mx-auto bg-[#12120e] flex justify-between text-white'>
             <div className='m-10'>
                 <div className='font-title text-[21px]'>
                     Отримай знижку на доставку від нашої компанії
@@ -195,7 +195,7 @@ export const Calculate = () => {
             </div>
             <img className=' md:h-[230px] md:w-[380px] hidden md:block' src={Baner2} alt="" />
         </div>
-        <div className=' xl:ml-16 text-ellipsis'>
+        <div className='mx-auto text-ellipsis'>
             <div className='text-[#12120e] text-[30px] font-title font-bold'>
                 ЧАСТІ ПИТАННЯ
             </div>
@@ -359,9 +359,9 @@ export const Calculate = () => {
                 </div>
             </div>
         </div>
-        <div className='w-screen -ml-[15%] bg-[#12120e] min-h-[230px] text-white flex items-center'>
-            <div className='md:mx-56 flex items-center flex-col xl:flex-row gap-12 p-4'>
-                <div className='ml-12 md:ml-0'>
+        <div className='w-screen mx-auto bg-[#12120e] min-h-[230px] text-white flex items-center'>
+            <div className='mx-auto flex items-center flex-col xl:flex-row gap-12 p-4'>
+                <div className='mx-auto'>
                     <div className='text-[22px] font-bold '>
                         ПІДПИСУЙТЕСЬ!
                     </div>
@@ -369,7 +369,7 @@ export const Calculate = () => {
                         Та дізнавайтеся перші про вигідні пропозиції
                     </div>
                 </div>
-                <div className='flex xl:ml-96'>
+                <div className='flex mx-auto'>
                     <input className='box-border p-4 md:w-[320px] h-[54px] bg-[#12120e] border-[3px] border-solid border-[#f1f1f6]' placeholder='Введіть ваш Email' type="text" />
                     <button className='h-[54px] bg-[#730706] box-border px-5 md:w-[220px] rounded-tr rounded-br'>
                         Підписатися
@@ -377,7 +377,7 @@ export const Calculate = () => {
                 </div>
             </div>
         </div>
-        <div className='mx-14'>
+        <div className='mx-auto'>
             <div className='text-[26px] font-bold font-title'>
                 КОНТАКТИ
             </div>

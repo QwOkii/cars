@@ -81,8 +81,8 @@ export const Catalog = () => {
         window.scrollTo(0,0)
     },[dispatch,formik.values,body_style,fuels,markes])
   return (
-    <div className='font-mono mt-10 flex flex-col items-start w-screen ml-5 md:pl-56 gap-[75px]'>
-        <div className=' font-mono sm:min-h-[1400px]'>
+    <div className='font-mono mt-10 flex flex-col items-start w-screen  gap-[75px]'>
+        <div className=' font-mono mx-auto sm:min-h-[1400px]'>
             <div className='font-title text-[21px] font-bold m-8'>
                 АВТОМОБІЛІ З АУКЦІОНІВ США
             </div>
@@ -153,9 +153,9 @@ export const Catalog = () => {
                 </div>          
             </div>
         </div>
-        <div className='flex  text-ellipsis'>
+        <div className='flex mx-auto text-ellipsis'>
             <div className=' flex flex-col items-center'>
-                <details ref={Ref} id="text-details" className=' xl:w-[630px] mr-[50px] flex flex-col items-center'>
+                <details ref={Ref} id="text-details" className=' xl:w-[630px] mx-auto flex flex-col items-center'>
                     <summary>
                         <div className='mt-10'>
                             <div className='text-[21px] font-bold font-title  mb-5'>
@@ -222,11 +222,11 @@ export const Catalog = () => {
                 <img className='w-[482px] h-[321px] hidden xl:block' src={Baner1} alt="" />
             </div>
         </div>
-        <div className='xl:ml-16 mt-8'>
-            <div className='text-[#12120e] ml-12 sm:ml-0 text-[30px] font-title font-bold'>
+        <div className='mx-auto mt-8'>
+            <div className='text-[#12120e] mx-auto text-[30px] font-title font-bold'>
                 Популярні питання
             </div>
-            <div className='flex flex-col  xl:flex-row ml-12 sm:ml-0 text-white gap-[10px] mb-10'>
+            <div className='flex flex-col  xl:flex-row mx-auto text-white gap-[10px] mb-10'>
                 <div className='flex flex-col gap-[10px]'>
                     <details  id='details' className='bg-[#12120e] cursor-pointer w-[305px]  md:w-[470px]  box-content rounded flex flex-col justify-center items-center p-5'>
                         <summary className='font-title text-[20px] hover:ease-in duration-150 h-[60px] text-center md:pt-5 marker:text-[#740706]'>
@@ -288,15 +288,15 @@ export const Catalog = () => {
                     </details> 
                 </div>
             </div>
-            <div className='flex tablet:-mb-32 '>
+            <div className='flex mx-auto '>
                     <FormQuestionsBorder/>
                 <div className='hidden xl:block'> 
                     <img className='ml-80' src={Baner2} alt="" />
                 </div>
             </div>
         </div> 
-        <div className='w-screen -ml-[235px] bg-[#12120e] min-h-[230px] text-white flex items-center'>
-            <div className='md:mx-56 flex items-center flex-col xl:flex-row gap-12 p-4'>
+        <div className='w-screen mx-auto bg-[#12120e] min-h-[230px] text-white flex items-center'>
+            <div className='mx-auto flex items-center flex-col xl:flex-row gap-12 p-4'>
                 <div className='ml-12 md:ml-0'>
                     <div className='text-[22px] font-bold '>
                         ПІДПИСУЙТЕСЬ!
@@ -313,7 +313,7 @@ export const Catalog = () => {
                 </div>
             </div>
         </div>
-        <div className='mx-14'>
+        <div className='mx-auto'>
             <div className='text-[26px] font-bold font-title'>
                 КОНТАКТИ
             </div>

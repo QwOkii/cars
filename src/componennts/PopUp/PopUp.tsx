@@ -39,7 +39,7 @@ export const PopUp:React.FC<Props> = ({button,title,style,styleButton,id,message
         </button>
         {
             isOpen &&    <div className={style !==undefined?style:'absolute z-[70]  top-full left-1/3'}>
-                    <form onBlur={()=>SetisOpen(false)} onSubmit={formik.handleSubmit} className='bg-[#f1f1f6] fixed left-2 sm:left-1/3 bottom-36 sm:bottom-0 gap-[10px] z-[1000] text-black rounded-lg p-5 flex flex-col justify-start items-center box-border w-[350px] sm:w-[520px] h-[560px] my-5 border border-solid border-[#12120e]'>
+                    <form onBlur={()=>SetisOpen(false)} onSubmit={formik.handleSubmit} className='bg-[#f1f1f6]  fixed left-16 sm:left-[15%]  md:left-1/4 lg:left-1/3 bottom-36 sm:bottom-0 gap-[10px] z-[1000] text-black rounded-lg p-5 flex flex-col justify-start items-center box-border w-[350px] sm:w-[520px] h-[560px] my-5 border border-solid border-[#12120e]'>
                         <div className='flex justify-between w-full'> 
                             <div className='text-[21px] font-title font-bold'>
                                 {title}
