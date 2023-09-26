@@ -435,8 +435,8 @@ export const Main = () => {
             </BlackTheme>
 
         </div>
-        <div className='mx-auto'>
-            <div className='font-title text-[26px] font-bold my-4 mx-auto'>
+        <div className='px-[9%]'>
+            <div className='font-title text-[26px] font-bold my-4 '>
                 ПРОЦЕС ПОКУПКИ АВТО З США
             </div>
             <div className='text-white flex flex-wrap gap-[35px] phone:justify-center mx-auto'>
