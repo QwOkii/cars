@@ -64,9 +64,9 @@ export const Catalog = () => {
     })
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
-        dispatch(GetListofItem({page:nextPage,body_style:body_style,color:formik.values.Color,drive_type:formik.values.Reason,fuel:fuels,key:formik.values.Keys,make:markes,model:formik.values.SelectModel,primary_damage:formik.values.Damage,engine_type:formik.values.EngineSize,odometer_from:formik.values.MileageFrom,odometer_to:formik.values.MileageTo,transmission:formik.values.Transmission,pre_accident_value_from:formik.values.PriceFrom,pre_accident_value_to:formik.values.PriceTo,year_from:formik.values.YearFrom,year_to:formik.values.YearTo,}))
+        dispatch(GetListofItem({page:currentPage,body_style:body_style,color:formik.values.Color,drive_type:formik.values.Reason,fuel:fuels,key:formik.values.Keys,make:markes,model:formik.values.SelectModel,primary_damage:formik.values.Damage,engine_type:formik.values.EngineSize,odometer_from:formik.values.MileageFrom,odometer_to:formik.values.MileageTo,transmission:formik.values.Transmission,pre_accident_value_from:formik.values.PriceFrom,pre_accident_value_to:formik.values.PriceTo,year_from:formik.values.YearFrom,year_to:formik.values.YearTo,}))
         dispatch(GetFilterData())
-    },[dispatch,formik.values,body_style,fuels,markes,nextPage])
+    },[dispatch,formik.values,body_style,fuels,markes,currentPage])
     const Ref = useRef<HTMLDetailsElement>(null)
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [isOpenForm, setIsOpenForm] = useState<boolean>(true);
@@ -333,7 +333,7 @@ export const Catalog = () => {
                         Email:
                     </div>
                     <div>
-                        .com
+                       Yemetsdarina@gmail.com
                     </div>
                 </div>
             </div>

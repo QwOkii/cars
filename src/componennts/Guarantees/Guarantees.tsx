@@ -285,7 +285,7 @@ export const Guarantees = () => {
                         Email:
                     </div>
                     <div>
-                        .com
+                       Yemetsdarina@gmail.com
                     </div>
                 </div>
             </div>

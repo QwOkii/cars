@@ -240,7 +240,7 @@ export const Cooperation = () => {
                         Email:
                     </div>
                     <div>
-                        .com
+                       Yemetsdarina@gmail.com
                     </div>
                 </div>
             </div>
