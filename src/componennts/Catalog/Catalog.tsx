@@ -40,7 +40,7 @@ export const Catalog = () => {
     const {ListItem,body_style,fuels,markes,currentPage,totalofItems,nextPage, } = useSelector((u:RootState)=>u.Catalog )
     const formik = useFormik<InitialValues>({
         initialValues:{
-            SelectMark:'',
+            SelectMark:markes,
             SelectModel:'',
             PriceFrom:0,
             PriceTo:99999999,
@@ -49,8 +49,8 @@ export const Catalog = () => {
             MileageFrom:0,
             MileageTo:999999999,
             Keys:'',
-            TypeCar:'',
-            Fuel:'',
+            TypeCar:body_style,
+            Fuel:fuels,
             Color:'',
             Reason:'',
             Damage:'',
@@ -64,8 +64,9 @@ export const Catalog = () => {
     })
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
-        dispatch(GetListofItem({page:currentPage,body_style:body_style,color:formik.values.Color,drive_type:formik.values.Reason,fuel:fuels,key:formik.values.Keys,make:markes,model:formik.values.SelectModel,primary_damage:formik.values.Damage,engine_type:formik.values.EngineSize,odometer_from:formik.values.MileageFrom,odometer_to:formik.values.MileageTo,transmission:formik.values.Transmission,pre_accident_value_from:formik.values.PriceFrom,pre_accident_value_to:formik.values.PriceTo,year_from:formik.values.YearFrom,year_to:formik.values.YearTo,}))
+        dispatch(GetListofItem({page:currentPage,body_style:formik.values.TypeCar,color:formik.values.Color,drive_type:formik.values.Reason,fuel:formik.values.Fuel,key:formik.values.Keys,make:formik.values.SelectMark,model:formik.values.SelectModel,primary_damage:formik.values.Damage,engine_type:formik.values.EngineSize,odometer_from:formik.values.MileageFrom,odometer_to:formik.values.MileageTo,transmission:formik.values.Transmission,pre_accident_value_from:formik.values.PriceFrom,pre_accident_value_to:formik.values.PriceTo,year_from:formik.values.YearFrom,year_to:formik.values.YearTo,}))
         dispatch(GetFilterData())
+        window.scrollTo(0,0)
     },[dispatch,formik.values,body_style,fuels,markes,currentPage])
     const Ref = useRef<HTMLDetailsElement>(null)
     const [isOpen, setIsOpen] = useState<boolean>(false);
