@@ -43,15 +43,16 @@ import { RootState, useAppDispatch } from '../../app/store'
 import { GetFilterData, GetListofItem, setFuel, setMark, setbody_style } from '../../app/Catalog'
 import { useNavigate } from 'react-router-dom'
 import { FormPhone } from '../Forms/FormPhone'
+import Image from '../Image'
 
 export const Main = () => {
-    const { ListItem,body_style,fuels,markes,currentPage } = useSelector( (u:RootState)=>u.Catalog)
+    const { ListItem,currentPage } = useSelector( (u:RootState)=>u.Catalog)
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
     useEffect(()=>{
-        dispatch(GetListofItem({page:currentPage,body_style:body_style,make:markes,fuel:fuels,color:'',drive_type:'',engine_type:'',key:'',model:'',odometer_from:0,odometer_to:99999,pre_accident_value_from:0,pre_accident_value_to:99999,primary_damage:'',transmission:'',year_from:0,year_to:9999}))
+        dispatch(GetListofItem({page:currentPage,body_style:'',make:'',fuel:'',color:'',drive_type:'',engine_type:'',key:'',model:'',odometer_from:0,odometer_to:99999,pre_accident_value_from:0,pre_accident_value_to:99999,primary_damage:'',transmission:'',year_from:0,year_to:9999}))
         dispatch(GetFilterData())
-    },[dispatch,markes,body_style,fuels,currentPage])
+    },[dispatch,currentPage])
 
     const RedicetWithFuel = React.useCallback((value:string)=>{
         dispatch( setFuel(value) )
@@ -81,7 +82,7 @@ export const Main = () => {
                     <div className='w-[620px] h-[100px] text-[18px] font-bold font-title bg-[#e1ae32] rounded-3xl flex justify-center items-center'>
                         Adolbi.inc ваш надійний партнер в виборі "сталевого" коня!
                     </div>
-                    <img className=' w-[620px] h-[515px]  ' src={Baner} alt="" />
+                    <Image className=' w-[620px] h-[515px] ' src={Baner} alt="" />
 
                 </div>                
             </div>
@@ -100,7 +101,7 @@ export const Main = () => {
                     <div onClick={()=>RedicetWithbody_style('4DR EXT')} className='flex flex-wrap items-start justify-center sm:w-[575px] gap-[10px] sm:gap-[20px] '>
                         <div className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
-                                <img src={cross} alt="" />
+                                <Image src={cross} alt="" />
                             </div>
                             <div className='font-mono text-[14.4px] text-white font-bold'>
                                 Кросовери
@@ -108,7 +109,7 @@ export const Main = () => {
                         </div>
                         <div onClick={()=>RedicetWithbody_style('4DR SPOR')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
-                                <img src={parket} alt="" />
+                                <Image src={parket} alt="" />
                             </div>
                             <div className='font-mono text-[14.4px] text-white font-bold'>
                                 Паркетники 
@@ -116,7 +117,7 @@ export const Main = () => {
                         </div>
                         <div onClick={()=>RedicetWithbody_style('4DR EXT')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
-                                <img src={pickUp} alt="" />
+                                <Image src={pickUp} alt="" />
                             </div>
                             <div className='font-mono text-[14.4px] text-white font-bold'>
                                 Пікапи
@@ -124,7 +125,7 @@ export const Main = () => {
                         </div>
                         <div onClick={()=>RedicetWithbody_style('CARGO VA')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px] scale-x-[-1] scale-y-[1]'>
-                                <img src={Minivan} alt="" />
+                                <Image src={Minivan} alt="" />
                             </div>
                             <div className='font-mono text-[14.4px] text-white font-bold'>
                                 Мінівени
@@ -132,7 +133,7 @@ export const Main = () => {
                         </div>
                         <div onClick={()=>RedicetWithbody_style('SEDAN 4D')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
-                                <img src={sedan} alt="" />
+                                <Image src={sedan} alt="" />
                             </div>
                             <div className='font-mono text-[14.4px] text-white font-bold'>
                                 Седани
@@ -140,7 +141,7 @@ export const Main = () => {
                         </div>
                         <div onClick={()=>RedicetWithbody_style('HATCHBAC')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
-                                <img src={hachback} alt="" />
+                                <Image src={hachback} alt="" />
                             </div>
                             <div className='font-mono text-[14.4px] text-white font-bold'>
                                 Хетчбеки
@@ -148,7 +149,7 @@ export const Main = () => {
                         </div>
                         <div onClick={()=>RedicetWithbody_style('CONVERTI')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
-                                <img src={kabriolet} alt="" />
+                                <Image src={kabriolet} alt="" />
                             </div>
                             <div className='font-mono text-[14.4px] text-white font-bold'>
                                 Кабріолети
@@ -156,7 +157,7 @@ export const Main = () => {
                         </div>
                         <div onClick={()=>RedicetWithbody_style('COUPE')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
-                                <img src={cupe} alt="" />
+                                <Image src={cupe} alt="" />
                             </div>
                             <div className='font-mono text-[14.4px] text-white font-bold'>
                                 Купе
@@ -164,7 +165,7 @@ export const Main = () => {
                         </div>
                         <div onClick={()=>RedicetWithbody_style('CREW PIC')}  className='w-[175px] h-[170px] -mx-22 sm:mx-0 bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
                             <div className='w-[160px] h-[80px]'>
-                                <img src={vnedoroznik} alt="" />
+                                <Image src={vnedoroznik} alt="" />
                             </div>
                             <div className='font-mono text-[14.4px] text-white font-bold'>
                                 Позашляховики
@@ -182,7 +183,7 @@ export const Main = () => {
                                     Бензиновий
                                 </div>
                                 <div className='w-[106px] h-[106px] '>
-                                    <img src={back} alt="" />
+                                    <Image src={back} alt="" />
                                 </div>
                         </div>
                         <div onClick={()=>RedicetWithFuel('DIESEL')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
@@ -190,7 +191,7 @@ export const Main = () => {
                                     Дизельний
                                 </div>
                                 <div className='w-[106px] h-[106px] '>
-                                    <img src={back} alt="" />
+                                    <Image src={back} alt="" />
                                 </div>
                         </div>
                         <div onClick={()=>RedicetWithFuel('ELECTRIC')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
@@ -198,7 +199,7 @@ export const Main = () => {
                                     Електро
                                 </div>
                                 <div className='w-[106px] h-[106px] '>
-                                    <img src={back} alt="" />
+                                    <Image src={back} alt="" />
                                 </div>
                         </div>
                         <div onClick={()=>RedicetWithFuel('HYBRID ENGINE')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
@@ -206,7 +207,7 @@ export const Main = () => {
                                     Гібрид
                                 </div>  
                                 <div className='w-[106px] h-[106px] '>
-                                    <img src={back} alt="" />
+                                    <Image src={back} alt="" />
                                 </div>
                         </div>
                         <div onClick={()=>RedicetWithFuel('GAS')}  className='w-[175px] h-[170px] bg-[#12120e] flex flex-col items-center justify-around hover:opacity-75'>
@@ -214,7 +215,7 @@ export const Main = () => {
                                     Газ
                                 </div>  
                                 <div className='w-[106px] h-[106px] '>
-                                    <img src={back} alt="" />
+                                    <Image src={back} alt="" />
                                 </div>
                         </div>
                     </div>
@@ -292,9 +293,9 @@ export const Main = () => {
             </div>
             
             <div className='w-screen mx-auto flex gap-[20px] justify-center items-center overflow-x-hidden'>
-                <img src={arrow} alt="" className='w-[28px] h-[25px]  scale-x-[-1] scale-y-[1]'/>
+                <Image src={arrow} alt="" className='w-[28px] h-[25px]  scale-x-[-1] scale-y-[1]'/>
                 {ListItem.map((u)=><Item key={u.VIN_code} {...u} />)}
-                <img src={arrow} alt="" className='w-[28px] h-[25px]'/>
+                <Image src={arrow} alt="" className='w-[28px] h-[25px]'/>
             </div>
         </div>
        <FormPhone/>
@@ -310,13 +311,13 @@ export const Main = () => {
                         Покупка авто з США надає вам доступ до широкого вибору автомобілів різних марок та моделей, і дозволяє знайти ідеальний варіант для ваших потреб і бюджету. Ми працюємо в цій сфері вже декілька років і на власному досвіді переконалися, що це надійно та вигідно.
                     </div>
                     <div className='w-[641px] h-[258px] hidden xl:block'>
-                        <img src={BanerCar} alt="" />
+                        <Image src={BanerCar} alt="" />
                     </div>
                 </div>
                 <div className='flex flex-col mx-auto'>
                     <div className='flex m-5 box-border'>
                         <div className='w-[71px] h-[71px] bg-gradient-to-tr from-[#740706] to-[#922a2a] rounded flex justify-center items-center'>
-                            <img className='w-[45px] h-[45px]' src={book} alt="" />
+                            <Image className='w-[45px] h-[45px]' src={book} alt="" />
                         </div>
                         <div className='ml-5 font-mono  w-[480px]'>
                             <div className=' text-[20px] font-bold'>
@@ -329,7 +330,7 @@ export const Main = () => {
                     </div>
                     <div className='flex m-5'>
                         <div className='w-[71px] h-[71px] bg-gradient-to-tr from-[#740706] to-[#922a2a] rounded flex justify-center items-center'>
-                            <img className='w-[45px] h-[45px]' src={money} alt="" />
+                            <Image className='w-[45px] h-[45px]' src={money} alt="" />
                         </div>
                         <div className='ml-5 font-mono w-[480px]'>
                             <div className=' text-[20px] font-bold'>
@@ -342,7 +343,7 @@ export const Main = () => {
                     </div>
                     <div className='flex m-5'>
                         <div className='w-[71px] h-[71px] bg-gradient-to-tr from-[#740706] to-[#922a2a] rounded flex justify-center items-center'>
-                            <img className='w-[45px] h-[45px]' src={send} alt="" />
+                            <Image className='w-[45px] h-[45px]' src={send} alt="" />
                         </div>
                         <div className='ml-5 font-mono w-[480px]'>
                             <div className=' text-[20px] font-bold'>
@@ -355,7 +356,7 @@ export const Main = () => {
                     </div>
                     <div className='flex m-5'>
                         <div className='w-[71px] h-[71px] bg-gradient-to-tr from-[#740706] to-[#922a2a] rounded flex justify-center items-center'>
-                            <img className='w-[45px] h-[45px]' src={PointCar} alt="" />
+                            <Image className='w-[45px] h-[45px]' src={PointCar} alt="" />
                         </div>
                         <div className='ml-5 font-mono w-[480px]'>
                             <div className=' text-[20px] w-[250px] font-bold'>
@@ -442,7 +443,7 @@ export const Main = () => {
             <div className='text-white flex flex-wrap gap-[35px] phone:justify-center w-screen xl:w-[1280px] mx-auto'>
                     <div    className='buing-item bg-[#12120e] w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative phone:before:block'>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
-                            <img className='w-[45px] h-[45px]' src={odred} alt="" />
+                            <Image className='w-[45px] h-[45px]' src={odred} alt="" />
                         </div>
                         <div className='ml-5 font-mono box-border max-w-[260px]'>
                             <div className=' text-[20px] font-bold'>
@@ -455,7 +456,7 @@ export const Main = () => {
                     </div>
                     <div  className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative phone:before:block max-laptop:before:hidden  '>
                         <div className='w-[66px] h-[70px] rounded flex justify-center items-center'>
-                            <img className='w-[45px] h-[45px]' src={docAccept} alt="" />
+                            <Image className='w-[45px] h-[45px]' src={docAccept} alt="" />
                         </div>
                         <div className='ml-5 font-mono  box-border max-w-[260px]'>
                             <div className=' text-[20px] font-bold'>
@@ -467,11 +468,11 @@ export const Main = () => {
                         </div>
                     </div>
                     <div className='w-screen -ml-28  hidden max-laptop:block phone:hidden'>
-                        <img className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
+                        <Image className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
                     </div>
                     <div   className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border relative phone:before:block  xl:before:hidden'>
                         <div className='w-[66px] h-[70px]  rounded flex justify-center items-center'>
-                            <img className='w-[45px] h-[45px]' src={search} alt="" />
+                            <Image className='w-[45px] h-[45px]' src={search} alt="" />
                         </div>
                         <div className='ml-5 font-mono  box-border max-w-[260px]'>
                             <div className=' text-[20px] font-bold'>
@@ -483,11 +484,11 @@ export const Main = () => {
                         </div>
                     </div>
                     <div className='w-screen  -ml-28  hidden laptop:block'>
-                        <img className='w-[850px]  mx-auto' src={ArrowTo} alt="" />
+                        <Image className='w-[850px]  mx-auto' src={ArrowTo} alt="" />
                     </div>
                     <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative phone:before:block max-laptop:before:hidden '>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
-                            <img className='w-[45px] h-[45px]' src={hammer} alt="" />
+                            <Image className='w-[45px] h-[45px]' src={hammer} alt="" />
                         </div>
                         <div className='ml-5 font-mono  box-border max-w-[260px]'>
                             <div className=' text-[20px] font-bold'>
@@ -499,11 +500,11 @@ export const Main = () => {
                         </div>
                     </div>
                     <div className='w-screen -ml-28  hidden max-laptop:block phone:hidden'>
-                        <img className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
+                        <Image className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
                     </div>
                     <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative '>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
-                            <img className='w-[45px] h-[45px]' src={pay} alt="" />
+                            <Image className='w-[45px] h-[45px]' src={pay} alt="" />
                         </div>
                         <div className='ml-5 font-mono  box-border max-w-[260px]'>
                             <div className=' text-[20px] font-bold'>
@@ -516,7 +517,7 @@ export const Main = () => {
                     </div>
                     <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative phone:before:block xl:before:hidden max-laptop:before:hidden'>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
-                            <img className='w-[45px] h-[45px]' src={cargo} alt="" />
+                            <Image className='w-[45px] h-[45px]' src={cargo} alt="" />
                         </div>
                         <div className='ml-5 font-mono  box-border max-w-[260px]'>
                             <div className=' text-[20px] font-bold'>
@@ -528,14 +529,14 @@ export const Main = () => {
                         </div>
                     </div>
                     <div className='w-screen  -ml-28  hidden laptop:block'>
-                        <img className='w-[850px]  mx-auto' src={ArrowTo} alt="" />
+                        <Image className='w-[850px]  mx-auto' src={ArrowTo} alt="" />
                     </div>
                     <div className='w-screen -ml-28  hidden max-laptop:block phone:hidden'>
-                        <img className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
+                        <Image className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
                     </div>
                     <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative '>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
-                            <img className='w-[45px] h-[45px]' src={rozmitnennya} alt="" />
+                            <Image className='w-[45px] h-[45px]' src={rozmitnennya} alt="" />
                         </div>
                         <div className='ml-5 font-mono  box-border max-w-[260px]'>
                             <div className=' text-[20px] font-bold'>
@@ -548,7 +549,7 @@ export const Main = () => {
                     </div>
                     <div    className='buing-item bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative  phone:before:block max-laptop:before:hidden'>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
-                            <img className='w-[45px] h-[45px]' src={repair} alt="" />
+                            <Image className='w-[45px] h-[45px]' src={repair} alt="" />
                         </div>
                         <div className='ml-5 font-mono  box-border max-w-[260px]'>
                             <div className=' text-[20px] font-bold'>
@@ -560,11 +561,11 @@ export const Main = () => {
                         </div>
                     </div>
                     <div className='w-screen -ml-28  hidden max-laptop:block phone:hidden'>
-                        <img className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
+                        <Image className=' w-[600px] mx-auto ml-60' src={ArrowTo} alt="" />
                     </div>
                     <div  className=' bg-[#12120e]  w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative '>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
-                            <img className='w-[45px] h-[45px]' src={getCar} alt="" />
+                            <Image className='w-[45px] h-[45px]' src={getCar} alt="" />
                         </div>
                         <div className='ml-5 font-mono  box-border max-w-[260px]'>
                             <div className=' text-[20px] font-bold'>
@@ -639,7 +640,7 @@ export const Main = () => {
             <div className=' flex flex-col sm:flex-row w-[350px]  sm:w-[620px] xl:w-[1210px] sm:h-[200px] bg-[#12120e] text-white p-5'>
                 <div className='flex flex-col items-center'>
                     <div className='w-[177px] h-[146px] '>
-                        <img src="" alt="" />
+                        <Image src="" alt="" />
                     </div>
 
                     <div className='font-bold'>
@@ -659,7 +660,7 @@ export const Main = () => {
                 <div className=' flex flex-col sm:flex-row w-[350px]  sm:w-[620px] box-border sm:h-[200px] bg-[#12120e] text-white p-2'>
                     <div className='flex flex-col items-center'>
                         <div className='w-[177px] h-[146px] '>
-                            <img src="" alt="" />
+                            <Image src="" alt="" />
                         </div>
                         <div className='font-bold'>
                             Autor
@@ -677,7 +678,7 @@ export const Main = () => {
                 <div className='flex flex-col sm:flex-row w-[350px]  sm:w-[620px] box-border sm:h-[200px] bg-[#12120e] text-white  p-2'>
                     <div className='flex flex-col items-center'>
                         <div className='w-[177px] h-[146px] ' >
-                            <img src="" alt="" />
+                            <Image src="" alt="" />
                         </div>
                         <div className='font-bold'>
                             Autor
@@ -695,7 +696,7 @@ export const Main = () => {
             </div>
             <div className='text-white flex-col sm:flex-row  flex justify-end gap-[10px] mt-5 sm:mr-[250px]'>
                 <button className='w-[230px] h-[60px] bg-[#740706] rounded flex justify-center items-center mx-2'>
-                    Відгуки в Google <img src={gogleMaps} className='w-[42px] h-[42px]' alt="" />
+                    Відгуки в Google <Image src={gogleMaps} className='w-[42px] h-[42px]' alt="" />
                 </button>
                 <button className='w-[230px] h-[60px] bg-[#740706] rounded flex justify-center items-center mx-2'>
                     Подивитися відгуки
@@ -705,13 +706,13 @@ export const Main = () => {
         <div className=' flex mx-auto '>
             <FormQuestions/>
             <div className='hidden xl:block'> 
-                <img className='ml-80' src={Baner2} alt="" />
+                <Image className='ml-80' src={Baner2} alt="" />
             </div>
         </div>
         <div className='flex flex-col mx-auto xl:flex-row'>
             <div className='w-[300px] sm:w-[450px] mx-auto'>
                 <div className='w-[160px] h-[60px]'>
-                    <img  src={Copart} alt="" />
+                    <Image  src={Copart} alt="" />
                 </div>
                 <div className='text-[23px] font-bold'>
                     ПРАЦЮЄМО З COPART
@@ -776,7 +777,7 @@ export const Main = () => {
             </div>
             <div className='flex flex-col sm:flex-row gap-12 my-10'>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
                     <div>
                         Телефон:
                     </div>
@@ -785,7 +786,7 @@ export const Main = () => {
                     </div>
                 </div>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
                     <div>
                         Email:
                     </div>

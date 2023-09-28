@@ -8,6 +8,7 @@ import * as Yup from 'yup'
 import { useAppDispatch } from '../../app/store'
 import { useFormik } from 'formik'
 import { SendQuestions } from '../../app/Message'
+import Image from '../Image'
 
 const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -76,7 +77,7 @@ export const Contact = () => {
             </div>
             <div className='mt-3'>
                 <div className='flex mb-2'>
-                    <img className='w-[30px] h-[30px]' src={commentWhite} alt="" />
+                    <Image className='w-[30px] h-[30px]' src={commentWhite} alt="" />
                     <div className='text-[15px]'>
                     Коментар
                     </div>
@@ -91,7 +92,7 @@ export const Contact = () => {
             </div>
             <div className='flex flex-col gap-12 my-10'>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
                     <div>
                         Телефон:
                     </div>
@@ -100,7 +101,7 @@ export const Contact = () => {
                     </div>
                 </div>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
                     <div>
                         Email:
                     </div>

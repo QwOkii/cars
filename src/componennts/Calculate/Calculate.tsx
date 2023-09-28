@@ -5,6 +5,7 @@ import EmailBlack from "../../accest/Contact/EmailBlack.svg"
 import PhoneBlack from "../../accest/Contact/PhoneBlack.svg"
 
 import { Select } from 'antd'
+import Image from '../Image'
 
 export const Calculate = () => {
   return (
@@ -24,7 +25,7 @@ export const Calculate = () => {
                     </div>
                 </div>
             </div>
-            <img src={Baner1} className='w-[580px] h-[270px] rounded hidden xl:block ' alt="" />
+            <Image src={Baner1} className='w-[580px] h-[270px] rounded hidden xl:block ' alt="" />
         </div>
         <div className='mx-auto flex flex-col justify-center gap-5 xl:flex-row'>
             
@@ -193,7 +194,7 @@ export const Calculate = () => {
                 </div>
                 <button className='h-[40px]  bg-[#740706] rounded w-[200px] mt-10'>Отримати знижку</button>
             </div>
-            <img className=' md:h-[230px] md:w-[380px] hidden md:block' src={Baner2} alt="" />
+            <Image className=' md:h-[230px] md:w-[380px] hidden md:block' src={Baner2} alt="" />
         </div>
         <div className='mx-auto text-ellipsis'>
             <div className='text-[#12120e] text-[30px] font-title font-bold'>
@@ -383,7 +384,7 @@ export const Calculate = () => {
             </div>
             <div className='flex flex-col sm:flex-row gap-12 my-10'>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
                     <div>
                         Телефон:
                     </div>
@@ -392,7 +393,7 @@ export const Calculate = () => {
                     </div>
                 </div>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
                     <div>
                         Email:
                     </div>

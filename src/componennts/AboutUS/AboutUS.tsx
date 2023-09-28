@@ -7,6 +7,7 @@ import Baner1 from "../../accest/AboutUS/Baner1.webp"
 import EmailBlack from "../../accest/Contact/EmailBlack.svg"
 import PhoneBlack from "../../accest/Contact/PhoneBlack.svg"
 import { FormSupportAccept } from '../Forms/FormSupportAccept'
+import Image from '../Image'
 export const AboutUS = () => {
   return (
     <div className='font-mono mt-3 lg:mt-10 flex flex-col items-start w-screen  '>
@@ -61,7 +62,7 @@ export const AboutUS = () => {
                 <div className='box-border w-[350px] h-[250px] bg-[#12120e] rounded flex flex-col p-5 text-white'>
                     <div className='flex gap-4'>
                         <div className='bg-[#740706] rounded-full w-[90px] h-[90px] flex justify-center items-center'>
-                            <img className='w-[60px] h-[60px]' src={Licens} alt="" />
+                            <Image className='w-[60px] h-[60px]' src={Licens} alt="" />
                         </div>
                         <div className='text-[21px] font-title font-bold'>
                             Ліцензії
@@ -74,7 +75,7 @@ export const AboutUS = () => {
                 <div className='box-border w-[350px] h-[250px] bg-[#12120e] rounded flex flex-col p-5 text-white'>
                     <div className='flex gap-4'>
                         <div className='bg-[#740706] rounded-full w-[90px] h-[90px] flex justify-center items-center'>
-                            <img className='w-[60px] h-[60px]' src={deferent} alt="" />
+                            <Image className='w-[60px] h-[60px]' src={deferent} alt="" />
                         </div>
                         <div className='text-[21px] font-title font-bold'>
                             Прозорість
@@ -87,7 +88,7 @@ export const AboutUS = () => {
                 <div className='box-border w-[350px] h-[250px] bg-[#12120e] rounded flex flex-col p-5 text-white'>
                     <div className='flex gap-4'>
                         <div className='bg-[#740706] rounded-full w-[90px] h-[90px] flex justify-center items-center'>
-                            <img className='w-[60px] h-[60px]' src={delivery} alt="" />
+                            <Image className='w-[60px] h-[60px]' src={delivery} alt="" />
                         </div>
                         <div className='text-[21px] font-title font-bold'>
                             Логістика
@@ -99,7 +100,7 @@ export const AboutUS = () => {
                 <div className='box-border w-[350px] h-[250px] bg-[#12120e] rounded flex flex-col p-5 text-white'>
                     <div className='flex gap-4'>
                         <div className='bg-[#740706] rounded-full w-[90px] h-[90px] flex justify-center items-center'>
-                            <img className='w-[60px] h-[60px]' src={support} alt="" />
+                            <Image className='w-[60px] h-[60px]' src={support} alt="" />
                         </div>
                         <div className='text-[21px] font-title font-bold'>
                             Надійність
@@ -123,7 +124,7 @@ export const AboutUS = () => {
                     Натисни сюди, щоб потрапити на портал пошуку роботи
                 </button>
             </div>
-            <img src={Baner1} className='hidden xl:block w-[574px] h-[380px] rounded' alt="" />
+            <Image src={Baner1} className='hidden xl:block w-[574px] h-[380px] rounded' alt="" />
         </div>
         <div className=' flex gap-32 justify-between w-screen  mx-auto  flex-col xl:flex-row'>
             <div className=' flex flex-col gap-8 xl:gap-16 w-[300px] md:w-[430px] mx-auto'>
@@ -166,7 +167,7 @@ export const AboutUS = () => {
             </div>
             <div className='flex flex-col sm:flex-row gap-12 my-4 md:my-10'>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
                     <div>
                         Телефон:
                     </div>
@@ -175,7 +176,7 @@ export const AboutUS = () => {
                     </div>
                 </div>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
                     <div>
                         Email:
                     </div>

@@ -6,6 +6,7 @@ import { useFormik } from 'formik'
 import { useAppDispatch } from '../../app/store'
 import { SendQuestions } from '../../app/Message'
 import * as Yup from 'yup'
+import Image from '../Image'
 
 const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -47,7 +48,7 @@ export const FormQuestionsBorder = () => {
     </div>
     <div>
         <div className='flex mb-1'> 
-            <img src={phone} className='w-[30px] h-[30px] mr-2' alt="" />Номер телефону
+            <Image src={phone} className='w-[30px] h-[30px] mr-2' alt="" />Номер телефону
         </div>
         <input {...formik.getFieldProps('phone')} className='outline-none box-border p-4 w-[240px] sm:w-[420px] h-[60px] border-4 border-solid border-[#12120e] rounded' placeholder='+380 XX XX XX XXX'/>
             {formik.errors.phone && formik.touched.phone && (
@@ -55,7 +56,7 @@ export const FormQuestionsBorder = () => {
             )}    </div>
     <div>
         <div className='flex  mb-1'>
-            <img src={user} className='w-[30px] h-[30px] mr-2' alt="" />Ваше ім’я
+            <Image src={user} className='w-[30px] h-[30px] mr-2' alt="" />Ваше ім’я
         </div>
         <input {...formik.getFieldProps('name')} className='outline-none box-border p-4 w-[240px] sm:w-[420px] h-[60px] border-4 border-solid border-[#12120e] rounded' placeholder='Ім’я Прізвище'/>
             {formik.errors.name && formik.touched.name && (
@@ -64,7 +65,7 @@ export const FormQuestionsBorder = () => {
             </div>
     <div>
         <div className='flex  mb-1'>
-            <img src={comment} className='w-[30px] h-[30px] mr-2' alt="" />Коментар
+            <Image src={comment} className='w-[30px] h-[30px] mr-2' alt="" />Коментар
         </div>
         <textarea name='comment' onChange={formik.handleChange} rows={30} className='w-[320px] md:w-[420px] h-[150px] border-4 border-solid border-[#12120e] rounded' placeholder='Коментар'></textarea>
     </div>

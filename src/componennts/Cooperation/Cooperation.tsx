@@ -10,6 +10,7 @@ import EmailBlack from "../../accest/Contact/EmailBlack.svg"
 import PhoneBlack from "../../accest/Contact/PhoneBlack.svg"
 import { FormQuestionsBorder } from '../Forms/FormQuestionsBorder'
 import { FormCooperation } from '../Forms/FormCooperation'
+import Image from '../Image'
 
 export const Cooperation = () => {
   return (
@@ -24,7 +25,7 @@ export const Cooperation = () => {
                     <br/>Всі наші клієнти можуть бути впевнені, що отримають свої автомобільні лоти в найкращому стані, цілими та неушкодженими, без жодних ризиків.
                 </div>
             </div>
-            <img className='w-[530px] ml-44 h-[270px] rounded hidden xl:block ' src={Baner1} alt="" />
+            <Image className='w-[530px] ml-44 h-[270px] rounded hidden xl:block ' src={Baner1} alt="" />
         </div>
         <FormCooperation/>
         <div className='flex  mx-auto flex-col gap-5 '>
@@ -34,7 +35,7 @@ export const Cooperation = () => {
             <div className='flex flex-col xl:flex-row gap-[15px] text-white'>
                 <div className='flex flex-col items-center'>
                     <div className='w-[90px] h-[90px] rounded-full bg-[#740706] flex justify-center items-center -mb-10 z-40'>
-                        <img className='w-[60px] h-[60px]' src={hammer} alt="" />
+                        <Image className='w-[60px] h-[60px]' src={hammer} alt="" />
                     </div>
                     <div className='w-[310px] h-[110px] bg-[#12120e] rounded-md flex justify-center items-center'>
                     Дилерський доступ до майданчиків
@@ -42,7 +43,7 @@ export const Cooperation = () => {
                 </div>
                 <div className='flex flex-col items-center'>
                     <div className='w-[90px] h-[90px] rounded-full bg-[#740706] flex justify-center items-center -mb-10 z-40'>
-                        <img className='w-[60px] h-[60px]' src={doc} alt="" />
+                        <Image className='w-[60px] h-[60px]' src={doc} alt="" />
                     </div>
                     <div className='w-[310px] h-[110px] bg-[#12120e] rounded-md flex justify-center items-center'>
                     Повний документальний супровід
@@ -50,7 +51,7 @@ export const Cooperation = () => {
                 </div>
                 <div className='flex flex-col items-center'>
                     <div className='w-[90px] h-[90px] rounded-full bg-[#740706] flex justify-center items-center -mb-10 z-40'>
-                        <img className='w-[60px] h-[60px]' src={dolar} alt="" />
+                        <Image className='w-[60px] h-[60px]' src={dolar} alt="" />
                     </div>
                     <div className='w-[310px] h-[110px] bg-[#12120e] rounded-md flex justify-center items-center'>
                     Мінімальні комісійні ставки
@@ -58,7 +59,7 @@ export const Cooperation = () => {
                 </div>
                 <div className='flex flex-col items-center'>
                     <div className='w-[90px] h-[90px] rounded-full bg-[#740706] flex justify-center items-center -mb-10 z-40'>
-                        <img className='w-[60px] h-[60px]' src={cargo} alt="" />
+                        <Image className='w-[60px] h-[60px]' src={cargo} alt="" />
                     </div>
                     <div className='w-[310px] h-[110px] bg-[#12120e] rounded-md flex justify-center items-center'>
                     Доставка за оптовими тарифами
@@ -151,7 +152,7 @@ export const Cooperation = () => {
                     Наша географія доставки охоплює всю територію України, незалежно від того, де ви знаходитесь. 
                 </div>
             </div>
-            <img className='w-[750px] h-[350px] hidden xl:block ' src={Baner2} alt="" />
+            <Image className='w-[750px] h-[350px] hidden xl:block ' src={Baner2} alt="" />
         </div>
         <div className=' mx-auto mt-8'>
             <div className='text-[#12120e] mx-auto sm:mx-36 text-[30px] font-title font-bold'>
@@ -198,7 +199,7 @@ export const Cooperation = () => {
             <div className='  flex -mb-32 '>
                 <FormQuestionsBorder/>
                 <div className='hidden xl:block'> 
-                    <img className='ml-80' src={Baner3} alt="" />
+                    <Image className='ml-80' src={Baner3} alt="" />
                 </div>
             </div>
         </div> 
@@ -226,7 +227,7 @@ export const Cooperation = () => {
             </div>
             <div className='flex flex-col sm:flex-row gap-12 my-10'>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
                     <div>
                         Телефон:
                     </div>
@@ -235,7 +236,7 @@ export const Cooperation = () => {
                     </div>
                 </div>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
                     <div>
                         Email:
                     </div>

@@ -16,6 +16,7 @@ import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
 import { PopUp } from '../PopUp/PopUp'
 import { PopUpWithoutCommnet } from '../PopUp/PopUpWithoutCommnet'
+import Image from '../Image'
 
 export const ItemPage = () => {
     const { carID } = useParams()
@@ -40,7 +41,7 @@ export const ItemPage = () => {
                         plugins={[lgThumbnail, lgZoom]}
                     >
                     {
-                        images.FULL_IMAGE.map(u =><a  className='w-[300px] h-[196px] object-cover lg:w-[823px] lg:h-[560px] rounded ' href={u}><img className='w-[300px] h-[196px] object-cover lg:w-[823px] lg:h-[560px] rounded '  src={u} alt="" /></a>)
+                        images.FULL_IMAGE.map(u =><a  className='w-[300px] h-[196px] object-cover lg:w-[823px] lg:h-[560px] rounded ' href={u}><Image className='w-[300px] h-[196px] object-cover lg:w-[823px] lg:h-[560px] rounded '  src={u} alt="" /></a>)
                     }
                     </LightGallery>
                     </div>  
@@ -219,7 +220,7 @@ export const ItemPage = () => {
             </div>
         </div>
         <div className='lg:-ml-36 sm:mt-52 w-screen flex items-center box-border px-5 h-[230px] bg-[#740706] ' >
-            <img className='h-[404px] w-[720px] hidden xl:block' src={Baner} alt="" />
+            <Image className='h-[404px] w-[720px] hidden xl:block' src={Baner} alt="" />
             <div className='text-[21px] font-title font-bold  sm:w-[450px] sm:m-10 mb-0 text-white'>
                 Разом ціна автомобіля з доставкою та розмитненням:  13.000 $
             </div>
@@ -260,7 +261,7 @@ export const ItemPage = () => {
             </div>
             <div className='flex flex-col sm:flex-row gap-12 my-10'>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
                     <div>
                         Телефон:
                     </div>
@@ -269,7 +270,7 @@ export const ItemPage = () => {
                     </div>
                 </div>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
                     <div>
                         Email:
                     </div>

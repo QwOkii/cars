@@ -6,6 +6,7 @@ import { useFormik} from "formik"
 import { useAppDispatch } from '../../app/store'
 import { SendQuestions } from '../../app/Message'
 import * as Yup from 'yup';
+import Image from '../Image'
 
 interface InitialValues{
     phone:string,
@@ -46,7 +47,7 @@ export const FormCooperation = () => {
         <div className='flex gap-[30px] flex-col lg:flex-row'>
             <div>
                 <div className='flex gap-4 text-[15px] my-2'>
-                    <img className='w-[26px] h-[26px]' src={phone} alt="" />
+                    <Image className='w-[26px] h-[26px]' src={phone} alt="" />
                     <label htmlFor='phone'>
                         Номер телефону
                     </label>
@@ -59,7 +60,7 @@ export const FormCooperation = () => {
             </div>
             <div>
                 <div className='flex gap-4 text-[15px] my-2'>
-                    <img className='w-[26px] h-[26px]' src={user} alt="" />
+                    <Image className='w-[26px] h-[26px]' src={user} alt="" />
                     <label htmlFor='name'>
                         Ваше ім’я
                     </label>
@@ -74,7 +75,7 @@ export const FormCooperation = () => {
         </div>
         <div>
             <div className='flex gap-4 text-[15px] my-2'>
-                <img className='w-[26px] h-[26px]' src={comment} alt="" />
+                <Image className='w-[26px] h-[26px]' src={comment} alt="" />
                 <div>
                     Коментар
                 </div>

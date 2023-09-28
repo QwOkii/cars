@@ -15,6 +15,7 @@ import { GetFilterData, GetListofItem } from '../../app/Catalog'
 import { RootState, useAppDispatch } from '../../app/store'
 import { useSelector } from "react-redux"
 import { useFormik } from 'formik'
+import Image from '../Image'
 
 interface InitialValues{
     SelectMark:string,
@@ -285,7 +286,7 @@ export const Catalog = () => {
             <div className='flex mx-auto '>
                     <FormQuestionsBorder/>
                 <div className='hidden xl:block'> 
-                    <img className='ml-80' src={Baner2} alt="" />
+                    <Image className='ml-80' src={Baner2} alt="" />
                 </div>
             </div>
         </div> 
@@ -313,7 +314,7 @@ export const Catalog = () => {
             </div>
             <div className='flex flex-col sm:flex-row gap-12 my-10'>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
                     <div>
                         Телефон:
                     </div>
@@ -322,7 +323,7 @@ export const Catalog = () => {
                     </div>
                 </div>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
                     <div>
                         Email:
                     </div>

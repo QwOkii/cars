@@ -6,6 +6,7 @@ import {useFormik} from "formik"
 import { useAppDispatch } from '../../app/store'
 import { SendQuestions } from '../../app/Message'
 import * as Yup from 'yup'
+import Image from '../Image'
 
 const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -48,7 +49,7 @@ export const FormSupportAccept = () => {
         </div>
         <div>
             <div className='flex my-2'>
-                <img className='w-[26px] h-[26px]' src={phone} alt="" />
+                <Image className='w-[26px] h-[26px]' src={phone} alt="" />
                 <div className='text-13px ml-2'>
                     Номер телефону
                 </div>
@@ -60,7 +61,7 @@ export const FormSupportAccept = () => {
         </div>
         <div>
             <div className='flex my-2 '>
-                <img className='w-[26px] h-[26px]' src={user} alt="" />
+                <Image className='w-[26px] h-[26px]' src={user} alt="" />
                 <div className='text-13px ml-2'>
                     Ваше ім’я
                 </div>
@@ -72,7 +73,7 @@ export const FormSupportAccept = () => {
         </div>
         <div>
             <div className='flex my-2'>
-                <img className='w-[26px] h-[26px]' src={comment} alt="" />
+                <Image className='w-[26px] h-[26px]' src={comment} alt="" />
                 <div className='text-13px ml-2'>
                     Коментар
                 </div>

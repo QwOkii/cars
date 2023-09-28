@@ -18,6 +18,7 @@ import { FormQuestionsBorder } from '../Forms/FormQuestionsBorder'
 import { useSelector } from "react-redux"
 import { RootState, useAppDispatch } from '../../app/store'
 import { GetListofItem } from '../../app/Catalog'
+import Image from '../Image'
 
 export const Guarantees = () => {
     const dispatch = useAppDispatch()
@@ -43,7 +44,7 @@ export const Guarantees = () => {
                     </div>
                 </div>
             </div>
-            <img className='hidden xl:block rounded w-[650px] h-[270px] object-cover' src={Baner1} alt="" />
+            <Image className='hidden xl:block rounded w-[650px] h-[270px] object-cover' src={Baner1} alt="" />
         </div>
         <div className=' mx-auto'>
             <div className='font-title mx-auto md:mx-0 font-bold text-[21px] my-5'>
@@ -53,7 +54,7 @@ export const Guarantees = () => {
                 <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={integrity} alt="" />
+                            <Image className='h-[60px] w-[60px]' src={integrity} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Легальність та Чесність
@@ -66,7 +67,7 @@ export const Guarantees = () => {
                 <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={quality} alt="" />
+                            <Image className='h-[60px] w-[60px]' src={quality} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Якість і Стан
@@ -79,7 +80,7 @@ export const Guarantees = () => {
                 <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={details} alt="" />
+                            <Image className='h-[60px] w-[60px]' src={details} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Повна Інформація
@@ -92,7 +93,7 @@ export const Guarantees = () => {
                 <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={pass} alt="" />
+                            <Image className='h-[60px] w-[60px]' src={pass} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Супровід Представниками
@@ -112,7 +113,7 @@ export const Guarantees = () => {
                 <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={support} alt="" />
+                            <Image className='h-[60px] w-[60px]' src={support} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Консультації та Підтримка
@@ -125,7 +126,7 @@ export const Guarantees = () => {
                 <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={business} alt="" />
+                            <Image className='h-[60px] w-[60px]' src={business} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Звіти про Стан
@@ -138,7 +139,7 @@ export const Guarantees = () => {
                 <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={contract} alt="" />
+                            <Image className='h-[60px] w-[60px]' src={contract} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Договір
@@ -151,7 +152,7 @@ export const Guarantees = () => {
                 <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
-                            <img className='h-[60px] w-[60px]' src={information} alt="" />
+                            <Image className='h-[60px] w-[60px]' src={information} alt="" />
                         </div>
                         <div className='text-[21px] font-title ml-5'>
                             Інформаційна Прозорість
@@ -173,7 +174,7 @@ export const Guarantees = () => {
             <div className=' flex flex-col sm:flex-row w-[350px]  sm:w-[620px] xl:w-[1210px] sm:h-[200px] bg-[#12120e] text-white p-5'>
                 <div className='flex flex-col items-center'>
                     <div className='w-[177px] h-[146px] '>
-                        <img src="" alt="" />
+                        <Image src="" alt="" />
                     </div>
 
                     <div className='font-bold'>
@@ -193,7 +194,7 @@ export const Guarantees = () => {
                 <div className=' flex flex-col sm:flex-row w-[350px]  sm:w-[620px] box-border sm:h-[200px] bg-[#12120e] text-white p-2'>
                     <div className='flex flex-col items-center'>
                         <div className='w-[177px] h-[146px] '>
-                            <img src="" alt="" />
+                            <Image src="" alt="" />
                         </div>
                         <div className='font-bold'>
                             Autor
@@ -211,7 +212,7 @@ export const Guarantees = () => {
                 <div className='flex flex-col sm:flex-row w-[350px]  sm:w-[620px] box-border sm:h-[200px] bg-[#12120e] text-white  p-2'>
                     <div className='flex flex-col items-center'>
                         <div className='w-[177px] h-[146px] ' >
-                            <img src="" alt="" />
+                            <Image src="" alt="" />
                         </div>
                         <div className='font-bold'>
                             Autor
@@ -229,7 +230,7 @@ export const Guarantees = () => {
             </div>
             <div className='text-white flex-col sm:flex-row  flex justify-end gap-[10px] mt-5 sm:mr-[250px]'>
                 <button className='w-[230px] h-[60px] bg-[#740706] rounded flex justify-center items-center mx-2'>
-                    Відгуки в Google <img src={gogleMaps} className='w-[42px] h-[42px]' alt="" />
+                    Відгуки в Google <Image src={gogleMaps} className='w-[42px] h-[42px]' alt="" />
                 </button>
                 <button className='w-[230px] h-[60px] bg-[#740706] rounded flex justify-center items-center mx-2'>
                     Подивитися відгуки
@@ -243,15 +244,15 @@ export const Guarantees = () => {
                     </div>
             </div>
             <div className='w-screen flex gap-[20px] justify-center items-center overflow-x-hidden'>
-                <img src={arrow} alt="" className='w-[28px] h-[25px] ml-32 scale-x-[-1] scale-y-[1]'/>
+                <Image src={arrow} alt="" className='w-[28px] h-[25px] ml-32 scale-x-[-1] scale-y-[1]'/>
                     {ListItem.map(u=><Item {...u} />)}
-                <img src={arrow} alt="" className='w-[28px] h-[25px]'/>
+                <Image src={arrow} alt="" className='w-[28px] h-[25px]'/>
             </div>
         </div>
         <div className='mx-auto flex -mb-32 '>
             <FormQuestionsBorder/>
             <div className='hidden xl:block'> 
-                <img className='ml-80' src={Baner2} alt="" />
+                <Image className='ml-80' src={Baner2} alt="" />
             </div>
         </div>
         <div className='w-screen  mx-auto bg-[#12120e] min-h-[280px] text-white flex items-center'>
@@ -278,7 +279,7 @@ export const Guarantees = () => {
             </div>
             <div className='flex flex-col sm:flex-row gap-12 my-10'>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
                     <div>
                         Телефон:
                     </div>
@@ -287,7 +288,7 @@ export const Guarantees = () => {
                     </div>
                 </div>
                 <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
-                    <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
+                    <Image className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
                     <div>
                         Email:
                     </div>

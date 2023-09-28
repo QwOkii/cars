@@ -3,6 +3,7 @@ import Baner1 from "../../accest/Main/Baner1.webp"
 import { useFormik } from 'formik'
 import { useAppDispatch } from '../../app/store'
 import { SendQuestions } from '../../app/Message'
+import Image from '../Image'
 
 export const FormPhone = () => {
     const dispatch = useAppDispatch()
@@ -17,7 +18,7 @@ export const FormPhone = () => {
     <form className=' text-white'>
         <div className='w-screen  min-h-[350px] bg-[#12120e] flex items-center justify-between'>
             <div className='h-[350px]  xl:w-[250px] hidden md:block   box-border '>
-                <img src={Baner1}  alt="" className='h-[350px]  xl:w-[250px]   box-border '/>
+                <Image src={Baner1}  alt="" className='h-[350px]  xl:w-[250px]   box-border '/>
             </div>
             <div className='flex flex-col mx-auto lg:flex-row gap-5 w-[66%] justify-between'>  
                 <div className='flex flex-col justify-between '>

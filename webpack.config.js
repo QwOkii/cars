@@ -1,5 +1,7 @@
 module.exports = {
+  
     module: {
+      mode:'production',
       rules: [
         {
           test: /\.(png|jpe?g|gif)$/i,
@@ -11,4 +13,5 @@ module.exports = {
         },
       ],
     },
+  
 };

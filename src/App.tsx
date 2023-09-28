@@ -1,20 +1,21 @@
-import React from 'react';
+import React,{lazy,Suspense} from 'react';
 import { Header } from './componennts/Header/Header';
-import { Main } from './componennts/Main/Main';
-import { Catalog } from './componennts/Catalog/Catalog';
-import { Calculate } from './componennts/Calculate/Calculate';
-import { Contact } from './componennts/Contact/Contact';
-import { Guarantees } from './componennts/Guarantees/Guarantees';
-import { AboutUS } from './componennts/AboutUS/AboutUS';
-import { ItemPage } from './componennts/ItemPage/ItemPage';
 import {Route, Routes } from 'react-router-dom'
-import { Cooperation } from './componennts/Cooperation/Cooperation';
+const Main = lazy(()=>import('./componennts/Main/Main').then(({Main})=>({default:Main})))
+const Catalog = lazy(()=>import('./componennts/Catalog/Catalog').then(({Catalog})=>({default:Catalog})))
+const Calculate = lazy(()=>import('./componennts/Calculate/Calculate').then(({Calculate})=>({default:Calculate})))
+const Contact = lazy(()=>import('./componennts/Contact/Contact').then(({Contact})=>({default:Contact})))
+const Guarantees = lazy(()=>import('./componennts/Guarantees/Guarantees').then(({Guarantees})=>({default:Guarantees})))
+const AboutUS = lazy(()=>import('./componennts/AboutUS/AboutUS').then(({AboutUS})=>({default:AboutUS})))
+const ItemPage = lazy(()=>import('./componennts/ItemPage/ItemPage').then(({ItemPage})=>({default:ItemPage})))
+const Cooperation = lazy(()=>import('./componennts/Cooperation/Cooperation').then(({Cooperation})=>({default:Cooperation})))
+
 
 function App() {
   return (
     <div className='flex flex-col items-center  bg-[#f1f1f6] font-sanf overflow-x-hidden'>
       <Header/>
-      <main>
+      <Suspense >
         <Routes>
           <Route path='/' element={<Main/>}/>
           <Route path='/calalog' element={<Catalog/>}/>
@@ -26,7 +27,7 @@ function App() {
           <Route path='/about' element={<AboutUS/>}/>
           <Route path='/cooperation' element={<Cooperation/>}/>
         </Routes>
-      </main>
+      </Suspense>
     </div>
   );
 }
