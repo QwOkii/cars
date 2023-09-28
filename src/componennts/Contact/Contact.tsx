@@ -85,28 +85,31 @@ export const Contact = () => {
             </div>
             <button className='text-[15px] font-bold h-[60px] w-[390px] bg-[#740706] rounded'>Зв’язатися</button>
         </form>
-        <div>
+        <div className='mx-auto'>
             <div className='text-[26px] font-bold font-title'>
                 КОНТАКТИ
             </div>
-            <div className='flex gap-[10px] text-[18px] font-bold'>
-                <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
-                <div>
-                    Телефон:
+            <div className='flex flex-col gap-12 my-10'>
+                <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
+                    <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
+                    <div>
+                        Телефон:
+                    </div>
+                    <div>
+                        +380 99 491 32 25
+                    </div>
                 </div>
-                <div>
-                    +380 99 491 32 25
+                <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
+                    <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
+                    <div>
+                        Email:
+                    </div>
+                    <div>
+                       Yemetsdarina@gmail.com
+                    </div>
                 </div>
             </div>
-            <div className='flex gap-[10px] text-[18px] font-bold'>
-                <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
-                <div>
-                    Email:
-                </div>
-                <div>
-                   Yemetsdarina@gmail.com
-                </div>
-            </div>
+            
         </div>
     </div>
   )

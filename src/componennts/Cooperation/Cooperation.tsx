@@ -15,7 +15,7 @@ export const Cooperation = () => {
   return (
     <div className='font-mono mt-10 flex flex-col items-start w-screen gap-[75px] text-ellipsis'>
         <div className='flex gap-11  mx-auto justify-between'>
-            <div className='w-[475px]'>
+            <div className=' w-[300px] sm:w-[475px] '>
                 <div className='text-[21px] font-title font-bold mb-5'>
                     Ми завжди відкриті до співпраці
                 </div>
@@ -154,11 +154,11 @@ export const Cooperation = () => {
             <img className='w-[750px] h-[350px] hidden xl:block ' src={Baner2} alt="" />
         </div>
         <div className=' mx-auto mt-8'>
-            <div className='text-[#12120e] text-[30px] font-title font-bold'>
+            <div className='text-[#12120e] mx-auto sm:mx-36 text-[30px] font-title font-bold'>
                 Популярні питання
             </div>
-            <div className='flex flex-col xl:flex-row text-white gap-[10px] mb-10'>
-                <div className='flex flex-col gap-[10px]'> 
+            <div className='flex flex-col mx-auto xl:flex-row text-white gap-[10px] mb-10'>
+                <div className='flex flex-col mx-auto gap-[10px]'> 
                     <details  id='details' className='bg-[#12120e] cursor-pointer w-[305px] md:w-[470px]   box-content rounded flex flex-col justify-center items-center p-5'>
                         <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Які переваги ви отримаєте при співпраці з Adolbi?
@@ -220,12 +220,12 @@ export const Cooperation = () => {
                 </div>
             </div>
         </div>
-        <div className=' mx-auto'>
+        <div className='mx-auto'>
             <div className='text-[26px] font-bold font-title'>
                 КОНТАКТИ
             </div>
-            <div className='flex gap-12 my-10'>
-                <div className='flex gap-[10px] text-[18px] font-bold'>
+            <div className='flex flex-col sm:flex-row gap-12 my-10'>
+                <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
                     <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
                     <div>
                         Телефон:
@@ -234,7 +234,7 @@ export const Cooperation = () => {
                         +380 99 491 32 25
                     </div>
                 </div>
-                <div className='flex gap-[10px] text-[18px] font-bold'>
+                <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
                     <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
                     <div>
                         Email:

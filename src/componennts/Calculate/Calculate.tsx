@@ -381,8 +381,8 @@ export const Calculate = () => {
             <div className='text-[26px] font-bold font-title'>
                 КОНТАКТИ
             </div>
-            <div className='flex gap-12 my-10'>
-                <div className='flex gap-[10px] text-[18px] font-bold'>
+            <div className='flex flex-col sm:flex-row gap-12 my-10'>
+                <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
                     <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
                     <div>
                         Телефон:
@@ -391,7 +391,7 @@ export const Calculate = () => {
                         +380 99 491 32 25
                     </div>
                 </div>
-                <div className='flex gap-[10px] text-[18px] font-bold'>
+                <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
                     <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
                     <div>
                         Email:

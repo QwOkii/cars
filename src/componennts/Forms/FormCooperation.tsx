@@ -43,7 +43,7 @@ export const FormCooperation = () => {
         <div className='text-[21px] font-bold font-title'>
             Отримайте вигідні умови партнерства
         </div>
-        <div className='flex gap-[30px]'>
+        <div className='flex gap-[30px] flex-col lg:flex-row'>
             <div>
                 <div className='flex gap-4 text-[15px] my-2'>
                     <img className='w-[26px] h-[26px]' src={phone} alt="" />

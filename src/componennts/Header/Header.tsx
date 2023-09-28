@@ -130,7 +130,7 @@ export const Header = () => {
                     <NavLink to={'/about'} className='mx-2'>Про нас</NavLink>
                     <NavLink to={'/contact'} className='mx-2'>Контакти </NavLink>
                 </div>
-                <Navigation className={'my-2 flex flex-col text-[#f1f1f6] items-start md:ml-5 gap-3'} />
+                <Navigation className={'md:my-2 flex flex-col text-[#f1f1f6] items-start md:ml-5 gap-3'} />
             </div>
         </div>   
                 : <div></div>

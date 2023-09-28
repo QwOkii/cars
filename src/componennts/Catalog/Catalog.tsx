@@ -217,11 +217,11 @@ export const Catalog = () => {
             </div>
         </div>
         <div className='mx-auto mt-8'>
-            <div className='text-[#12120e] mx-auto text-[30px] font-title font-bold'>
+            <div className='text-[#12120e] mx-auto md:mx-36 text-[30px] font-title font-bold'>
                 Популярні питання
             </div>
             <div className='flex flex-col  xl:flex-row mx-auto text-white gap-[10px] mb-10'>
-                <div className='flex flex-col gap-[10px]'>
+                <div className='flex flex-col mx-auto gap-[10px]'>
                     <details  id='details' className='bg-[#12120e] cursor-pointer w-[305px]  md:w-[470px]  box-content rounded flex flex-col justify-center items-center p-5'>
                         <summary className='font-title text-[20px] hover:ease-in duration-150 h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             З якими аукціонами ми працюємо?
@@ -311,8 +311,8 @@ export const Catalog = () => {
             <div className='text-[26px] font-bold font-title'>
                 КОНТАКТИ
             </div>
-            <div className='flex gap-12 my-10'>
-                <div className='flex gap-[10px] text-[18px] font-bold'>
+            <div className='flex flex-col sm:flex-row gap-12 my-10'>
+                <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
                     <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
                     <div>
                         Телефон:
@@ -321,7 +321,7 @@ export const Catalog = () => {
                         +380 99 491 32 25
                     </div>
                 </div>
-                <div className='flex gap-[10px] text-[18px] font-bold'>
+                <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
                     <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
                     <div>
                         Email:

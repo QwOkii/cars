@@ -435,7 +435,7 @@ export const Main = () => {
             </BlackTheme>
 
         </div>
-        <div className='px-[9%]'>
+        <div>
             <div className='font-title text-[26px] font-bold my-4 '>
                 ПРОЦЕС ПОКУПКИ АВТО З США
             </div>

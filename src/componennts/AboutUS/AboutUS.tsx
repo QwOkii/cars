@@ -9,9 +9,9 @@ import PhoneBlack from "../../accest/Contact/PhoneBlack.svg"
 import { FormSupportAccept } from '../Forms/FormSupportAccept'
 export const AboutUS = () => {
   return (
-    <div className='font-mono mt-10 flex flex-col items-start w-screen  '>
+    <div className='font-mono mt-3 lg:mt-10 flex flex-col items-start w-screen  '>
         <div className='flex mx-auto gap-16 items-center'>
-            <div className='my-8 w-[470px]  '>
+            <div className='my-8 mx-auto w-[300px]  md:w-[470px]  '>
                 <div className='text-[23px] font-title font-bold'>
                     Про Adolbi
                 </div>
@@ -36,7 +36,7 @@ export const AboutUS = () => {
             <div className=' border border-solid border-[#12120e] w-[450px] h-[388px] rounded'>
 
             </div>
-            <div className='max-w-[731px]'>
+            <div className='w-[300px] mx-auto md:w-[470px] lg:w-[731px]'>
                 <div className='text-[23px] font-title font-bold'>
                     Наша історія 
                 </div>
@@ -49,15 +49,15 @@ export const AboutUS = () => {
             </div>
         </div>
         <div className='my-8  mx-auto flex gap-12  flex-col '>
-            <div className=' w-[400px]  '>
+            <div className=' w-[300px] md:w-[400px]  '>
                 <div className='text-[23px] font-title font-bold'>
                     Наші цінності
                 </div>
-                <div className='text-[15px] my-5'>
+                <div className='text-[15px] my-3 md:my-5'>
                     Ціль нашої компанії полягає в забезпеченні наших клієнтів надійними та високоякісними автомобілями зі США. Ми віримо у доступність мрій про власний автомобіль і прагнемо зробити процес пригону авто максимально простим та зручним для кожного клієнта. 
                 </div>
             </div>
-            <div className='flex  my-5 xl:-ml-44 gap-4'>
+            <div className='flex flex-col flex-wrap xl:flex-nowrap  my-5 xl:-ml-44 gap-4'>
                 <div className='box-border w-[350px] h-[250px] bg-[#12120e] rounded flex flex-col p-5 text-white'>
                     <div className='flex gap-4'>
                         <div className='bg-[#740706] rounded-full w-[90px] h-[90px] flex justify-center items-center'>
@@ -111,22 +111,22 @@ export const AboutUS = () => {
                 </div>
             </div>
         </div>
-        <div className='mt-8  bg-white w-screen h-[400px]  mx-auto flex gap-40 items-center '>
-            <div className='flex flex-col gap-8 mt-16 w-[420px]'>
+        <div className='mt-8  bg-white w-screen min-h-[400px] lg:h-[400px]  mx-auto flex gap-40 items-center '>
+            <div className='flex flex-col gap-8 mt-16 w-[300px] md:w-[420px]'>
                 <div className='text-[23px] font-title font-bold'>
                     Натисни сюди, щоб потрапити на портал пошуку роботи
                 </div>
                 <div className='text-[15px] '>
                     Ми завжди раді вітати нових співробітників. Переходь, щоб отримати доступ до інформації про вакансії та можливості працевлаштування в нашій компанії.
                 </div>
-                <button className='bg-[#740706] rounded text-white text-[17px] w-[420px] h-[90px] font-bold'>
+                <button className='bg-[#740706] rounded text-white text-[17px] w-[300px] lg:w-[420px] h-[90px] font-bold'>
                     Натисни сюди, щоб потрапити на портал пошуку роботи
                 </button>
             </div>
             <img src={Baner1} className='hidden xl:block w-[574px] h-[380px] rounded' alt="" />
         </div>
         <div className=' flex gap-32 justify-between w-screen  mx-auto  flex-col xl:flex-row'>
-            <div className=' mx-auto flex flex-col gap-8 xl:gap-16 w-[430px]'>
+            <div className=' mx-auto flex flex-col gap-8 xl:gap-16 w-[300px] md:w-[430px]'>
                 <div className='text-[23px] font-title font-bold'>
                     Ми завжди відкриті до співпраці
                 </div>
@@ -138,7 +138,7 @@ export const AboutUS = () => {
                     Співпраця
                 </button>
             </div>
-            <div className='w-[900px] object-cover h-[620px] bg-Baner2 text-white '>
+            <div className='w-[300px] md:w-[700px] lg:w-[900px] object-cover min-h-[620px] lg:h-[620px] bg-Baner2 text-white '>
                 <FormSupportAccept/>
             </div>
         </div>
@@ -164,8 +164,8 @@ export const AboutUS = () => {
             <div className='text-[26px] font-bold font-title'>
                 КОНТАКТИ
             </div>
-            <div className='flex gap-12 my-10'>
-                <div className='flex gap-[10px] text-[18px] font-bold'>
+            <div className='flex flex-col sm:flex-row gap-12 my-4 md:my-10'>
+                <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
                     <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
                     <div>
                         Телефон:
@@ -174,7 +174,7 @@ export const AboutUS = () => {
                         +380 99 491 32 25
                     </div>
                 </div>
-                <div className='flex gap-[10px] text-[18px] font-bold'>
+                <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
                     <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
                     <div>
                         Email:

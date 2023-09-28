@@ -28,11 +28,11 @@ export const Guarantees = () => {
   return (
     <div className='font-mono mt-10 flex flex-col items-start w-screen  gap-[75px]'>
         <div className=' mx-auto flex gap-[50px]'>
-            <div>
+            <div className='mx-auto'>
                 <div className='font-title text-[21px] font-bold'>
                     Гарантії
                 </div>
-                <div className='text-[15px] w-[472px]'>
+                <div className='text-[15px] w-[300px] md:w-[472px]'>
                     <div>
                         Наша компанія надає гарантії для клієнтів, які купують автомобілі зі США. Ми розуміємо, що важливо мати впевненість у якості та стані авто.
                     </div>
@@ -50,7 +50,7 @@ export const Guarantees = () => {
                 Гарантії авто зі США
             </div>
             <div className='flex flex-col flex-wrap  xl:flex-row gap-[15px] w-[1200px]'> 
-                <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={integrity} alt="" />
@@ -63,7 +63,7 @@ export const Guarantees = () => {
                     Ми гарантуємо, що всі транспортні засоби привозяться до України відповідно до законодавства та з чесними оборудками.
                     </div>
                 </div> 
-                <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={quality} alt="" />
@@ -76,7 +76,7 @@ export const Guarantees = () => {
                         Ви отримуєте автомобіль у найкращому стані, оскільки ми докладаємо всі зусилля для того, щоб забезпечити високу якість та технічну справність кожного лоту.
                     </div>
                 </div> 
-                <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={details} alt="" />
@@ -89,7 +89,7 @@ export const Guarantees = () => {
                         Ми надаємо інформацію про кожен автомобіль, включаючи його історію, технічні характеристики та фотографії.
                     </div>
                 </div> 
-                <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={pass} alt="" />
@@ -109,7 +109,7 @@ export const Guarantees = () => {
                 Гарантійні зобов’язання компанії
             </div>
             <div className='flex flex-col flex-wrap xl:flex-row gap-[15px] w-[1200px]'> 
-                <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={support} alt="" />
@@ -122,7 +122,7 @@ export const Guarantees = () => {
                         Ми надаємо консультації та підтримку на кожному етапі співпраці, готові відповісти на всі ваші запитання та надати допомогу.
                     </div>
                 </div> 
-                <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={business} alt="" />
@@ -135,7 +135,7 @@ export const Guarantees = () => {
                         Під час транспортування автомобіля нашими представниками складаються звіти про його стан, що гарантує якість і надійність при доставці.
                     </div>
                 </div> 
-                <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={contract} alt="" />
@@ -148,7 +148,7 @@ export const Guarantees = () => {
                         Кожен клієнт укладає офіційний договір з нашою компанією, в якому фіксуються всі зобов'язання та умови співпраці.
                     </div>
                 </div> 
-                <div className='w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={information} alt="" />
@@ -163,14 +163,14 @@ export const Guarantees = () => {
                 </div>
             </div>
         </div>
-        <div className=' mx-auto'>
+        <div className='mx-auto'>
             <div className='font-title text-[26px] font-bold'>
                 ВІДГУКИ
             </div>
             <div className=' text-[20px] font-bold my-3'>
                 КЛІЄНТИ ПРО НАС
             </div>
-            <div className='w-[600px] xl:w-[1210px] h-[200px] bg-[#12120e] text-white flex p-5'>
+            <div className=' flex flex-col sm:flex-row w-[350px]  sm:w-[620px] xl:w-[1210px] sm:h-[200px] bg-[#12120e] text-white p-5'>
                 <div className='flex flex-col items-center'>
                     <div className='w-[177px] h-[146px] '>
                         <img src="" alt="" />
@@ -189,8 +189,8 @@ export const Guarantees = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex flex-col xl:flex-row gap-[10px] mt-[10px]'>
-                <div className='w-[600px] h-[200px] bg-[#12120e] text-white flex p-2'>
+            <div className='flex flex-col xl:flex-row xl:w-[1210px] gap-[10px] xl:gap-[50px] mt-[10px]'>
+                <div className=' flex flex-col sm:flex-row w-[350px]  sm:w-[620px] box-border sm:h-[200px] bg-[#12120e] text-white p-2'>
                     <div className='flex flex-col items-center'>
                         <div className='w-[177px] h-[146px] '>
                             <img src="" alt="" />
@@ -208,7 +208,7 @@ export const Guarantees = () => {
                         </div>
                     </div>
                 </div>
-                <div className='w-[600px] h-[200px] bg-[#12120e] text-white flex p-2'>
+                <div className='flex flex-col sm:flex-row w-[350px]  sm:w-[620px] box-border sm:h-[200px] bg-[#12120e] text-white  p-2'>
                     <div className='flex flex-col items-center'>
                         <div className='w-[177px] h-[146px] ' >
                             <img src="" alt="" />
@@ -227,7 +227,7 @@ export const Guarantees = () => {
                     </div>
                 </div>
             </div>
-            <div className='text-white  flex justify-end mt-5 mr-[250px]'>
+            <div className='text-white flex-col sm:flex-row  flex justify-end gap-[10px] mt-5 sm:mr-[250px]'>
                 <button className='w-[230px] h-[60px] bg-[#740706] rounded flex justify-center items-center mx-2'>
                     Відгуки в Google <img src={gogleMaps} className='w-[42px] h-[42px]' alt="" />
                 </button>
@@ -237,7 +237,7 @@ export const Guarantees = () => {
             </div>
         </div>
         <div className='mx-auto flex flex-col gap-10 '>
-            <div className='w-screen pl-56 h-[109px] bg-[#12120e] '>
+            <div className='w-screen  xl:pl-56 h-[109px] bg-[#12120e] '>
                     <div className='ml-5 mt-8 text-[26px] font-title font-bold text-white'>
                         ПОПУЛЯРНІ АВТО
                     </div>
@@ -254,7 +254,7 @@ export const Guarantees = () => {
                 <img className='ml-80' src={Baner2} alt="" />
             </div>
         </div>
-        <div className='w-screen  mx-auto bg-[#12120e] min-h-[200px] text-white flex items-center'>
+        <div className='w-screen  mx-auto bg-[#12120e] min-h-[250px] text-white flex items-center'>
             <div className=' mx-auto flex flex-col xl:flex-row gap-12 p-4'>
                 <div>
                     <div className='text-[22px] font-bold '>
@@ -272,12 +272,12 @@ export const Guarantees = () => {
                 </div>
             </div>
         </div>
-        <div className=' mx-auto'>
+        <div className='mx-auto'>
             <div className='text-[26px] font-bold font-title'>
                 КОНТАКТИ
             </div>
-            <div className='flex gap-12 my-10'>
-                <div className='flex gap-[10px] text-[18px] font-bold'>
+            <div className='flex flex-col sm:flex-row gap-12 my-10'>
+                <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
                     <img className='w-[35px] h-[35px]' src={PhoneBlack} alt="" />
                     <div>
                         Телефон:
@@ -286,7 +286,7 @@ export const Guarantees = () => {
                         +380 99 491 32 25
                     </div>
                 </div>
-                <div className='flex gap-[10px] text-[18px] font-bold'>
+                <div className='flex flex-wrap gap-[10px] text-[18px] font-bold'>
                     <img className='w-[35px] h-[35px]' src={EmailBlack} alt="" />
                     <div>
                         Email:
