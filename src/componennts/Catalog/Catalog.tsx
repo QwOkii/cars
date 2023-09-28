@@ -118,15 +118,9 @@ export const Catalog = () => {
                         <div className=' hidden tablet:block'>
                             Знайдено {totalofItems} авто
                         </div>
-                        <div className='hidden tablet:flex'>
-                            <input type="checkbox" name="" id=""  className='w-[20px] h-[20px] mr-4'/> 
-                            <div>
-                                Виключити майбутні лоти
-                            </div>
-                        </div>
                         <Select  className='w-[210px] h-[40px]' placeholder="Відсортувати"></Select>
                     </div>
-                    <div className='flex flex-col ml-8 sm:-ml-20 tablet:ml-0'>
+                    <div className={isOpen?'flex flex-col ml-8 sm:-ml-20 tablet:ml-0 blur-sm':'flex flex-col ml-8 sm:-ml-20 tablet:ml-0'}>
                         {
                             ListItem.map((u:any)=><Item key={u.VIN_code} {...u} />)
                         }
