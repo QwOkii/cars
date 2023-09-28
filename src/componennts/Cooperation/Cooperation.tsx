@@ -67,7 +67,7 @@ export const Cooperation = () => {
             </div>
         </div>
         <div className='flex  mx-auto flex-col xl:flex-row gap-[50px]'>
-            <div className='w-[600px]'>
+            <div className='w-[300px] md:w-[600px]'>
                 <div className='text-[21px] font-title font-bold '>
                     Працюємо з найкращими аукціонами Америки
                 </div>
@@ -82,7 +82,7 @@ export const Cooperation = () => {
                 
                 </div>
             </div>
-            <div className='flex flex-wrap gap-4 w-[600px]'>
+            <div className='flex flex-wrap gap-4 w-[300px] md:w-[600px]'>
                 <div className='w-[280px] h-[110px] bg-[#12120e] rounded text-white font-title font-bold text-[21px]'>
                     Аукціон №
                 </div>
@@ -109,36 +109,36 @@ export const Cooperation = () => {
             </div>
             <div className='flex flex-col  mx-auto xl:flex-row text-[#12120e] gap-5 mb-10'>
                 <ul className='list-inside list-disc flex flex-col gap-5'>
-                    <li className='bg-white rounded-md w-[380px]  p-5'>
+                    <li className='bg-white rounded-md w-[340px] sm:w-[380px]  p-5'>
                         Привілейований доступ до аукціону: Ми працюємо з найвідомішим аукціоном Америки - Copart, що дозволяє нам вибирати найкращі лоти для вас.
                     </li>
-                    <li className='bg-white rounded-md w-[380px]   p-5'>
+                    <li className='bg-white rounded-md w-[340px] sm:w-[380px]   p-5'>
                         Низькі комісійні: Наш статус довіреного агента Copart дозволяє нам отримувати найкращі умови та знижки на комісійні збори.
                     </li>
                 </ul>
                 <ul className='list-inside list-disc flex flex-col gap-5'>
-                    <li className='bg-white rounded-md w-[380px]  p-5'>
+                    <li className='bg-white rounded-md w-[340px] sm:w-[380px]  p-5'>
                         Професійний підбір авто: Ми допоможемо вам вибрати автомобіль, що відповідає вашим потребам та бюджету.
                     </li>
-                    <li className='bg-white rounded-md w-[380px]  p-5'>
+                    <li className='bg-white rounded-md w-[340px] sm:w-[380px]  p-5'>
                         Повний сервіс: Ми забезпечимо вас усім необхідним, включаючи покупку, доставку, розмитнення та оформлення документів.
                     </li>
                 </ul>
                 <ul className='list-inside list-disc flex flex-col gap-5'>
-                    <li className='bg-white rounded-md w-[380px]  p-5'>
+                    <li className='bg-white rounded-md w-[340px] sm:w-[380px]  p-5'>
                         Економію часу і грошей: Наш досвід та професіоналізм допоможуть вам зекономити час і гроші при пригоні авто зі США.
                     </li>
-                    <li className='bg-white rounded-md w-[380px]  p-5'>
+                    <li className='bg-white rounded-md w-[340px] sm:w-[380px]  p-5'>
                         Гарантію якості: Ми перевіряємо кожен лот на стан і історію, щоб ви могли отримати надійне авто.
                     </li>
-                    <li className='bg-white rounded-md w-[380px]  p-5'>
+                    <li className='bg-white rounded-md w-[340px] sm:w-[380px]  p-5'>
                         Підтримку на кожному етапі: Наша команда завжди готова відповісти на ваші запитання і надати професійну консультацію.
                     </li>
                 </ul>
             </div>
         </div>
         <div className='flex  mx-auto gap-12'>
-            <div className='text-[15px] flex flex-col gap-5 w-[530px]'>
+            <div className='text-[15px] flex flex-col gap-5 w-[300px] md:w-[530px]'>
                 <div className='text-[21px] font-title font-bold'>
                     Доставка в Україну
                 </div>
@@ -176,7 +176,7 @@ export const Cooperation = () => {
                         </div>
                     </details>
                 </div>
-                <div className='flex flex-col gap-[10px]'>   
+                <div className='flex flex-col mx-auto gap-[10px]'>   
                     <details  id='details' className='bg-[#12120e] cursor-pointer w-[305px] md:w-[470px]   box-content rounded flex flex-col justify-center items-center p-5'>
                         <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Як стати дилером з продажу автомобілів?
@@ -202,8 +202,8 @@ export const Cooperation = () => {
                 </div>
             </div>
         </div> 
-        <div className='w-screen mx-auto bg-[#12120e] min-h-[230px] text-white flex items-center'>
-            <div className=' mx-auto flex flex-col xl:flex-row gap-12 p-4'>
+        <div className='w-screen mx-auto bg-[#12120e] min-h-[280px] text-white flex items-center'>
+            <div className=' mx-auto  flex flex-col xl:flex-row gap-12 pt-6 md:pt-4 p-4'>
                 <div>
                     <div className='text-[22px] font-bold '>
                         ПІДПИСУЙТЕСЬ!

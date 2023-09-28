@@ -10,8 +10,8 @@ import { FormSupportAccept } from '../Forms/FormSupportAccept'
 export const AboutUS = () => {
   return (
     <div className='font-mono mt-3 lg:mt-10 flex flex-col items-start w-screen  '>
-        <div className='flex mx-auto gap-16 items-center'>
-            <div className='my-8 mx-auto w-[300px]  md:w-[470px]  '>
+        <div className='flex flex-col xl:flex-row mx-auto xl:gap-16 items-center'>
+            <div className='md:my-8 mx-auto w-[300px]  md:w-[470px]  '>
                 <div className='text-[23px] font-title font-bold'>
                     Про Adolbi
                 </div>
@@ -28,12 +28,12 @@ export const AboutUS = () => {
                     Обираючи автомобіль зі США, ви отримуєте унікальну можливість отримати високоякісне авто за вигідними цінами, а ми завжди готові надати вам повну інформацію та підтримку на кожному етапі вашої покупки і доставки.
                 </div>
             </div>
-            <div className='border border-solid border-[#12120e] h-[560px] w-[650px]'>
+            <div className='border border-solid border-[#12120e] w-[300px] h-[260px] md:h-[560px] md:w-[650px]'>
 
             </div>
         </div>
         <div className='my-8  mx-auto flex gap-12 flex-col xl:flex-row'>
-            <div className=' border border-solid border-[#12120e] w-[450px] h-[388px] rounded'>
+            <div className=' border border-solid border-[#12120e] w-[300px] h-[230px] sm:w-[450px] sm:h-[388px] rounded'>
 
             </div>
             <div className='w-[300px] mx-auto md:w-[470px] lg:w-[731px]'>
@@ -49,7 +49,7 @@ export const AboutUS = () => {
             </div>
         </div>
         <div className='my-8  mx-auto flex gap-12  flex-col '>
-            <div className=' w-[300px] md:w-[400px]  '>
+            <div className=' w-[300px] mx-auto md:w-[400px]  '>
                 <div className='text-[23px] font-title font-bold'>
                     Наші цінності
                 </div>

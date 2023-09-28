@@ -119,8 +119,8 @@ export const Header = () => {
             </header>
         </div>
 {
-                Open ?<div className='mt-24 w-screen bg-[#12120e] mx-auto lg:hidden text-[#f1f1f6] border-2 border-t-0 border-solid border-[#12120e] p-5'>
-            <div className='flex flex-col md:flex-row w-[800px] border-b border-solid'>
+                Open ?<div className='mt-[90px] w-screen bg-[#12120e] mx-auto lg:hidden text-[#f1f1f6] border-2 border-t-0 border-solid border-[#12120e] p-5'>
+            <div className='flex flex-col md:flex-row w-screen border-b border-solid'>
                 <div className='flex flex-col gap-[15px] w-[250px] md:border-r-2 border-solid border-yellow-500'>
                     <NavLink to={'/'} className='mx-2'>Головна</NavLink>
                     <NavLink to={'/calalog'} className='mx-2'>Каталог авто </NavLink>

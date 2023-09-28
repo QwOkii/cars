@@ -39,7 +39,7 @@ export const FormCooperation = () => {
         validationSchema:validationSchema
     })
   return (
-    <form className=' mx-auto flex flex-col gap-4'>
+    <form className=' mx-auto flex flex-col items-center gap-4'>
         <div className='text-[21px] font-bold font-title'>
             Отримайте вигідні умови партнерства
         </div>
@@ -79,9 +79,9 @@ export const FormCooperation = () => {
                     Коментар
                 </div>
             </div>
-            <textarea name='comment' onChange={formik.handleChange} placeholder='Коментар' className='w-[530px] h-[200px]  border-[3px] border-solid border-[#12120e] rounded box-border p-5'></textarea>
+            <textarea name='comment' onChange={formik.handleChange} placeholder='Коментар' className='w-[250px] md:w-[530px] h-[200px]  border-[3px] border-solid border-[#12120e] rounded box-border p-5'></textarea>
         </div>
-        <button onClick={(e:any)=>formik.handleSubmit(e)} className='w-[420px] h-[60px] bg-[#740706] rounded text-white'>
+        <button onClick={(e:any)=>formik.handleSubmit(e)} className='w-[250px] md:w-[420px] h-[60px] bg-[#740706] rounded text-white'>
             Стати Партнером
         </button>
     </form>

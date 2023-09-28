@@ -255,7 +255,7 @@ export const Catalog = () => {
                         </div>
                     </details> 
                 </div>
-                <div className='flex flex-col gap-[10px]'>
+                <div className='flex flex-col mx-auto gap-[10px]'>
                     <details id='details' className='bg-[#12120e] cursor-pointer w-[305px]  md:w-[470px]   box-content rounded flex flex-col justify-center items-center p-5'>
                         <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Як розмитнити куплений автомобіль?
