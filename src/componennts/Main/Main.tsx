@@ -370,11 +370,11 @@ export const Main = () => {
             </div>
         </div>
         <div className='flex flex-col xl:flex-row mx-auto'>
-            <div className=' w-[350px] sm:w-[600px]'>
+            <div className=' w-[350px] sm:w-[600px] mx-auto'>
                 <div className='font-title text-[26px] font-bold'>
                     ВАРТІСТЬ АВТО З США В УКРАЇНІ
                 </div>
-                <div className='font-mono text-[17] my-4 '>
+                <div className='font-mono text-[17] my-4 mx-auto '>
                     <div className='text-[18px ]font-bold'>
                     При покупці автомобіля зі США і його подальшій доставці до України, важливо зрозуміти, як формується вартість цієї операції. Доставка залежить від кількох ключових факторів:
                     </div>
@@ -436,10 +436,10 @@ export const Main = () => {
 
         </div>
         <div className='mx-auto'>
-            <div className='font-title text-[26px] font-bold my-4 '>
+            <div className='font-title text-[26px] w-[250px] md:-[350px] font-bold my-4 '>
                 ПРОЦЕС ПОКУПКИ АВТО З США
             </div>
-            <div className='text-white flex flex-wrap gap-[35px] phone:justify-center w-[1280px] mx-auto'>
+            <div className='text-white flex flex-wrap gap-[35px] phone:justify-center w-screen xl:w-[1280px] mx-auto'>
                     <div    className='buing-item bg-[#12120e] w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative phone:before:block'>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={odred} alt="" />

@@ -49,8 +49,8 @@ export const Guarantees = () => {
             <div className='font-title mx-auto md:mx-0 font-bold text-[21px] my-5'>
                 Гарантії авто зі США
             </div>
-            <div className='flex flex-col flex-wrap mx-auto  xl:flex-row gap-[15px] w-[1200px]'> 
-                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+            <div className='flex flex-col flex-wrap mx-auto  xl:flex-row gap-[15px] w-screen xl:w-[1200px]'> 
+                <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={integrity} alt="" />
@@ -63,7 +63,7 @@ export const Guarantees = () => {
                     Ми гарантуємо, що всі транспортні засоби привозяться до України відповідно до законодавства та з чесними оборудками.
                     </div>
                 </div> 
-                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+                <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={quality} alt="" />
@@ -76,7 +76,7 @@ export const Guarantees = () => {
                         Ви отримуєте автомобіль у найкращому стані, оскільки ми докладаємо всі зусилля для того, щоб забезпечити високу якість та технічну справність кожного лоту.
                     </div>
                 </div> 
-                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+                <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={details} alt="" />
@@ -89,7 +89,7 @@ export const Guarantees = () => {
                         Ми надаємо інформацію про кожен автомобіль, включаючи його історію, технічні характеристики та фотографії.
                     </div>
                 </div> 
-                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+                <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={pass} alt="" />
@@ -108,8 +108,8 @@ export const Guarantees = () => {
             <div className='font-title mx-auto md:mx-0 font-bold text-[21px] my-5'>
                 Гарантійні зобов’язання компанії
             </div>
-            <div className='flex flex-col flex-wrap mx-auto xl:flex-row gap-[15px] w-[1200px]'> 
-                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+            <div className='flex flex-col flex-wrap mx-auto xl:flex-row gap-[15px] w-screen xl:w-[1200px]'> 
+                <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={support} alt="" />
@@ -122,7 +122,7 @@ export const Guarantees = () => {
                         Ми надаємо консультації та підтримку на кожному етапі співпраці, готові відповісти на всі ваші запитання та надати допомогу.
                     </div>
                 </div> 
-                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+                <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={business} alt="" />
@@ -135,7 +135,7 @@ export const Guarantees = () => {
                         Під час транспортування автомобіля нашими представниками складаються звіти про його стан, що гарантує якість і надійність при доставці.
                     </div>
                 </div> 
-                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+                <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={contract} alt="" />
@@ -148,7 +148,7 @@ export const Guarantees = () => {
                         Кожен клієнт укладає офіційний договір з нашою компанією, в якому фіксуються всі зобов'язання та умови співпраці.
                     </div>
                 </div> 
-                <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
+                <div className='w-[340px] md:w-[550px] mx-auto h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
                             <img className='h-[60px] w-[60px]' src={information} alt="" />

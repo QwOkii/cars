@@ -41,7 +41,7 @@ export const Contact = () => {
     })
   return (
     <div className='mt-10 mx-auto flex flex-col xl:flex-row gap-[50px]'>
-        <form className='w-[340px] md:w-[600px] h-[600px] text-white bg-[#12120e] p-5 flex flex-col gap-[25px] rounded-md'>
+        <form className='w-[340px] md:w-[600px] min-h-[600px] md:h-[600px] text-white bg-[#12120e] p-5 flex flex-col gap-[25px] rounded-md'>
             <div className='font-title text-[21px] font-bold'>
                 Зв‘яжіться з нами!
             </div>
@@ -83,7 +83,7 @@ export const Contact = () => {
                 </div>
                 <textarea className='h-[150px] w-[250px] md:w-[530px] p-3 rounded text-black' placeholder='Коментар'></textarea>
             </div>
-            <button className='text-[15px] font-bold h-[60px] w-[390px] bg-[#740706] rounded'>Зв’язатися</button>
+            <button className='text-[15px] font-bold h-[60px] w-[250px] md:w-[390px] bg-[#740706] rounded'>Зв’язатися</button>
         </form>
         <div className='mx-auto'>
             <div className='text-[26px] font-bold font-title'>
