@@ -67,8 +67,8 @@ export const FormFilter:React.FC<{formik:any,close?:boolean,isOpenForm:boolean,s
                 </div>
                 <Slider range onChange={ChangeYear} defaultValue={year_borders} value={[formik.values.YearFrom,formik.values.YearTo]} max={year_borders.max} min={year_borders.min} className='w-[190px]'></Slider>
                 <div className='flex'>
-                    <input name='YearFrom' onChange={(e:any)=>formik.handleChange(e)} className='w-[60px] bg-[#12120e] outline-none ' placeholder={year_borders.min}/> - 
-                    <input name='YearTo' onChange={(e:any)=>formik.handleChange(e)} className='w-[60px] bg-[#12120e] outline-none ml-3' placeholder={year_borders.max}/>
+                    <input name='YearFrom' onChange={(e:any)=>formik.handleChange(e)} className='w-[60px] bg-[#12120e] outline-none ' placeholder={formik.values.YearFrom}/> - 
+                    <input name='YearTo' onChange={(e:any)=>formik.handleChange(e)} className='w-[60px] bg-[#12120e] outline-none ml-3' placeholder={formik.values.YearTo}/>
                 </div>
             </div>
             <div >
@@ -77,8 +77,8 @@ export const FormFilter:React.FC<{formik:any,close?:boolean,isOpenForm:boolean,s
                 </div>
                 <Slider range onChange={ChangePrice} defaultValue={pre_accident_value_borders} value={[formik.values.PriceFrom,formik.values.PriceTo]} max={pre_accident_value_borders.max} min={pre_accident_value_borders.min}  className='w-[190px]'></Slider>
                 <div className='flex'>
-                    <input name='PriceFrom' onChange={(e:any)=>formik.handleChange(e)}  className='w-[60px] bg-[#12120e] outline-none ' placeholder={pre_accident_value_borders.min}/> - 
-                    <input name='PriceTo' onChange={(e:any)=>formik.handleChange(e)} className='w-[60px] bg-[#12120e] outline-none ml-3' placeholder={pre_accident_value_borders.max}/>
+                    <input name='PriceFrom' onChange={(e:any)=>formik.handleChange(e)}  className='w-[60px] bg-[#12120e] outline-none ' placeholder={formik.values.PriceFrom}/> - 
+                    <input name='PriceTo' onChange={(e:any)=>formik.handleChange(e)} className='w-[60px] bg-[#12120e] outline-none ml-3' placeholder={formik.values.PriceTo}/>
                 </div>
             </div>
             <div >
@@ -87,8 +87,8 @@ export const FormFilter:React.FC<{formik:any,close?:boolean,isOpenForm:boolean,s
                 </div>
                 <Slider range onChange={ChangeMileage}   max={odometer_borders.max} min={odometer_borders.min} value={[formik.values.MileageFrom,formik.values.MileageTo]} defaultValue={odometer_borders} className='w-[190px]'></Slider>
                 <div className='flex'>
-                    <input name='MileageFrom' onChange={(e:any)=>formik.handleChange(e)}  className='w-[80px] bg-[#12120e] outline-none ' placeholder={odometer_borders.min}/> - 
-                    <input name='MileageTo' onChange={(e:any)=>formik.handleChange(e)}  className='w-[120px] bg-[#12120e] outline-none ml-3' placeholder={odometer_borders.max}/>
+                    <input name='MileageFrom' onChange={(e:any)=>formik.handleChange(e)}  className='w-[80px] bg-[#12120e] outline-none ' placeholder={formik.values.MileageFrom}/> - 
+                    <input name='MileageTo' onChange={(e:any)=>formik.handleChange(e)}  className='w-[120px] bg-[#12120e] outline-none ml-3' placeholder={formik.values.MileageTo}/>
                 </div>
             </div>
             <div >
