@@ -435,11 +435,11 @@ export const Main = () => {
             </BlackTheme>
 
         </div>
-        <div>
+        <div className='mx-auto'>
             <div className='font-title text-[26px] font-bold my-4 '>
                 ПРОЦЕС ПОКУПКИ АВТО З США
             </div>
-            <div className='text-white flex flex-wrap gap-[35px] phone:justify-center mx-auto'>
+            <div className='text-white flex flex-wrap gap-[35px] phone:justify-center w-[1280px] mx-auto'>
                     <div    className='buing-item bg-[#12120e] w-[350px] sm:w-[400px] min-h-[169px] rounded flex p-4 box-border  relative phone:before:block'>
                         <div className='w-[66px] h-[70px] bg-[#f1f1f6] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={odred} alt="" />
