@@ -149,7 +149,7 @@ export const Catalog = () => {
         </div>
         <div className='flex mx-auto text-ellipsis'>
             <div className=' flex flex-col items-center mx-auto '>
-                <details ref={Ref} id="text-details" className='xl:w-[630px] mx-auto flex flex-col items-center'>
+                <details ref={Ref} id="text-details" className='w-[300px] md:w-[630px] mx-auto flex flex-col items-center'>
                     <summary>
                         <div className='mt-10'>
                             <div className='text-[21px] font-bold font-title  mb-5'>
@@ -226,7 +226,7 @@ export const Catalog = () => {
                         <summary className='font-title text-[20px] hover:ease-in duration-150 h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             З якими аукціонами ми працюємо?
                         </summary>
-                        <div className=' ease-in duration-150 max-w-[345px] mx-10'>
+                        <div className=' ease-in duration-150 w-[280px] md:w-[345px] mx-10'>
                             На даний момент ми працюємо з одним із найпопулярніших аукціонів Америки, Copart.
                         </div>
                     </details> 
@@ -234,7 +234,7 @@ export const Catalog = () => {
                         <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Як купити автомобіль на аукціоні?
                         </summary>
-                        <div className=' w-[345px] mx-10'>
+                        <div className='  w-[280px] md:w-[345px] mx-10'>
                             Перейдіть до Каталогу, оберіть бажаний автомобіль і подайте заявку, натиснувши кнопку "Зробити ставку" або "Замовити авто". Крім того, ви можете скористатися опцією "Купити зараз" у фільтрі, щоб вибрати автомобіль з фіксованою кінцевою вартістю, яку встановив продавець (без урахування додаткових зборів). Якщо у вас ще залишилися питання, залиште заявку прямо на сторінці автомобіля, використовуючи кнопку "Замовити консультацію".
                         </div>
                     </details> 
@@ -242,7 +242,7 @@ export const Catalog = () => {
                         <summary className='font-title text-[20px] h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Як дізнатися пробіг автомобіля?
                         </summary>
-                        <div className=' w-[345px] mx-10'>
+                        <div className='  w-[280px] md:w-[345px] mx-10'>
                             Реальний пробіг та історію автомобіля можна дізнатися на сервісах Carfax або AutoCheck.
                         </div>
                     </details> 
@@ -250,7 +250,7 @@ export const Catalog = () => {
                         <summary className='font-title text-[20px] h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Скільки часу триває доставлення?
                         </summary>
-                        <div className=' w-[345px] mx-10'>
+                        <div className='  w-[280px] md:w-[345px] mx-10'>
                             Зазвичай доставка авто з США до України може займати від 6 до 8 тижнів. Проте цей термін може змінюватися в залежності від конкретних умов і послуг, які ви обираєте. А також погоди, завантаженості та віддаленості портів. Транспортування відбувається в 4 етапи: доставлення до порту США (біля 10 робочих днів), проходження американської митниці (до 5 днів), перевезення морем (3-5 тижнів) та перегін по Україні від порту до клієнта (декілька діб).
                         </div>
                     </details> 
@@ -260,7 +260,7 @@ export const Catalog = () => {
                         <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Як розмитнити куплений автомобіль?
                         </summary>
-                        <div className=' w-[345px] mx-10'>
+                        <div className='  w-[280px] md:w-[345px] mx-10'>
                             На митниці проводиться огляд технічного стану автомобіля та перевірка наявності супровідних документів. Також тут здійснюється розрахунок та оплата державних зборів. Митний збір становить 10% від вартості машини. Акцизний податок розраховується за наступною формулою: фіксована ставка від 50 до 150 доларів помножується на об'єм двигуна та кількість повних років автомобіля. ПДВ становить 20% від вартості автомобіля, державного мита та акцизного податку. Також здійснюється збір до Пенсійного фонду в розмірі 3-5%.
                         </div>
                     </details> 
@@ -268,7 +268,7 @@ export const Catalog = () => {
                         <summary className='font-title text-[20px] h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Як вибрати авто із США?
                         </summary>
-                        <div className=' w-[470px] mx-10'>
+                        <div className=' w-[280px] md:w-[470px] mx-10'>
                             Щоб вибрати бажану марку та модель автомобіля, використовуйте фільтр. Потім налаштуйте додаткові фільтри, такі як пробіг, рік випуску, середню роздрібну ціну і т. д. Якщо ви хочете придбати автомобіль негайно, без очікування, позначте опцію "Купити зараз" або натисніть кнопку "Замовити авто" і заповніть необхідні поля форми.
                         </div>
                     </details> 
@@ -276,7 +276,7 @@ export const Catalog = () => {
                         <summary className='font-title text-[20px] h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             За що, окрім ціни автомобіля, потрібно ще заплатити?
                         </summary>
-                        <div className=' w-[345px] mx-10'>
+                        <div className='  w-[280px] md:w-[345px] mx-10'>
                             Зазвичай, для участі в аукціоні доводиться сплатити комісію, яка становить до 10% від кінцевої ставки. Крім того, значними витратами є розмитнення, яке включає державне мито, акцизний збір, ПДВ та внесок до Пенсійного фонду. До цих витрат також додається оплата за доставку, послуги брокерської компанії та послуги нашої компанії. Зазвичай, після отримання автомобіля, необхідно оплатити сертифікацію.
                         </div>
                     </details> 

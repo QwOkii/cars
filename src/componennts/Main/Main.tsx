@@ -370,7 +370,7 @@ export const Main = () => {
             </div>
         </div>
         <div className='flex flex-col xl:flex-row mx-auto'>
-            <div className=' w-[350px] sm:w-[600px] mx-auto'>
+            <div className=' w-[300px] sm:w-[600px] mx-auto'>
                 <div className='font-title text-[26px] font-bold'>
                     ВАРТІСТЬ АВТО З США В УКРАЇНІ
                 </div>
@@ -436,7 +436,7 @@ export const Main = () => {
 
         </div>
         <div className='mx-auto'>
-            <div className='font-title text-[26px] w-[250px] md:-[350px] font-bold my-4 '>
+            <div className='font-title text-[26px] w-[250px] md:-[350px] mx-auto lg:mx-0 font-bold my-4 '>
                 ПРОЦЕС ПОКУПКИ АВТО З США
             </div>
             <div className='text-white flex flex-wrap gap-[35px] phone:justify-center w-screen xl:w-[1280px] mx-auto'>

@@ -264,7 +264,7 @@ export const Guarantees = () => {
                         Та дізнавайтеся перші про вигідні пропозиції
                     </div>
                 </div>
-                <div className='flex  mx-auto'>
+                <div className='flex  mx-auto flex-col md:flex-row gap-2'>
                     <input className='box-border p-4 w-[320px] h-[54px] bg-[#12120e] border-[3px] border-solid border-[#f1f1f6]' placeholder='Введіть ваш Email' type="text" />
                     <button className='h-[54px] bg-[#730706] w-[220px]'>
                         Підписатися

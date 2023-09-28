@@ -205,7 +205,7 @@ export const Calculate = () => {
                         <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Скільки коштує доставлення авто із США в Україну?
                         </summary>
-                        <div className=' w-[345px] mx-10'>
+                        <div className='  w-[280px] md:w-[345px] mx-10'>
                             <div>
                                 Вартість доставки авто з США в Україну залежить від кількох факторів і може варіюватися в межах 2.5-5 тис. доларів. Ось розподіл цих витрат за етапами:
                             </div>
@@ -229,7 +229,7 @@ export const Calculate = () => {
                         <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Як відбувається доставка авто із США в Україну?
                         </summary>
-                        <div className=' w-[345px] mx-10'>
+                        <div className='  w-[280px] md:w-[345px] mx-10'>
                             <div>
                                 Автомобіль з США до України доставляється таким чином:
                             </div>
@@ -262,7 +262,7 @@ export const Calculate = () => {
                         <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Скільки коштує розмитнення авто в Україні?
                         </summary>
-                        <div className=' w-[345px] mx-10'>
+                        <div className='  w-[280px] md:w-[345px] mx-10'>
                             <div>
                                 У 2023 році розмитнення авто в Україні коштує приблизно 20-40% від ціни транспортного засобу. Формула митного розрахунку включає наступні складові:
                             </div>
@@ -291,7 +291,7 @@ export const Calculate = () => {
                         <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Які платежі входять до оплати розмитнення?
                         </summary>
-                        <div className=' w-[345px] mx-10'>
+                        <div className='  w-[280px] md:w-[345px] mx-10'>
                             <div>
                                 В оплату розмитнення входять такі платежі:
                             </div>
@@ -318,7 +318,7 @@ export const Calculate = () => {
                         <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Коли оплачується доставлення авто з США?
                         </summary>
-                        <div className=' w-[345px] mx-10'>
+                        <div className='  w-[280px] md:w-[345px] mx-10'>
                             Оплата за доставлення авто з США зазвичай проводиться протягом 3 днів після закупівлі лота на аукціоні. Ця оплата включає в себе вартість придбаного лота та вартість його доставлення до вас. Ці платежі зазвичай здійснюються за допомогою банківського переказу через систему SWIFT.
                             Оплата інших послуг, таких як розмитнення та інші сервіси, зазвичай проводиться протягом наступних 1-3 місяців, особливо у випадку, коли автомобіль доставляється океаном до місця призначення.
 
@@ -328,7 +328,7 @@ export const Calculate = () => {
                         <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Як заощадити на доставленні авто з США?
                         </summary>
-                        <div className=' w-[345px] mx-10'>
+                        <div className='  w-[280px] md:w-[345px] mx-10'>
                             Рекомендується звернутися до великої компанії, яка спеціалізується на доставці автомобілів з США. Така компанія може надати доступ до величезної кількості автомобілів, що доставляються, і таким чином забезпечити найнижчі ціни на підбір, покупку, доставку та супровід авто на всіх етапах. Наша компанія готова допомогти вам в цьому процесі і забезпечити ефективну та економічну доставку автомобіля з США.
                         </div>
                     </details>  
@@ -336,7 +336,7 @@ export const Calculate = () => {
                         <summary className='font-title text-[20px]  h-[60px] text-center md:pt-5 marker:text-[#740706]'>
                             Як відбувається розмитнення авто з США?
                         </summary>
-                        <div className=' w-[345px] mx-10'>
+                        <div className='  w-[280px] md:w-[345px] mx-10'>
                             <div>
                                 Розмитнення авто з США включає в себе кілька етапів:
                             </div>
