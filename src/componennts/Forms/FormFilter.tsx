@@ -39,7 +39,7 @@ export const FormFilter:React.FC<{formik:any,close?:boolean,isOpenForm:boolean,s
         )
     } else{
          return (
-        <form onSelect={formik.handleSubmit} onChange={formik.handleSubmit} className={'w-[256px] bg-[#12120e] text-white mr-5 pl-5 py-2'}>
+        <form onSelect={formik.handleSubmit} onChange={formik.handleSubmit} className={'w-[256px] bg-[#12120e] text-white mr-5 pl-10 md:pl-5 py-2'}>
             {
                 close ? <div className='flex justify-end text-[32px] cursor-pointer text-[#740706] mr-2'>
                     <div onClick={()=>setisOpenForm(false)}>X</div>

@@ -39,7 +39,7 @@ export const FormSupportAccept = () => {
         validationSchema:validationSchema
     })
   return (
-    <form className='mt-14  flex flex-col gap-3 ml-20'>
+    <form className='mt-14  flex flex-col gap-3 ml-4 lg:ml-20'>
         <div className='font-title font-bold text-[22px] '>
             Або заповніть форму для замовлення консультації
         </div>
@@ -53,7 +53,7 @@ export const FormSupportAccept = () => {
                     Номер телефону
                 </div>
             </div>
-            <input  {...formik.getFieldProps('phone')}className=' text-black box-border p-4 bg-white outline-none rounded w-[360px] h-[54px]' placeholder='+380 XX XX XX XXX' type="text" />
+            <input  {...formik.getFieldProps('phone')}className=' text-black box-border p-4 bg-white outline-none rounded w-[250px]  md:w-[360px] h-[54px]' placeholder='+380 XX XX XX XXX' type="text" />
             {formik.errors.phone && formik.touched.phone && (
                 <div className='text-red-600'>{formik.errors.phone}</div>
             )}
@@ -65,7 +65,7 @@ export const FormSupportAccept = () => {
                     Ваше ім’я
                 </div>
             </div>
-            <input {...formik.getFieldProps('name')}className=' text-black box-border p-4 bg-white outline-none rounded w-[360px] h-[54px]' placeholder='Ім’я Прізвище' type="text" />
+            <input {...formik.getFieldProps('name')}className=' text-black box-border p-4 bg-white outline-none rounded  w-[250px]  md:w-[360px] h-[54px]' placeholder='Ім’я Прізвище' type="text" />
             {formik.errors.name && formik.touched.name && (
                 <div className='text-red-600'>{formik.errors.name}</div>
             )}
@@ -77,9 +77,9 @@ export const FormSupportAccept = () => {
                     Коментар
                 </div>
             </div>
-            <textarea name='comment' onChange={(e:any)=>formik.handleChange(e)} className=' text-black box-border p-4 bg-white outline-none rounded w-[360px] h-[150px]' placeholder='Коментар' ></textarea>
+            <textarea name='comment' onChange={(e:any)=>formik.handleChange(e)} className=' text-black box-border p-4 bg-white outline-none rounded  w-[250px]  md:w-[360px] h-[150px]' placeholder='Коментар' ></textarea>
         </div>
-        <button onClick={(e:any)=>formik.handleSubmit(e)} className=' bg-[#740706] rounded w-[360px] h-[50px]'>
+        <button onClick={(e:any)=>formik.handleSubmit(e)} className=' bg-[#740706] rounded  w-[250px]  md:w-[360px] h-[50px]'>
             Отримати консультацію
         </button>                    
     </form>

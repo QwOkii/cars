@@ -57,7 +57,7 @@ export const AboutUS = () => {
                     Ціль нашої компанії полягає в забезпеченні наших клієнтів надійними та високоякісними автомобілями зі США. Ми віримо у доступність мрій про власний автомобіль і прагнемо зробити процес пригону авто максимально простим та зручним для кожного клієнта. 
                 </div>
             </div>
-            <div className='flex flex-col flex-wrap xl:flex-nowrap  my-5 xl:-ml-44 gap-4'>
+            <div className='flex flex-col sm:flex-row flex-wrap xl:flex-nowrap  my-5 mx-auto gap-4'>
                 <div className='box-border w-[350px] h-[250px] bg-[#12120e] rounded flex flex-col p-5 text-white'>
                     <div className='flex gap-4'>
                         <div className='bg-[#740706] rounded-full w-[90px] h-[90px] flex justify-center items-center'>
@@ -111,8 +111,8 @@ export const AboutUS = () => {
                 </div>
             </div>
         </div>
-        <div className='mt-8  bg-white w-screen min-h-[400px] lg:h-[400px]  mx-auto flex gap-40 items-center '>
-            <div className='flex flex-col gap-8 mt-16 w-[300px] md:w-[420px]'>
+        <div className='mt-8  bg-white w-screen min-h-[400px] lg:h-[400px]  mx-auto flex xl:gap-40 items-center '>
+            <div className='flex mx-auto flex-col gap-8 mt-16 w-[300px] md:w-[420px]'>
                 <div className='text-[23px] font-title font-bold'>
                     Натисни сюди, щоб потрапити на портал пошуку роботи
                 </div>
@@ -126,7 +126,7 @@ export const AboutUS = () => {
             <img src={Baner1} className='hidden xl:block w-[574px] h-[380px] rounded' alt="" />
         </div>
         <div className=' flex gap-32 justify-between w-screen  mx-auto  flex-col xl:flex-row'>
-            <div className=' mx-auto flex flex-col gap-8 xl:gap-16 w-[300px] md:w-[430px]'>
+            <div className=' flex flex-col gap-8 xl:gap-16 w-[300px] md:w-[430px] mx-auto'>
                 <div className='text-[23px] font-title font-bold'>
                     Ми завжди відкриті до співпраці
                 </div>

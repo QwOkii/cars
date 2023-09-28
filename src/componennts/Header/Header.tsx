@@ -108,7 +108,7 @@ export const Header = () => {
                             +380 99 491 32 25
                         </div>
                     </div>
-                    <PopUpWithoutCommnet message_type='Отримати консультацію' button='Замовити дзвінок' title='Отримайте консультацію' styleButton='bg-[#740706] box-border w-[140px] h-[41px] my-2 rounded'/>
+                    <PopUpWithoutCommnet message_type='Отримати консультацію' button='Замовити дзвінок' title='Отримайте консультацію' styleButton='bg-[#740706] box-border w-[140px] h-[41px] mt-2 rounded'/>
                 </div>
                 <button className='block xl:hidden'>
                     
