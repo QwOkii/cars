@@ -313,7 +313,7 @@ export const Main = () => {
                         <img src={BanerCar} alt="" />
                     </div>
                 </div>
-                <div className='flex flex-col'>
+                <div className='flex flex-col mx-auto'>
                     <div className='flex m-5 box-border'>
                         <div className='w-[71px] h-[71px] bg-gradient-to-tr from-[#740706] to-[#922a2a] rounded flex justify-center items-center'>
                             <img className='w-[45px] h-[45px]' src={book} alt="" />

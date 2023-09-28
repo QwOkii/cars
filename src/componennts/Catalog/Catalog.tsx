@@ -66,11 +66,10 @@ export const Catalog = () => {
     React.useEffect(()=>{
         dispatch(GetListofItem({page:currentPage,body_style:formik.values.TypeCar,color:formik.values.Color,drive_type:formik.values.Reason,fuel:formik.values.Fuel,key:formik.values.Keys,make:formik.values.SelectMark,model:formik.values.SelectModel,primary_damage:formik.values.Damage,engine_type:formik.values.EngineSize,odometer_from:formik.values.MileageFrom,odometer_to:formik.values.MileageTo,transmission:formik.values.Transmission,pre_accident_value_from:formik.values.PriceFrom,pre_accident_value_to:formik.values.PriceTo,year_from:formik.values.YearFrom,year_to:formik.values.YearTo,}))
         dispatch(GetFilterData())
-        window.scrollTo(0,0)
     },[dispatch,formik.values,body_style,fuels,markes,currentPage])
     const Ref = useRef<HTMLDetailsElement>(null)
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const [isOpenForm, setIsOpenForm] = useState<boolean>(true);
+    const [isOpenForm, setIsOpenForm] = useState<boolean>(false);
     const TetxChange = React.useCallback(()=>{
         setIsOpen(!isOpen); 
         if (Ref.current) {
@@ -82,7 +81,7 @@ export const Catalog = () => {
         window.scrollTo(0,0)
     },[dispatch,formik.values,body_style,fuels,markes])
   return (
-    <div className='font-mono mt-10 flex flex-col items-start w-screen  gap-[75px]'>
+    <div className='font-mono mt-10 flex flex-col items-start w-screen  gap-[75px] overflow-x-hidden'>
         <div className=' font-mono mx-auto sm:min-h-[1400px]'>
             <div className='font-title text-[21px] font-bold m-8'>
                 АВТОМОБІЛІ З АУКЦІОНІВ США

@@ -12,7 +12,7 @@ import { Cooperation } from './componennts/Cooperation/Cooperation';
 
 function App() {
   return (
-    <div className='flex flex-col items-center  bg-[#f1f1f6] font-sanf xl:overflow-x-hidden'>
+    <div className='flex flex-col items-center  bg-[#f1f1f6] font-sanf overflow-x-hidden'>
       <Header/>
       <main>
         <Routes>
