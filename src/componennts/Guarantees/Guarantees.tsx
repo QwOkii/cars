@@ -46,10 +46,10 @@ export const Guarantees = () => {
             <img className='hidden xl:block rounded w-[650px] h-[270px] object-cover' src={Baner1} alt="" />
         </div>
         <div className=' mx-auto'>
-            <div className='font-title font-bold text-[21px] my-5'>
+            <div className='font-title mx-auto md:mx-0 font-bold text-[21px] my-5'>
                 Гарантії авто зі США
             </div>
-            <div className='flex flex-col flex-wrap  xl:flex-row gap-[15px] w-[1200px]'> 
+            <div className='flex flex-col flex-wrap mx-auto  xl:flex-row gap-[15px] w-[1200px]'> 
                 <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
@@ -105,10 +105,10 @@ export const Guarantees = () => {
             </div>
         </div>
         <div className=' mx-auto'>
-            <div className='font-title font-bold text-[21px] my-5'>
+            <div className='font-title mx-auto md:mx-0 font-bold text-[21px] my-5'>
                 Гарантійні зобов’язання компанії
             </div>
-            <div className='flex flex-col flex-wrap xl:flex-row gap-[15px] w-[1200px]'> 
+            <div className='flex flex-col flex-wrap mx-auto xl:flex-row gap-[15px] w-[1200px]'> 
                 <div className='w-[340px] md:w-[550px] h-[250px] bg-[#12120e] rounded text-white p-8'>
                     <div className='flex items-center'>
                         <div className='w-[90px] h-[90px] bg-[#740706] rounded-full flex justify-center items-center'>
@@ -254,8 +254,8 @@ export const Guarantees = () => {
                 <img className='ml-80' src={Baner2} alt="" />
             </div>
         </div>
-        <div className='w-screen  mx-auto bg-[#12120e] min-h-[250px] text-white flex items-center'>
-            <div className=' mx-auto flex flex-col xl:flex-row gap-12 p-4'>
+        <div className='w-screen  mx-auto bg-[#12120e] min-h-[280px] text-white flex items-center'>
+            <div className=' mx-auto flex flex-col xl:flex-row gap-10 pt-6 p-4'>
                 <div>
                     <div className='text-[22px] font-bold '>
                         ПІДПИСУЙТЕСЬ!

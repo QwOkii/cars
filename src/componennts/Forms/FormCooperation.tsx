@@ -40,7 +40,7 @@ export const FormCooperation = () => {
     })
   return (
     <form className=' mx-auto flex flex-col items-center gap-4'>
-        <div className='text-[21px] font-bold font-title'>
+        <div className='text-[21px] font-bold font-title w-[250px] md:w-[350px]'>
             Отримайте вигідні умови партнерства
         </div>
         <div className='flex gap-[30px] flex-col lg:flex-row'>

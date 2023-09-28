@@ -148,8 +148,8 @@ export const Catalog = () => {
             </div>
         </div>
         <div className='flex mx-auto text-ellipsis'>
-            <div className=' flex flex-col items-center'>
-                <details ref={Ref} id="text-details" className=' xl:w-[630px] mx-auto flex flex-col items-center'>
+            <div className=' flex flex-col items-center mx-auto '>
+                <details ref={Ref} id="text-details" className='xl:w-[630px] mx-auto flex flex-col items-center'>
                     <summary>
                         <div className='mt-10'>
                             <div className='text-[21px] font-bold font-title  mb-5'>

@@ -138,12 +138,12 @@ export const AboutUS = () => {
                     Співпраця
                 </button>
             </div>
-            <div className='w-[300px] md:w-[700px] lg:w-[900px] object-cover min-h-[620px] lg:h-[620px] bg-Baner2 text-white '>
+            <div className='w-screen md:w-[700px] lg:w-[900px] object-cover min-h-[620px] lg:h-[620px] bg-Baner2 text-white '>
                 <FormSupportAccept/>
             </div>
         </div>
         <div className='mb-8 w-screen  mx-auto bg-[#12120e] min-h-[150px] text-white flex items-center'>
-            <div className='mx-auto flex flex-col xl:flex-row gap-12 p-4'>
+            <div className='mx-auto flex flex-col xl:flex-row gap-10 p-4'>
                 <div>
                     <div className='text-[22px] font-bold '>
                         ПІДПИСУЙТЕСЬ!

@@ -71,7 +71,7 @@ export const Cooperation = () => {
                 <div className='text-[21px] font-title font-bold '>
                     Працюємо з найкращими аукціонами Америки
                 </div>
-                <div className='text-[15px] w-[545px] flex flex-col gap-4'>
+                <div className='text-[15px] w-[300px] md:w-[545px] flex flex-col gap-4'>
                     Наша компанія має довгостроковий та успішний досвід співпраці з аукціоном Copart, одним з найвідоміших та найбільших аукціонів у Сполучених Штатах. Як офіційний та авторизований представник Copart, ми маємо переваги, недоступні для багатьох.
 
                     <div>

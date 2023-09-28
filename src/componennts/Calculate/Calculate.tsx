@@ -10,7 +10,7 @@ export const Calculate = () => {
   return (
     <div className='font-mono mt-10 flex flex-col items-start w-screen  gap-[75px]'>
         <div className=' flex gap-[50px]  mx-auto'>
-            <div className='flex flex-col gap-[35px] md:w-[550px] mx-auto'>
+            <div className='flex flex-col gap-[35px] w-[300px] md:w-[550px] mx-auto'>
                 <div className='font-title font-bold text-[23px]'>
                     Калькулятор доставки та розмитнення авто із США в Україну
                 </div>
