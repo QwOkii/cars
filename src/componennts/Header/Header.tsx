@@ -120,8 +120,8 @@ export const Header = () => {
         </div>
 {
                 Open ?<div className='mt-24 w-screen bg-[#12120e] mx-auto lg:hidden text-[#f1f1f6] border-2 border-t-0 border-solid border-[#12120e] p-5'>
-            <div className='flex flex-col md:flex-row w-[800px] border-b border-solid border-[#f1f1f6] pb-2'>
-                <div className='flex flex-col gap-[15px] w-[250px] border-r-2 border-solid md:border-yellow-500'>
+            <div className='flex flex-col md:flex-row w-[800px] border-b border-solid pb-2'>
+                <div className='flex flex-col gap-[15px] w-[250px] md:border-r-2 border-solid border-yellow-500'>
                     <NavLink to={'/'} className='mx-2'>Головна</NavLink>
                     <NavLink to={'/calalog'} className='mx-2'>Каталог авто </NavLink>
                     <NavLink to={'/calculate'} className='mx-2'>Калькулятор</NavLink>
@@ -130,7 +130,7 @@ export const Header = () => {
                     <NavLink to={'/about'} className='mx-2'>Про нас</NavLink>
                     <NavLink to={'/contact'} className='mx-2'>Контакти </NavLink>
                 </div>
-                <Navigation className={'my-2 flex flex-col text-[#f1f1f6] items-start ml-5 gap-3'} />
+                <Navigation className={'my-2 flex flex-col text-[#f1f1f6] items-start md:ml-5 gap-3'} />
             </div>
         </div>   
                 : <div></div>

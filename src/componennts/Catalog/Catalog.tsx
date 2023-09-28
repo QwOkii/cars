@@ -120,7 +120,7 @@ export const Catalog = () => {
                         </div>
                         <Select  className='w-[210px] h-[40px]' placeholder="Відсортувати"></Select>
                     </div>
-                    <div className={isOpen?'flex flex-col ml-8 sm:-ml-20 tablet:ml-0 blur-sm':'flex flex-col ml-8 sm:-ml-20 tablet:ml-0'}>
+                    <div className={isOpenForm?'flex flex-col ml-8 sm:-ml-20 tablet:ml-0 blur-sm':'flex flex-col ml-8 sm:-ml-20 tablet:ml-0'}>
                         {
                             ListItem.map((u:any)=><Item key={u.VIN_code} {...u} />)
                         }
