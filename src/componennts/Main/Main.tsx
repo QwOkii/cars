@@ -45,13 +45,13 @@ import { useNavigate } from 'react-router-dom'
 import { FormPhone } from '../Forms/FormPhone'
 
 export const Main = () => {
-    const { ListItem,body_style,fuels,markes,nextPage } = useSelector( (u:RootState)=>u.Catalog)
+    const { ListItem,body_style,fuels,markes,currentPage } = useSelector( (u:RootState)=>u.Catalog)
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
     useEffect(()=>{
-        dispatch(GetListofItem({page:nextPage,body_style:body_style,make:markes,fuel:fuels,color:'',drive_type:'',engine_type:'',key:'',model:'',odometer_from:0,odometer_to:99999,pre_accident_value_from:0,pre_accident_value_to:99999,primary_damage:'',transmission:'',year_from:0,year_to:9999}))
+        dispatch(GetListofItem({page:currentPage,body_style:body_style,make:markes,fuel:fuels,color:'',drive_type:'',engine_type:'',key:'',model:'',odometer_from:0,odometer_to:99999,pre_accident_value_from:0,pre_accident_value_to:99999,primary_damage:'',transmission:'',year_from:0,year_to:9999}))
         dispatch(GetFilterData())
-    },[dispatch,markes,body_style,fuels,nextPage])
+    },[dispatch,markes,body_style,fuels,currentPage])
 
     const RedicetWithFuel = React.useCallback((value:string)=>{
         dispatch( setFuel(value) )

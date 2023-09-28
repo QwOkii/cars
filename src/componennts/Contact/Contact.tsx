@@ -4,8 +4,41 @@ import UserWhite from "../../accest/Contact/UserWhite.svg"
 import commentWhite from "../../accest/Contact/commentWhite.svg"
 import EmailBlack from "../../accest/Contact/EmailBlack.svg"
 import PhoneBlack from "../../accest/Contact/PhoneBlack.svg"
+import * as Yup from 'yup'
+import { useAppDispatch } from '../../app/store'
+import { useFormik } from 'formik'
+import { SendQuestions } from '../../app/Message'
+
+const validationSchema = Yup.object().shape({
+    name: Yup.string()
+    .min(3, 'Мінімум 3 символи')
+    .max(20, 'Максимум 20 символів')
+    .required("Обов'язкове поле"),
+    phone: Yup.string()
+    .matches(/^[0-9]+$/, 'Номер телефону повинен містити лише цифри')
+    .min(10, 'Мінімум 10 цифр')
+    .max(15, 'Максимум 15 цифр')
+    .required("Обов'язкове поле"),
+});
+
+interface InitialValues{
+    phone:string,
+    name:string,
+    comment:string
+}
 
 export const Contact = () => {
+    const dispatch = useAppDispatch()
+    const formik = useFormik<InitialValues>({
+        initialValues:{
+            comment:'',
+            name:'',
+            phone:''
+        },
+        onSubmit:(values)=>{
+            dispatch(SendQuestions({comment:values.comment,name:values.name,phone_number:values.phone,message_type:''}))
+        },validationSchema:validationSchema
+    })
   return (
     <div className='mt-10 mx-auto flex flex-col xl:flex-row gap-[50px]'>
         <form className='w-[600px] h-[600px] text-white bg-[#12120e] p-5 flex flex-col gap-[25px] rounded-md'>
@@ -23,7 +56,10 @@ export const Contact = () => {
                             Номер телефону
                         </div>
                     </div>
-                    <input type="text" className='w-[246px] h-[60px] outline-none rounded p-3' placeholder='+380 XX XX XX XXX'/>
+                    <input {...formik.getFieldProps('phone')}className='w-[246px] h-[60px] outline-none rounded p-3 text-black' placeholder='+380 XX XX XX XXX'/>
+            {formik.errors.phone && formik.touched.phone && (
+                <div className='text-red-600'>{formik.errors.phone}</div>
+            )}                
                 </div>
                 <div>
                     <div className='flex mb-2'>
@@ -32,7 +68,10 @@ export const Contact = () => {
                             Ваше ім’я
                         </div>
                     </div>
-                    <input type="text" className='w-[246px] h-[60px] outline-none rounded p-3' placeholder='Ім’я Прізвище'/>
+                    <input {...formik.getFieldProps('name')}className='w-[246px] h-[60px] outline-none rounded p-3 text-black' placeholder='Ім’я Прізвище'/>
+                    {formik.errors.name && formik.touched.name && (
+                        <div className='text-red-600'>{formik.errors.name}</div>
+                    )}                
                 </div>
             </div>
             <div className='mt-3'>
@@ -42,7 +81,7 @@ export const Contact = () => {
                     Коментар
                     </div>
                 </div>
-                <textarea className='h-[150px] w-[530px] p-3 rounded' placeholder='Коментар'></textarea>
+                <textarea className='h-[150px] w-[530px] p-3 rounded text-black' placeholder='Коментар'></textarea>
             </div>
             <button className='text-[15px] font-bold h-[60px] w-[390px] bg-[#740706] rounded'>Зв’язатися</button>
         </form>

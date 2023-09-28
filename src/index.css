@@ -58,3 +58,7 @@ code {
 .active:not(#Item){
   color: #740706;
 }
+
+div.lg-counter{
+  padding-left: 40px;
+}

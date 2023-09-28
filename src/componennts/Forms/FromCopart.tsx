@@ -4,6 +4,19 @@ import {useFormik} from "formik"
 import { RootState, useAppDispatch } from '../../app/store'
 import { PickUpCar } from '../../app/Message'
 import { useSelector } from 'react-redux'
+import * as Yup from 'yup'
+
+const validationSchema = Yup.object().shape({
+    name: Yup.string()
+    .min(3, 'Мінімум 3 символи')
+    .max(20, 'Максимум 20 символів')
+    .required("Обов'язкове поле"),
+    phone: Yup.string()
+    .matches(/^[0-9]+$/, 'Номер телефону повинен містити лише цифри')
+    .min(10, 'Мінімум 10 цифр')
+    .max(15, 'Максимум 15 цифр')
+    .required("Обов'язкове поле"),
+});
 
 interface InitialValues{
     name:string,
@@ -28,7 +41,7 @@ export const FromCopart = () => {
         },
         onSubmit:({CarType,budgetFrom,budgetTo,name,phone})=>{
             dispatch(PickUpCar({auto:CarType,budget_from:budgetFrom,budget_to:budgetTo,name,phone_number:phone}))
-        }
+        },validationSchema:validationSchema
     })
     if(isload){
         return(
@@ -64,7 +77,10 @@ export const FromCopart = () => {
                     <div>
                         Телефон
                     </div>
-                    <input name='phone' onChange={(e:any)=>formik.handleChange(e)} className='box-border p-3 w-[320px] sm:w-[475px] h-[60px] border-4 border-solid border-[#12120e]' placeholder='+380 ХХ ХХ ХХ ХХХ' type="text" />
+                    <input  {...formik.getFieldProps('phone')}className=' text-black box-border p-4 bg-white outline-none rounded w-[360px] h-[54px]' placeholder='+380 XX XX XX XXX' type="text" />
+                    {formik.errors.phone && formik.touched.phone && (
+                        <div className='text-red-600'>{formik.errors.phone}</div>
+                    )}
                 </div>
                 <div>
                     <div className='text-[17px]'>
@@ -78,7 +94,10 @@ export const FromCopart = () => {
                     <div>
                         Ваше ім’я
                     </div>
-                    <input name='name' onChange={(e:any)=>formik.handleChange(e)} className='box-border p-3 w-[320px] sm:w-[475px] h-[60px] border-4 border-solid border-[#12120e]' placeholder='Ім’я Прізвище' type="text" />
+                    <input {...formik.getFieldProps('name')}className=' text-black box-border p-4 bg-white outline-none rounded w-[360px] h-[54px]' placeholder='Ім’я Прізвище' type="text" />
+                    {formik.errors.name && formik.touched.name && (
+                        <div className='text-red-600'>{formik.errors.name}</div>
+                    )}                
                 </div>
                 <button onClick={(e:any)=>formik.handleSubmit(e)} className='bg-[#740706] w-[320px] sm:w-[475px] h-[55px] text-white'>
                     Замовити підбір

@@ -5,6 +5,7 @@ import comment from '../../accest/Cooperation/comment.svg'
 import { useFormik} from "formik"
 import { useAppDispatch } from '../../app/store'
 import { SendQuestions } from '../../app/Message'
+import * as Yup from 'yup';
 
 interface InitialValues{
     phone:string,
@@ -12,6 +13,18 @@ interface InitialValues{
     comment:string
 }
 
+
+const validationSchema = Yup.object().shape({
+    name: Yup.string()
+    .min(3, 'Мінімум 3 символи')
+    .max(20, 'Максимум 20 символів')
+    .required("Обов'язкове поле"),
+    phone: Yup.string()
+    .matches(/^[0-9]+$/, 'Номер телефону повинен містити лише цифри')
+    .min(10, 'Мінімум 10 цифр')
+    .max(15, 'Максимум 15 цифр')
+    .required("Обов'язкове поле"),
+});
 export const FormCooperation = () => {
     const dispatch = useAppDispatch()
     const formik = useFormik<InitialValues>({
@@ -22,7 +35,8 @@ export const FormCooperation = () => {
         },
         onSubmit:({comment,name,phone})=>{
             dispatch(SendQuestions({comment,message_type:'',name,phone_number:phone}))
-        }
+        },
+        validationSchema:validationSchema
     })
   return (
     <form className=' mx-auto flex flex-col gap-4'>
@@ -33,20 +47,29 @@ export const FormCooperation = () => {
             <div>
                 <div className='flex gap-4 text-[15px] my-2'>
                     <img className='w-[26px] h-[26px]' src={phone} alt="" />
-                    <div>
+                    <label htmlFor='phone'>
                         Номер телефону
-                    </div>
+                    </label>
                 </div>
-                <input name='phone' onChange={formik.handleChange} placeholder='+380 XX XX XX XXX' className='h-[60px] w-[250px] border-[3px] border-solid border-[#12120e] rounded box-border p-5' type="text" />
+                <input {...formik.getFieldProps('phone')} placeholder='+380 XX XX XX XXX' className='h-[60px] w-[250px] border-[3px] border-solid border-[#12120e] rounded box-border p-5' type="text" />
+                
+                {formik.errors.phone && formik.touched.phone && (
+                    <div style={{color:'red'}}>{formik.errors.phone}</div>
+                )}
             </div>
             <div>
                 <div className='flex gap-4 text-[15px] my-2'>
                     <img className='w-[26px] h-[26px]' src={user} alt="" />
-                    <div>
+                    <label htmlFor='name'>
                         Ваше ім’я
-                    </div>
+                    </label>
                 </div>
-                <input name='name' onChange={formik.handleChange} placeholder='Ім’я Прізвище' className='h-[60px] w-[250px] border-[3px] border-solid border-[#12120e] rounded box-border p-5' type="text" />
+                <input placeholder='Ім’я Прізвище' 
+                className='h-[60px] w-[250px] border-[3px] border-solid border-[#12120e] rounded box-border p-5' type="text"
+                {...formik.getFieldProps('name')}/>
+                {formik.errors.name && formik.touched.name && (
+                    <div style={{color:'red'}}>{formik.errors.name}</div>
+                )}
             </div>
         </div>
         <div>

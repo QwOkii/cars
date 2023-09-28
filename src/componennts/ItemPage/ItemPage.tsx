@@ -33,7 +33,7 @@ export const ItemPage = () => {
             </div>
             <div className='flex sm:gap-8 flex-col xl:flex-row'>
                 <div className='w-[300px]  lg:w-[823px] flex flex-col gap-8'>
-                    <div className='w-[300px] h-[196px] lg:w-[823px] lg:h-[790px] sm:w-[580px] sm:h-[430px]  border border-solid border-[#12120e] overflow-hidden'>
+                    <div className='w-[300px] h-[196px] lg:w-[823px] lg:h-[560px] sm:w-[580px] sm:h-[430px]  border border-solid border-[#12120e] overflow-hidden'>
                     <LightGallery
                         onInit={()=>{}}
                         speed={500}

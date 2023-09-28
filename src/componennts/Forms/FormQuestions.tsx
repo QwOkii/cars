@@ -5,6 +5,19 @@ import user from "../../accest/Main/user.svg"
 import { useFormik } from 'formik'
 import { useAppDispatch } from '../../app/store'
 import { SendQuestions } from '../../app/Message'
+import * as Yup from 'yup'
+
+const validationSchema = Yup.object().shape({
+    name: Yup.string()
+    .min(3, 'Мінімум 3 символи')
+    .max(20, 'Максимум 20 символів')
+    .required("Обов'язкове поле"),
+    phone: Yup.string()
+    .matches(/^[0-9]+$/, 'Номер телефону повинен містити лише цифри')
+    .min(10, 'Мінімум 10 цифр')
+    .max(15, 'Максимум 15 цифр')
+    .required("Обов'язкове поле"),
+});
 
 interface InitialValues{
     phone:string,
@@ -22,7 +35,7 @@ export const FormQuestions = () => {
         },
         onSubmit:(values)=>{
             dispatch(SendQuestions({comment:values.comment,name:values.name,phone_number:values.phone,message_type:''}))
-        }
+        },validationSchema:validationSchema
     })
   return (
     <form className='ml-10 flex flex-col gap-[10px]'>
@@ -36,13 +49,19 @@ export const FormQuestions = () => {
             <div className='flex mb-1'> 
                 <img src={phone} className='w-[30px] h-[30px] mr-2' alt="" />Номер телефону
             </div>
-            <input name='phone' onChange={formik.handleChange} className='outline-none box-border p-4 w-[240px] sm:w-[420px] h-[60px] border-4 border-solid border-[#12120e] rounded' placeholder='+380 XX XX XX XXX'/>
+            <input {...formik.getFieldProps('phone')} className='outline-none box-border p-4 w-[240px] sm:w-[420px] h-[60px] border-4 border-solid border-[#12120e] rounded' placeholder='+380 XX XX XX XXX'/>
+            {formik.errors.phone && formik.touched.phone && (
+                <div className='text-red-600'>{formik.errors.phone}</div>
+            )}
         </div>
         <div>
             <div className='flex  mb-1'>
                 <img src={user} className='w-[30px] h-[30px] mr-2' alt="" />Ваше ім’я
             </div>
-            <input name='name' onChange={formik.handleChange} className='outline-none box-border p-4 w-[240px] sm:w-[420px] h-[60px] border-4 border-solid border-[#12120e] rounded' placeholder='Ім’я Прізвище'/>
+            <input {...formik.getFieldProps('name')} className='outline-none box-border p-4 w-[240px] sm:w-[420px] h-[60px] border-4 border-solid border-[#12120e] rounded' placeholder='Ім’я Прізвище'/>
+            {formik.errors.name && formik.touched.name && (
+                <div className='text-red-600'>{formik.errors.name}</div>
+            )}
         </div>
         <div>
             <div className='flex  mb-1'>

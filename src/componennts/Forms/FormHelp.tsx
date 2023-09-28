@@ -5,7 +5,19 @@ import { RootState, useAppDispatch } from '../../app/store'
 import { GetFilterData } from '../../app/Catalog'
 import { useSelector } from 'react-redux'
 import { SendSelect_lot } from '../../app/Message'
+import * as Yup from 'yup'
 
+const validationSchema = Yup.object().shape({
+    name: Yup.string()
+    .min(3, 'Мінімум 3 символи')
+    .max(20, 'Максимум 20 символів')
+    .required("Обов'язкове поле"),
+    phone: Yup.string()
+    .matches(/^[0-9]+$/, 'Номер телефону повинен містити лише цифри')
+    .min(10, 'Мінімум 10 цифр')
+    .max(15, 'Максимум 15 цифр')
+    .required("Обов'язкове поле"),
+});
 interface InitialValues{
     SelectMark:string,
     YearFrom:string,
@@ -15,6 +27,7 @@ interface InitialValues{
     phone:string,
     name:string
 }
+
 
 export const FormHelp = () => {
     const {Option} =Select
@@ -41,6 +54,7 @@ export const FormHelp = () => {
             values = {name:'',phone:'',PriceFrom:'',PriceTo:"",SelectMark:'',YearFrom:'',YearTo:'',}
  
         },
+        validationSchema
     })
     if(isload){
         return(
@@ -105,13 +119,19 @@ export const FormHelp = () => {
                         <div className='text-[15px]'>
                             Телефон
                         </div>
-                        <input name='phone' onChange={(e:any)=>formik.handleChange(e)} type="text" className=' p-2 w-[202px] h-[32px] rounded border-[3px] border-solid border-[#12120e]' placeholder='+380 ХХ ХХ ХХХ' />
+                        <input {...formik.getFieldProps('phone')}  type="text" className=' p-2 w-[202px] h-[32px] rounded border-[3px] border-solid border-[#12120e]' placeholder='+380 ХХ ХХ ХХХ' />
+                        {formik.errors.phone && formik.touched.phone && (
+                            <div className='text-red-600'>{formik.errors.phone}</div>
+                        )}
                     </div>
                     <div className='mx-2'>
                         <div className='text-[15px]'>
                             Ваше ім’я
                         </div>
-                        <input name='name' onChange={(e:any)=>formik.handleChange(e)} type="text" className=' p-2 w-[252px] h-[32px] rounded border-[3px] border-solid border-[#12120e]' placeholder='Ім’я Прізвище' />
+                        <input {...formik.getFieldProps('name')}  type="text" className=' p-2 w-[252px] h-[32px] rounded border-[3px] border-solid border-[#12120e]' placeholder='Ім’я Прізвище' />
+                        {formik.errors.name && formik.touched.name && (
+                            <div className='text-red-600'>{formik.errors.name}</div>
+                        )}
                     </div>
                     <button type='submit'  className='text-white font-bold rounded w-[260px] h-[40px] bg-[#740706] mx-2 mt-4'>
                         Вибрати авто
