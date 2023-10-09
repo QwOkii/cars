@@ -1,4 +1,4 @@
-import {  Select, Slider } from 'antd'
+import { Select, Slider} from 'antd'
 import React from 'react'
 import { GetFilterData } from '../../app/Catalog'
 import { RootState, useAppDispatch } from '../../app/store'
@@ -39,7 +39,7 @@ export const FormFilter:React.FC<{formik:any,close?:boolean,isOpenForm:boolean,s
         )
     } else{
          return (
-        <form onSelect={formik.handleSubmit} onChange={formik.handleSubmit} className={'w-[276px] bg-[#12120e] text-white mr-5 pl-7 md:pl-5 py-2'}>
+        <form onSubmit={formik.handleSubmit} className={'w-[276px] bg-[#12120e] text-white mr-5 pl-7 md:pl-5 py-2'}>
             {
                 close ? <div className='flex justify-end mr-5 text-[32px] cursor-pointer text-[#740706]'>
                     <div onClick={()=>setisOpenForm(false)}>X</div>
@@ -155,6 +155,7 @@ export const FormFilter:React.FC<{formik:any,close?:boolean,isOpenForm:boolean,s
                     {engine_types.map((u:{label:string,value:number})=><Option key={u.label}><div className='text-black'>  {u.label}</div></Option>)}
                 </Select>
             </div>
+            <button type="submit" className="w-[210px] h-[40px] rounded bg-[#740706]" >Search</button>
         </form>
         ) 
     }

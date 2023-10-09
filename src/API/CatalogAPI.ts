@@ -1,5 +1,6 @@
 import  axios from "axios"
 import {  FilterDataPost } from "../app/type/type"
+import {calculator} from "../app/Catalog";
 
 const base = axios.create({
     baseURL:"https://test-adolbi-cars-api-0a53b7c73b49.herokuapp.com"
@@ -13,6 +14,10 @@ export class CatalogAPI {
     }
     async GetDataFiltr(){
         const res = await base.get<any>('/get_params_v2').then(u =>u)
+        return res.data
+    }
+    async GetCalculator({engine_size,price,year,engine_type}:calculator){
+        const res = await base.get<any>(`/calculator/?engine_size=${engine_size}&price=${price}&year=${year}&engine_type=${engine_type}`).then(u =>u)
         return res.data
     }
     

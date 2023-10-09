@@ -24,7 +24,27 @@ interface InitialStateType{
     totalofItems:number ,
     currentPage:number  ,
     nextPage:number ,
-    perPage: number 
+    perPage: number,
+    calculator:calculator,
+    res_calculator:res_calculator
+}
+export interface calculator{
+    engine_size:string,
+    price:string |number,
+    year:string | number,
+    engine_type:string,
+    total_loss?:boolean
+    add_damage?:boolean
+}
+export interface res_calculator{
+    price: number |string, //
+    insurance: number |string, // страховка
+    company_service: number |string, // послуги компанії
+    brokerage_services: number |string, // послуги брокера
+    customs_payments: number |string,// таможня
+    delivery: number |string, // доставка
+    overall: number |string // повна сума
+
 }
 
 const InitialState:InitialStateType={
@@ -76,7 +96,24 @@ const InitialState:InitialStateType={
     currentPage:1,
     nextPage:2,
     perPage:20,
-    totalofItems:0
+    totalofItems:0,
+    calculator:{
+        engine_size:'',
+        price:'',
+        year:0,
+        engine_type:''
+    },
+    res_calculator:{
+        price:0,
+        brokerage_services:0,
+        customs_payments:0,
+        delivery:0,
+        company_service:0,
+        insurance:0,
+        overall:0
+
+    }
+
 }
 
 export const GetListofItem = createAsyncThunk<unknown,FilterDataPost>('GET-LIST-OF-ITEM',async (values,{dispatch})=>{
@@ -88,6 +125,12 @@ export const GetFilterData = createAsyncThunk('GET-FILTER-DATA',async (_,{dispat
     const res = await new CatalogAPI().GetDataFiltr()
     dispatch(SetFilterData(res))
 })
+export const GetCalculatorData = createAsyncThunk<unknown,calculator>('GET-CALCULATOR-DATA',async (value,{dispatch})=>{
+    const res = await new CatalogAPI().GetCalculator(value)
+    dispatch(SetCalculate(res))
+
+})
+const SetCalculate = createAction<res_calculator>('SET-CALCULATE')
 interface SetLotsType{
     ListOfItem:Array<Item>,
     totalofItems:number | string,
@@ -168,6 +211,14 @@ export const Catalog = createReducer(InitialState,{
             isload:false
             
         }
+    },
+    [SetCalculate.type]:(state,action:PayloadAction<res_calculator>)=>{
+        return{
+            ...state,
+            res_calculator:action.payload
+        }
     }
+
+
 
 })
