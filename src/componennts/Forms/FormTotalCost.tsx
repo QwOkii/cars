@@ -18,7 +18,7 @@ interface InitialValues{
 export const FormTotalCost = () => {
     const {engine_types,fuels,years } = useSelector((u:RootState)=>u.Catalog.Data)
     const { isload,res_calculator } =useSelector((u:RootState)=>u.Catalog)
-    const { brokerage_services,company_service,customs_payments,delivery,price,overall,insurance } = res_calculator
+    const {customs_payments,delivery,overall } = res_calculator
     const dispatch = useAppDispatch()
     const {Option} = Select
     const formik = useFormik<InitialValues>({
