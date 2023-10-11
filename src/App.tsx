@@ -12,6 +12,7 @@ const Cooperation = lazy(()=>import('./componennts/Cooperation/Cooperation').the
 
 
 function App() {
+  //___
   return (
     <div className='flex flex-col items-center  bg-[#f1f1f6] font-sanf overflow-x-hidden'>
       <Header/>
